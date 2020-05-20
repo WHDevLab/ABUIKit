@@ -13,5 +13,11 @@ Pod::Spec.new do |s|
 	s.requires_arc     = true
 	s.platform         = :ios, '10.0'
 	s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'Photos'
-	s.source_files     = 'ABUIKit/**/*.{h,m}'
+	s.source_files     = 'ABUIKit/*.{h,m}'
+	s.subspec 'ABUIListView' do |ss|
+		ss.source_files = 'ABUIKit/ABUIListView/*.{h,m}'
+	end
+	s.subspec 'ABExtension' do |ss|
+		ss.source_files = 'ABUIKit/ABExtension/*.{h,m}'
+	end
 end
