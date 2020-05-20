@@ -11,14 +11,7 @@ Pod::Spec.new do |s|
 	s.source           = {:git => "https://github.com/whdevlab/ABUIKit.git", :tag => s.version.to_s}
 	s.social_media_url = 'https://github.com/whdevlab/ABUIKit'
 	s.requires_arc     = true
-	s.documentation_url = 'https://qmuiteam.com/ios/page/document.html'
-	s.screenshot       = 'https://cloud.githubusercontent.com/assets/1190261/26751376/63f96538-486a-11e7-81cf-5bc83a945207.png'
-
 	s.platform         = :ios, '10.0'
 	s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'Photos'
-	# s.preserve_paths   = 'QMUIConfigurationTemplate/*'
 	s.source_files     = 'ABUIKit/**/*.{h,m}'
-
-	# s.resource_bundles = {'QMUIResources' => ['QMUIKit/QMUIResources/*.*']}
-	# spec.dependency "AFNetworking"
 end
