@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F14C35112474BFB10060D435 /* ABUITabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34E22474BFAF0060D435 /* ABUITabBarController.h */; };
+		F14C35122474BFB10060D435 /* ABUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34E32474BFAF0060D435 /* ABUINavigationController.m */; };
+		F14C35132474BFB10060D435 /* ABUITabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34E42474BFAF0060D435 /* ABUITabBarController.m */; };
+		F14C35142474BFB10060D435 /* ABUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34E52474BFAF0060D435 /* ABUILabel.h */; };
+		F14C35152474BFB10060D435 /* ABDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34E62474BFAF0060D435 /* ABDefines.h */; };
+		F14C35162474BFB10060D435 /* ABUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34E72474BFB00060D435 /* ABUILabel.m */; };
+		F14C35172474BFB10060D435 /* ABUIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34E82474BFB00060D435 /* ABUIColor.h */; };
+		F14C35182474BFB10060D435 /* ABUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34E92474BFB00060D435 /* ABUIViewController.m */; };
+		F14C35192474BFB10060D435 /* ABUINavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34EA2474BFB00060D435 /* ABUINavigationController.h */; };
+		F14C351A2474BFB10060D435 /* ABUIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34EB2474BFB00060D435 /* ABUIScrollView.h */; };
+		F14C351B2474BFB10060D435 /* ABUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34EC2474BFB00060D435 /* ABUIKit.h */; };
+		F14C351C2474BFB10060D435 /* ABUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34ED2474BFB00060D435 /* ABUIScrollView.m */; };
+		F14C351D2474BFB10060D435 /* UIApplication+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34EF2474BFB00060D435 /* UIApplication+AB.m */; };
+		F14C351E2474BFB10060D435 /* UIView+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F02474BFB00060D435 /* UIView+AB.h */; };
+		F14C351F2474BFB10060D435 /* NSString+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34F12474BFB00060D435 /* NSString+AB.m */; };
+		F14C35202474BFB10060D435 /* UILabel+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F22474BFB00060D435 /* UILabel+AB.h */; };
+		F14C35212474BFB10060D435 /* UIImage+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F32474BFB00060D435 /* UIImage+AB.h */; };
+		F14C35222474BFB10060D435 /* UIImageView+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F42474BFB00060D435 /* UIImageView+AB.h */; };
+		F14C35232474BFB10060D435 /* NSDictionary+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F52474BFB00060D435 /* NSDictionary+AB.h */; };
+		F14C35242474BFB10060D435 /* UIColor+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34F62474BFB00060D435 /* UIColor+AB.m */; };
+		F14C35252474BFB10060D435 /* UIViewController+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F72474BFB00060D435 /* UIViewController+AB.h */; };
+		F14C35262474BFB10060D435 /* UILabel+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34F82474BFB00060D435 /* UILabel+AB.m */; };
+		F14C35272474BFB10060D435 /* NSString+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F92474BFB00060D435 /* NSString+AB.h */; };
+		F14C35282474BFB10060D435 /* UIView+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34FA2474BFB00060D435 /* UIView+AB.m */; };
+		F14C35292474BFB10060D435 /* UIApplication+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34FB2474BFB00060D435 /* UIApplication+AB.h */; };
+		F14C352A2474BFB10060D435 /* NSDictionary+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34FC2474BFB00060D435 /* NSDictionary+AB.m */; };
+		F14C352B2474BFB10060D435 /* UIImageView+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34FD2474BFB00060D435 /* UIImageView+AB.m */; };
+		F14C352C2474BFB10060D435 /* UIImage+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34FE2474BFB00060D435 /* UIImage+AB.m */; };
+		F14C352D2474BFB10060D435 /* UIColor+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34FF2474BFB00060D435 /* UIColor+AB.h */; };
+		F14C352E2474BFB10060D435 /* UIViewController+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35002474BFB10060D435 /* UIViewController+AB.m */; };
+		F14C352F2474BFB10060D435 /* ABUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35012474BFB10060D435 /* ABUIViewController.h */; };
+		F14C35302474BFB10060D435 /* ABUIListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35032474BFB10060D435 /* ABUIListViewController.m */; };
+		F14C35312474BFB10060D435 /* ABUIListViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35042474BFB10060D435 /* ABUIListViewCell.h */; };
+		F14C35322474BFB10060D435 /* ABUIListReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35052474BFB10060D435 /* ABUIListReusableView.h */; };
+		F14C35332474BFB10060D435 /* ABUIListView.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35062474BFB10060D435 /* ABUIListView.h */; };
+		F14C35342474BFB10060D435 /* ABUIListViewMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35072474BFB10060D435 /* ABUIListViewMapping.h */; };
+		F14C35352474BFB10060D435 /* ABUIListViewProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35082474BFB10060D435 /* ABUIListViewProtocols.h */; };
+		F14C35362474BFB10060D435 /* ABUIListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35092474BFB10060D435 /* ABUIListViewController.h */; };
+		F14C35372474BFB10060D435 /* ABUIListReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C350A2474BFB10060D435 /* ABUIListReusableView.m */; };
+		F14C35382474BFB10060D435 /* ABUIListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C350B2474BFB10060D435 /* ABUIListViewCell.m */; };
+		F14C35392474BFB10060D435 /* ABUIListViewTemplete.json in Resources */ = {isa = PBXBuildFile; fileRef = F14C350C2474BFB10060D435 /* ABUIListViewTemplete.json */; };
+		F14C353A2474BFB10060D435 /* ABUIListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C350D2474BFB10060D435 /* ABUIListView.m */; };
+		F14C353B2474BFB10060D435 /* ABUIListViewMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C350E2474BFB10060D435 /* ABUIListViewMapping.m */; };
+		F14C353C2474BFB10060D435 /* ABUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C350F2474BFB10060D435 /* ABUIColor.m */; };
+		F14C353D2474BFB10060D435 /* ABUIKitCore.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35102474BFB10060D435 /* ABUIKitCore.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F14C34D72474B6C90060D435 /* ABUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ABUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F14C34DB2474B6C90060D435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F14C34E22474BFAF0060D435 /* ABUITabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUITabBarController.h; sourceTree = "<group>"; };
+		F14C34E32474BFAF0060D435 /* ABUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUINavigationController.m; sourceTree = "<group>"; };
+		F14C34E42474BFAF0060D435 /* ABUITabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUITabBarController.m; sourceTree = "<group>"; };
+		F14C34E52474BFAF0060D435 /* ABUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUILabel.h; sourceTree = "<group>"; };
+		F14C34E62474BFAF0060D435 /* ABDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABDefines.h; sourceTree = "<group>"; };
+		F14C34E72474BFB00060D435 /* ABUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUILabel.m; sourceTree = "<group>"; };
+		F14C34E82474BFB00060D435 /* ABUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIColor.h; sourceTree = "<group>"; };
+		F14C34E92474BFB00060D435 /* ABUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIViewController.m; sourceTree = "<group>"; };
+		F14C34EA2474BFB00060D435 /* ABUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUINavigationController.h; sourceTree = "<group>"; };
+		F14C34EB2474BFB00060D435 /* ABUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIScrollView.h; sourceTree = "<group>"; };
+		F14C34EC2474BFB00060D435 /* ABUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABUIKit.h; path = ../../ABFrameworks/ABUIKit/ABUIKit.h; sourceTree = "<group>"; };
+		F14C34ED2474BFB00060D435 /* ABUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIScrollView.m; sourceTree = "<group>"; };
+		F14C34EF2474BFB00060D435 /* UIApplication+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AB.m"; sourceTree = "<group>"; };
+		F14C34F02474BFB00060D435 /* UIView+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AB.h"; sourceTree = "<group>"; };
+		F14C34F12474BFB00060D435 /* NSString+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AB.m"; sourceTree = "<group>"; };
+		F14C34F22474BFB00060D435 /* UILabel+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AB.h"; sourceTree = "<group>"; };
+		F14C34F32474BFB00060D435 /* UIImage+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AB.h"; sourceTree = "<group>"; };
+		F14C34F42474BFB00060D435 /* UIImageView+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AB.h"; sourceTree = "<group>"; };
+		F14C34F52474BFB00060D435 /* NSDictionary+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AB.h"; sourceTree = "<group>"; };
+		F14C34F62474BFB00060D435 /* UIColor+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AB.m"; sourceTree = "<group>"; };
+		F14C34F72474BFB00060D435 /* UIViewController+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AB.h"; sourceTree = "<group>"; };
+		F14C34F82474BFB00060D435 /* UILabel+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AB.m"; sourceTree = "<group>"; };
+		F14C34F92474BFB00060D435 /* NSString+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AB.h"; sourceTree = "<group>"; };
+		F14C34FA2474BFB00060D435 /* UIView+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AB.m"; sourceTree = "<group>"; };
+		F14C34FB2474BFB00060D435 /* UIApplication+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AB.h"; sourceTree = "<group>"; };
+		F14C34FC2474BFB00060D435 /* NSDictionary+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AB.m"; sourceTree = "<group>"; };
+		F14C34FD2474BFB00060D435 /* UIImageView+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AB.m"; sourceTree = "<group>"; };
+		F14C34FE2474BFB00060D435 /* UIImage+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AB.m"; sourceTree = "<group>"; };
+		F14C34FF2474BFB00060D435 /* UIColor+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AB.h"; sourceTree = "<group>"; };
+		F14C35002474BFB10060D435 /* UIViewController+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AB.m"; sourceTree = "<group>"; };
+		F14C35012474BFB10060D435 /* ABUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIViewController.h; sourceTree = "<group>"; };
+		F14C35032474BFB10060D435 /* ABUIListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewController.m; sourceTree = "<group>"; };
+		F14C35042474BFB10060D435 /* ABUIListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListViewCell.h; sourceTree = "<group>"; };
+		F14C35052474BFB10060D435 /* ABUIListReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListReusableView.h; sourceTree = "<group>"; };
+		F14C35062474BFB10060D435 /* ABUIListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListView.h; sourceTree = "<group>"; };
+		F14C35072474BFB10060D435 /* ABUIListViewMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListViewMapping.h; sourceTree = "<group>"; };
+		F14C35082474BFB10060D435 /* ABUIListViewProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListViewProtocols.h; sourceTree = "<group>"; };
+		F14C35092474BFB10060D435 /* ABUIListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListViewController.h; sourceTree = "<group>"; };
+		F14C350A2474BFB10060D435 /* ABUIListReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIListReusableView.m; sourceTree = "<group>"; };
+		F14C350B2474BFB10060D435 /* ABUIListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewCell.m; sourceTree = "<group>"; };
+		F14C350C2474BFB10060D435 /* ABUIListViewTemplete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ABUIListViewTemplete.json; sourceTree = "<group>"; };
+		F14C350D2474BFB10060D435 /* ABUIListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIListView.m; sourceTree = "<group>"; };
+		F14C350E2474BFB10060D435 /* ABUIListViewMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewMapping.m; sourceTree = "<group>"; };
+		F14C350F2474BFB10060D435 /* ABUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIColor.m; sourceTree = "<group>"; };
+		F14C35102474BFB10060D435 /* ABUIKitCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIKitCore.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F14C34D42474B6C90060D435 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F14C34CD2474B6C90060D435 = {
+			isa = PBXGroup;
+			children = (
+				F14C34D92474B6C90060D435 /* ABUIKit */,
+				F14C34D82474B6C90060D435 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F14C34D82474B6C90060D435 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F14C34D72474B6C90060D435 /* ABUIKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F14C34D92474B6C90060D435 /* ABUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F14C34E62474BFAF0060D435 /* ABDefines.h */,
+				F14C34EE2474BFB00060D435 /* ABExtension */,
+				F14C34E82474BFB00060D435 /* ABUIColor.h */,
+				F14C350F2474BFB10060D435 /* ABUIColor.m */,
+				F14C34EC2474BFB00060D435 /* ABUIKit.h */,
+				F14C35102474BFB10060D435 /* ABUIKitCore.h */,
+				F14C34E52474BFAF0060D435 /* ABUILabel.h */,
+				F14C34E72474BFB00060D435 /* ABUILabel.m */,
+				F14C35022474BFB10060D435 /* ABUIListView */,
+				F14C34EA2474BFB00060D435 /* ABUINavigationController.h */,
+				F14C34E32474BFAF0060D435 /* ABUINavigationController.m */,
+				F14C34EB2474BFB00060D435 /* ABUIScrollView.h */,
+				F14C34ED2474BFB00060D435 /* ABUIScrollView.m */,
+				F14C34E22474BFAF0060D435 /* ABUITabBarController.h */,
+				F14C34E42474BFAF0060D435 /* ABUITabBarController.m */,
+				F14C35012474BFB10060D435 /* ABUIViewController.h */,
+				F14C34E92474BFB00060D435 /* ABUIViewController.m */,
+				F14C34DB2474B6C90060D435 /* Info.plist */,
+			);
+			path = ABUIKit;
+			sourceTree = "<group>";
+		};
+		F14C34EE2474BFB00060D435 /* ABExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F14C34EF2474BFB00060D435 /* UIApplication+AB.m */,
+				F14C34F02474BFB00060D435 /* UIView+AB.h */,
+				F14C34F12474BFB00060D435 /* NSString+AB.m */,
+				F14C34F22474BFB00060D435 /* UILabel+AB.h */,
+				F14C34F32474BFB00060D435 /* UIImage+AB.h */,
+				F14C34F42474BFB00060D435 /* UIImageView+AB.h */,
+				F14C34F52474BFB00060D435 /* NSDictionary+AB.h */,
+				F14C34F62474BFB00060D435 /* UIColor+AB.m */,
+				F14C34F72474BFB00060D435 /* UIViewController+AB.h */,
+				F14C34F82474BFB00060D435 /* UILabel+AB.m */,
+				F14C34F92474BFB00060D435 /* NSString+AB.h */,
+				F14C34FA2474BFB00060D435 /* UIView+AB.m */,
+				F14C34FB2474BFB00060D435 /* UIApplication+AB.h */,
+				F14C34FC2474BFB00060D435 /* NSDictionary+AB.m */,
+				F14C34FD2474BFB00060D435 /* UIImageView+AB.m */,
+				F14C34FE2474BFB00060D435 /* UIImage+AB.m */,
+				F14C34FF2474BFB00060D435 /* UIColor+AB.h */,
+				F14C35002474BFB10060D435 /* UIViewController+AB.m */,
+			);
+			path = ABExtension;
+			sourceTree = "<group>";
+		};
+		F14C35022474BFB10060D435 /* ABUIListView */ = {
+			isa = PBXGroup;
+			children = (
+				F14C35032474BFB10060D435 /* ABUIListViewController.m */,
+				F14C35042474BFB10060D435 /* ABUIListViewCell.h */,
+				F14C35052474BFB10060D435 /* ABUIListReusableView.h */,
+				F14C35062474BFB10060D435 /* ABUIListView.h */,
+				F14C35072474BFB10060D435 /* ABUIListViewMapping.h */,
+				F14C35082474BFB10060D435 /* ABUIListViewProtocols.h */,
+				F14C35092474BFB10060D435 /* ABUIListViewController.h */,
+				F14C350A2474BFB10060D435 /* ABUIListReusableView.m */,
+				F14C350B2474BFB10060D435 /* ABUIListViewCell.m */,
+				F14C350C2474BFB10060D435 /* ABUIListViewTemplete.json */,
+				F14C350D2474BFB10060D435 /* ABUIListView.m */,
+				F14C350E2474BFB10060D435 /* ABUIListViewMapping.m */,
+			);
+			path = ABUIListView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F14C34D22474B6C90060D435 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14C35312474BFB10060D435 /* ABUIListViewCell.h in Headers */,
+				F14C35342474BFB10060D435 /* ABUIListViewMapping.h in Headers */,
+				F14C352D2474BFB10060D435 /* UIColor+AB.h in Headers */,
+				F14C351B2474BFB10060D435 /* ABUIKit.h in Headers */,
+				F14C35232474BFB10060D435 /* NSDictionary+AB.h in Headers */,
+				F14C351E2474BFB10060D435 /* UIView+AB.h in Headers */,
+				F14C35252474BFB10060D435 /* UIViewController+AB.h in Headers */,
+				F14C351A2474BFB10060D435 /* ABUIScrollView.h in Headers */,
+				F14C35112474BFB10060D435 /* ABUITabBarController.h in Headers */,
+				F14C35272474BFB10060D435 /* NSString+AB.h in Headers */,
+				F14C35292474BFB10060D435 /* UIApplication+AB.h in Headers */,
+				F14C35332474BFB10060D435 /* ABUIListView.h in Headers */,
+				F14C353D2474BFB10060D435 /* ABUIKitCore.h in Headers */,
+				F14C35212474BFB10060D435 /* UIImage+AB.h in Headers */,
+				F14C35152474BFB10060D435 /* ABDefines.h in Headers */,
+				F14C35202474BFB10060D435 /* UILabel+AB.h in Headers */,
+				F14C35352474BFB10060D435 /* ABUIListViewProtocols.h in Headers */,
+				F14C35222474BFB10060D435 /* UIImageView+AB.h in Headers */,
+				F14C35362474BFB10060D435 /* ABUIListViewController.h in Headers */,
+				F14C352F2474BFB10060D435 /* ABUIViewController.h in Headers */,
+				F14C35172474BFB10060D435 /* ABUIColor.h in Headers */,
+				F14C35142474BFB10060D435 /* ABUILabel.h in Headers */,
+				F14C35192474BFB10060D435 /* ABUINavigationController.h in Headers */,
+				F14C35322474BFB10060D435 /* ABUIListReusableView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F14C34D62474B6C90060D435 /* ABUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F14C34DF2474B6C90060D435 /* Build configuration list for PBXNativeTarget "ABUIKit" */;
+			buildPhases = (
+				F14C34D22474B6C90060D435 /* Headers */,
+				F14C34D32474B6C90060D435 /* Sources */,
+				F14C34D42474B6C90060D435 /* Frameworks */,
+				F14C34D52474B6C90060D435 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ABUIKit;
+			productName = ABUIKit;
+			productReference = F14C34D72474B6C90060D435 /* ABUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F14C34CE2474B6C90060D435 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = abteam;
+				TargetAttributes = {
+					F14C34D62474B6C90060D435 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = F14C34D12474B6C90060D435 /* Build configuration list for PBXProject "ABUIKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F14C34CD2474B6C90060D435;
+			productRefGroup = F14C34D82474B6C90060D435 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F14C34D62474B6C90060D435 /* ABUIKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F14C34D52474B6C90060D435 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14C35392474BFB10060D435 /* ABUIListViewTemplete.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F14C34D32474B6C90060D435 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14C35132474BFB10060D435 /* ABUITabBarController.m in Sources */,
+				F14C35302474BFB10060D435 /* ABUIListViewController.m in Sources */,
+				F14C35122474BFB10060D435 /* ABUINavigationController.m in Sources */,
+				F14C353A2474BFB10060D435 /* ABUIListView.m in Sources */,
+				F14C35242474BFB10060D435 /* UIColor+AB.m in Sources */,
+				F14C35282474BFB10060D435 /* UIView+AB.m in Sources */,
+				F14C352A2474BFB10060D435 /* NSDictionary+AB.m in Sources */,
+				F14C35262474BFB10060D435 /* UILabel+AB.m in Sources */,
+				F14C351F2474BFB10060D435 /* NSString+AB.m in Sources */,
+				F14C352E2474BFB10060D435 /* UIViewController+AB.m in Sources */,
+				F14C35162474BFB10060D435 /* ABUILabel.m in Sources */,
+				F14C351D2474BFB10060D435 /* UIApplication+AB.m in Sources */,
+				F14C353B2474BFB10060D435 /* ABUIListViewMapping.m in Sources */,
+				F14C352B2474BFB10060D435 /* UIImageView+AB.m in Sources */,
+				F14C35372474BFB10060D435 /* ABUIListReusableView.m in Sources */,
+				F14C352C2474BFB10060D435 /* UIImage+AB.m in Sources */,
+				F14C351C2474BFB10060D435 /* ABUIScrollView.m in Sources */,
+				F14C35182474BFB10060D435 /* ABUIViewController.m in Sources */,
+				F14C353C2474BFB10060D435 /* ABUIColor.m in Sources */,
+				F14C35382474BFB10060D435 /* ABUIListViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F14C34DD2474B6C90060D435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F14C34DE2474B6C90060D435 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F14C34E02474B6C90060D435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ABUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abteam.ABUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F14C34E12474B6C90060D435 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ABUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abteam.ABUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F14C34D12474B6C90060D435 /* Build configuration list for PBXProject "ABUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F14C34DD2474B6C90060D435 /* Debug */,
+				F14C34DE2474B6C90060D435 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F14C34DF2474B6C90060D435 /* Build configuration list for PBXNativeTarget "ABUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F14C34E02474B6C90060D435 /* Debug */,
+				F14C34E12474B6C90060D435 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F14C34CE2474B6C90060D435 /* Project object */;
+}
