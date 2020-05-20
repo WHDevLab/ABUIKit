@@ -17,7 +17,6 @@
 		F14C35182474BFB10060D435 /* ABUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34E92474BFB00060D435 /* ABUIViewController.m */; };
 		F14C35192474BFB10060D435 /* ABUINavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34EA2474BFB00060D435 /* ABUINavigationController.h */; };
 		F14C351A2474BFB10060D435 /* ABUIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34EB2474BFB00060D435 /* ABUIScrollView.h */; };
-		F14C351B2474BFB10060D435 /* ABUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34EC2474BFB00060D435 /* ABUIKit.h */; };
 		F14C351C2474BFB10060D435 /* ABUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34ED2474BFB00060D435 /* ABUIScrollView.m */; };
 		F14C351D2474BFB10060D435 /* UIApplication+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C34EF2474BFB00060D435 /* UIApplication+AB.m */; };
 		F14C351E2474BFB10060D435 /* UIView+AB.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C34F02474BFB00060D435 /* UIView+AB.h */; };
@@ -52,6 +51,7 @@
 		F14C353B2474BFB10060D435 /* ABUIListViewMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C350E2474BFB10060D435 /* ABUIListViewMapping.m */; };
 		F14C353C2474BFB10060D435 /* ABUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C350F2474BFB10060D435 /* ABUIColor.m */; };
 		F14C353D2474BFB10060D435 /* ABUIKitCore.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C35102474BFB10060D435 /* ABUIKitCore.h */; };
+		F14C353F2474C7AC0060D435 /* ABUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C353E2474C7AC0060D435 /* ABUIKit.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +67,6 @@
 		F14C34E92474BFB00060D435 /* ABUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIViewController.m; sourceTree = "<group>"; };
 		F14C34EA2474BFB00060D435 /* ABUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUINavigationController.h; sourceTree = "<group>"; };
 		F14C34EB2474BFB00060D435 /* ABUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIScrollView.h; sourceTree = "<group>"; };
-		F14C34EC2474BFB00060D435 /* ABUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABUIKit.h; path = ../../ABFrameworks/ABUIKit/ABUIKit.h; sourceTree = "<group>"; };
 		F14C34ED2474BFB00060D435 /* ABUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIScrollView.m; sourceTree = "<group>"; };
 		F14C34EF2474BFB00060D435 /* UIApplication+AB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AB.m"; sourceTree = "<group>"; };
 		F14C34F02474BFB00060D435 /* UIView+AB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AB.h"; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		F14C350E2474BFB10060D435 /* ABUIListViewMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewMapping.m; sourceTree = "<group>"; };
 		F14C350F2474BFB10060D435 /* ABUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIColor.m; sourceTree = "<group>"; };
 		F14C35102474BFB10060D435 /* ABUIKitCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIKitCore.h; sourceTree = "<group>"; };
+		F14C353E2474C7AC0060D435 /* ABUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,11 +134,11 @@
 		F14C34D92474B6C90060D435 /* ABUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F14C353E2474C7AC0060D435 /* ABUIKit.h */,
 				F14C34E62474BFAF0060D435 /* ABDefines.h */,
 				F14C34EE2474BFB00060D435 /* ABExtension */,
 				F14C34E82474BFB00060D435 /* ABUIColor.h */,
 				F14C350F2474BFB10060D435 /* ABUIColor.m */,
-				F14C34EC2474BFB00060D435 /* ABUIKit.h */,
 				F14C35102474BFB10060D435 /* ABUIKitCore.h */,
 				F14C34E52474BFAF0060D435 /* ABUILabel.h */,
 				F14C34E72474BFB00060D435 /* ABUILabel.m */,
@@ -210,7 +210,6 @@
 				F14C35312474BFB10060D435 /* ABUIListViewCell.h in Headers */,
 				F14C35342474BFB10060D435 /* ABUIListViewMapping.h in Headers */,
 				F14C352D2474BFB10060D435 /* UIColor+AB.h in Headers */,
-				F14C351B2474BFB10060D435 /* ABUIKit.h in Headers */,
 				F14C35232474BFB10060D435 /* NSDictionary+AB.h in Headers */,
 				F14C351E2474BFB10060D435 /* UIView+AB.h in Headers */,
 				F14C35252474BFB10060D435 /* UIViewController+AB.h in Headers */,
@@ -224,6 +223,7 @@
 				F14C35152474BFB10060D435 /* ABDefines.h in Headers */,
 				F14C35202474BFB10060D435 /* UILabel+AB.h in Headers */,
 				F14C35352474BFB10060D435 /* ABUIListViewProtocols.h in Headers */,
+				F14C353F2474C7AC0060D435 /* ABUIKit.h in Headers */,
 				F14C35222474BFB10060D435 /* UIImageView+AB.h in Headers */,
 				F14C35362474BFB10060D435 /* ABUIListViewController.h in Headers */,
 				F14C352F2474BFB10060D435 /* ABUIViewController.h in Headers */,
