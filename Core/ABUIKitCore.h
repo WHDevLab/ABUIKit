@@ -16,4 +16,6 @@
 #import "ABUINavigationController.h"
 #import "ABWebView.h"
 #import "ABUITextView.h"
+
+#import "ABExtension.h"
 #endif /* ABUIKitCore_h */
