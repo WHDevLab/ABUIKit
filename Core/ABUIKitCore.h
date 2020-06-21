@@ -14,7 +14,7 @@
 #import "ABUIColor.h"
 #import "ABUIScrollView.h"
 #import "ABUINavigationController.h"
-#import "ABWebView.h"
+#import "ABUIWebView.h"
 #import "ABUITextView.h"
 
 #import "ABExtension.h"
