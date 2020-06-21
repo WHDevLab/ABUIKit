@@ -15,9 +15,12 @@ Pod::Spec.new do |s|
 	s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'Photos'
 	s.source_files     = 'Core/*.{h,m}'
 	s.subspec 'ABUIListView' do |ss|
-		ss.source_files = 'Core/ABUIListView/*.{h,m}'
+		ss.source_files = 'Core/ABUIListView/*.{h,m,json}'
 	end
 	s.subspec 'ABExtension' do |ss|
 		ss.source_files = 'Core/ABExtension/*.{h,m}'
+	end
+	s.subspec 'ABUIWebView' do |ss|
+		ss.source_files = 'Core/ABUIWebView/*.{h,m, html}'
 	end
 end

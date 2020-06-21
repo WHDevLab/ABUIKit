@@ -4,16 +4,16 @@
 			"css":{
                 "item.rowSpacing":"0",
                 "item.columnSpacing":"0",
-				"item.size.weight":"100%",
+				"item.size.width":"100%",
 				"item.size.height":"44",
                 "footer.size.height":"100%",
                 "footer.size.width":"44",
                 "header.size.height":"100%",
                 "header.size.width":"44",
-                "section.inset.top""0",
-                "section.inset.left""0",
-                "section.inset.bottom""0",
-                "section.inset.right""0"
+                "section.inset.top":"0",
+                "section.inset.left":"0",
+                "section.inset.bottom":"0",
+                "section.inset.right":"0"
 			},
 			"header":{
 				"title":"标题",

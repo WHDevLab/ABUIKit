@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+        <title>测试页面</title>
+	</head>
+	
+	<body>
+		<div id="text">SSL 证书主要有两个功能：加密和身份证明，通常需要购买，也有免费的，通过第三方 SSL 证书机构颁发。由于可信的证书颁发机构只有那么几家，所以必须要从他们那里获取或者购买。我的https证书是从腾讯云那里免费获取的</div>
+		<button onclick="onLike();">Like</button>
+		<button onclick="onUnLike();">unLike</button>
+        <button onclick="showAlert(1);">unLike3</button>
+	</body>
+	<script>
+		function onLike() {
+			alert(1)
+			window.webkit.messageHandlers.bridge.postMessage({name:'小明',gender:'男'});
+		}
+
+		function onUnLike() {
+            window.location.href = 'bridge://getUserInfo?name=xiaobai&callback=window.getUserInfoResult';
+		}
+        
+        function append(message) {
+            document.body.append(message);
+            return {"a":"333"};
+        }
+	</script>
+</html>

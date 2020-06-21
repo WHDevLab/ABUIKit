@@ -111,6 +111,25 @@ static void *contentSizeContext = &contentSizeContext;
     [self.collectionView reloadData];
 }
 
+- (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule {
+    NSDictionary *css = @{
+        @"item.rowSpacing":cssModule.item_rowSpacing,
+        @"item.columnSpacing":cssModule.item_columnSpacing,
+        @"item.size.width":cssModule.item_size_width,
+        @"item.size.height":cssModule.item_size_height,
+        @"footer.size.height":cssModule.footer_size_height,
+        @"footer.size.width":cssModule.footer_size_width,
+        @"header.size.height":cssModule.header_size_height,
+        @"header.size.width":cssModule.header_size_width,
+        @"section.inset.top":cssModule.section_insert_top,
+        @"section.inset.left":cssModule.section_insert_left,
+        @"section.inset.bottom":cssModule.section_insert_bottom,
+        @"section.inset.right":cssModule.section_insert_right
+    };
+    
+    [self setDataList:dataList css:css];
+}
+
 - (void)setTempleteDataList:(NSArray *)dataList {
     _dataList = dataList;
     [self.collectionView reloadData];

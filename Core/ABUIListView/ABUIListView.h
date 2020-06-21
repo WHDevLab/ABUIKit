@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ABUIListViewCSS.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @class ABUIListView;
@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *footerView;
 
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css;
+- (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule;
 /// dataList数据格式参考ABUIListViewTemplete.json
 - (void)setTempleteDataList:(NSArray *)dataList;
 - (void)reloadData;
