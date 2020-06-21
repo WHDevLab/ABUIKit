@@ -23,4 +23,7 @@ Pod::Spec.new do |s|
 	s.subspec 'ABUIWebView' do |ss|
 		ss.source_files = 'Core/ABUIWebView/*.{h,m, html}'
 	end
+	s.subspec 'ABUIButtons' do |ss|
+		ss.source_files = 'Core/ABUIButtons/*.{h,m}'
+	end
 end
