@@ -140,14 +140,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F1425087249B1CF2003E83D8 /* ABWebView */ = {
+		F1425087249B1CF2003E83D8 /* ABUIWebView */ = {
 			isa = PBXGroup;
 			children = (
 				F1425088249B2022003E83D8 /* web.html */,
 				F142507E249B0A97003E83D8 /* ABUIWebView.h */,
 				F142507F249B0A97003E83D8 /* ABUIWebView.m */,
 			);
-			path = ABWebView;
+			path = ABUIWebView;
 			sourceTree = "<group>";
 		};
 		F14C35D424760B750060D435 = {
@@ -189,7 +189,7 @@
 		F14C35F924760FDC0060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F1425087249B1CF2003E83D8 /* ABWebView */,
+				F1425087249B1CF2003E83D8 /* ABUIWebView */,
 				F14C361324760FDC0060D435 /* ABDefines.h */,
 				F14C361624760FDC0060D435 /* ABExtension */,
 				F14C361524760FDC0060D435 /* ABUIColor.h */,
