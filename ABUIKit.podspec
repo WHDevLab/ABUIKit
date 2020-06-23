@@ -26,4 +26,7 @@ Pod::Spec.new do |s|
 	s.subspec 'ABUIButtons' do |ss|
 		ss.source_files = 'Core/ABUIButtons/*.{h,m}'
 	end
+	s.subspec 'ABUILabels' do |ss|
+		ss.source_files = 'Core/ABUILabels/*.{h,m}'
+	end
 end

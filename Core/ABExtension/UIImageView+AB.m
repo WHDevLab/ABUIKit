@@ -10,7 +10,7 @@
 @implementation UIImageView (AB)
 - (void)loadImage:(NSString *)str {
     if ([str hasPrefix:@"http"]) {
-//        [self sd_setImageWithURL:[NSURL URLWithString:str]];
+        [self sd_setImageWithURL:[NSURL URLWithString:str]];
     }
     else{
         self.image = [UIImage imageNamed:str];

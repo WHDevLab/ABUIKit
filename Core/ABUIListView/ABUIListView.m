@@ -15,6 +15,7 @@ static void *contentSizeContext = &contentSizeContext;
 @interface ABUIListView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *dataList;
 @property (nonatomic, strong) NSDictionary *css;
+@property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @end
 
 @implementation ABUIListView
@@ -25,11 +26,10 @@ static void *contentSizeContext = &contentSizeContext;
     if (self) {
 //        self.dataList = [[NSArray alloc] init];
         self.backgroundColor = UIColor.clearColor;
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        
+        self.layout = [[UICollectionViewFlowLayout alloc] init];
+        self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
 
-        self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
         self.collectionView.alwaysBounceVertical = true;
         if (@available(iOS 11.0, *)) {
             [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
@@ -46,6 +46,11 @@ static void *contentSizeContext = &contentSizeContext;
         [self listenCollectionViewContentSize];
     }
     return self;
+}
+
+- (void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection {
+    _scrollDirection = scrollDirection;
+    self.layout.scrollDirection = scrollDirection;
 }
 
 - (CGFloat)getValueIn:(NSDictionary *)dic key:(NSString *)key df:(CGFloat)df {
@@ -112,6 +117,9 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule {
+    if (cssModule == nil) {
+        return;
+    }
     NSDictionary *css = @{
         @"item.rowSpacing":cssModule.item_rowSpacing,
         @"item.columnSpacing":cssModule.item_columnSpacing,
@@ -256,6 +264,11 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.delegate respondsToSelector:@selector(listView:sizeForItemAtIndexPath:)]) {
+        return [self.delegate listView:self sizeForItemAtIndexPath:indexPath];
+    }
+    
     CGFloat w = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.width" df:collectionView.frame.size.width];
     CGFloat h = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.height" df:44];
     return CGSizeMake(w, h);

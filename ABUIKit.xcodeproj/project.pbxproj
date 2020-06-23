@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		42438FAFF24166EC9549ECB6 /* libPods-ABUIKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8F0DB6084B1ACAB1B012AE /* libPods-ABUIKit.a */; };
 		F11682C7249F6056004DD6B8 /* ABCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682C6249F6056004DD6B8 /* ABCountDownButton.m */; };
+		F11682D424A03B75004DD6B8 /* ABUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682D324A03B75004DD6B8 /* ABUITextField.m */; };
+		F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682FF24A1B432004DD6B8 /* ABUIBorderLabel.m */; };
 		F142507D249AFCBC003E83D8 /* ABUIListViewCSS.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */; };
 		F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507F249B0A97003E83D8 /* ABUIWebView.m */; };
 		F1425089249B2022003E83D8 /* web.html in Resources */ = {isa = PBXBuildFile; fileRef = F1425088249B2022003E83D8 /* web.html */; };
@@ -49,6 +51,10 @@
 		F11682BC249F5ACA004DD6B8 /* ABExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABExtension.h; sourceTree = "<group>"; };
 		F11682C5249F6056004DD6B8 /* ABCountDownButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABCountDownButton.h; sourceTree = "<group>"; };
 		F11682C6249F6056004DD6B8 /* ABCountDownButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABCountDownButton.m; sourceTree = "<group>"; };
+		F11682D224A03B75004DD6B8 /* ABUITextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITextField.h; sourceTree = "<group>"; };
+		F11682D324A03B75004DD6B8 /* ABUITextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextField.m; sourceTree = "<group>"; };
+		F11682FE24A1B432004DD6B8 /* ABUIBorderLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIBorderLabel.h; sourceTree = "<group>"; };
+		F11682FF24A1B432004DD6B8 /* ABUIBorderLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIBorderLabel.m; sourceTree = "<group>"; };
 		F142507B249AFCBC003E83D8 /* ABUIListViewCSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewCSS.h; sourceTree = "<group>"; };
 		F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewCSS.m; sourceTree = "<group>"; };
 		F142507E249B0A97003E83D8 /* ABUIWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIWebView.h; sourceTree = "<group>"; };
@@ -152,6 +158,15 @@
 			path = ABUIButtons;
 			sourceTree = "<group>";
 		};
+		F11682FD24A1B406004DD6B8 /* ABUILabels */ = {
+			isa = PBXGroup;
+			children = (
+				F11682FE24A1B432004DD6B8 /* ABUIBorderLabel.h */,
+				F11682FF24A1B432004DD6B8 /* ABUIBorderLabel.m */,
+			);
+			path = ABUILabels;
+			sourceTree = "<group>";
+		};
 		F1425087249B1CF2003E83D8 /* ABUIWebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +216,7 @@
 		F14C35F924760FDC0060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F11682FD24A1B406004DD6B8 /* ABUILabels */,
 				F11682C4249F6024004DD6B8 /* ABUIButtons */,
 				F1425087249B1CF2003E83D8 /* ABUIWebView */,
 				F14C361324760FDC0060D435 /* ABDefines.h */,
@@ -222,6 +238,8 @@
 				F14C35FA24760FDC0060D435 /* ABUIViewController.m */,
 				F142508D249B5454003E83D8 /* ABUITextView.h */,
 				F142508E249B5454003E83D8 /* ABUITextView.m */,
+				F11682D224A03B75004DD6B8 /* ABUITextField.h */,
+				F11682D324A03B75004DD6B8 /* ABUITextField.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -381,7 +399,9 @@
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
 				F14C363C24760FDC0060D435 /* UIImage+AB.m in Sources */,
+				F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */,
 				F14C362C24760FDC0060D435 /* ABUINavigationController.m in Sources */,
+				F11682D424A03B75004DD6B8 /* ABUITextField.m in Sources */,
 				F14C363524760FDC0060D435 /* UIApplication+AB.m in Sources */,
 				F14C362F24760FDC0060D435 /* ABUIListReusableView.m in Sources */,
 				F11682C7249F6056004DD6B8 /* ABCountDownButton.m in Sources */,

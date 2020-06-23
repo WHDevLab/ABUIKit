@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 尾视图
 @property (nonatomic, strong) UIView *footerView;
 
+@property (nonatomic) UICollectionViewScrollDirection scrollDirection;
+
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css;
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule;
 /// dataList数据格式参考ABUIListViewTemplete.json

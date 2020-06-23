@@ -209,7 +209,7 @@ description:__VA_ARGS__];                             \
 
 //背景色
 #define BACKGROUND_COLOR [UIColor colorWithRed:242.0/255.0 green:236.0/255.0 blue:231.0/255.0 alpha:1.0]
-
+#define LINGDIANWU 1.0/[UIScreen mainScreen].scale
 //清除背景色
 #define CLEARCOLOR [UIColor clearColor]
 
