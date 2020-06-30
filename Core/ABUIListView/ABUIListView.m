@@ -24,6 +24,7 @@ static void *contentSizeContext = &contentSizeContext;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.dynamicContent = false;
 //        self.dataList = [[NSArray alloc] init];
         self.backgroundColor = UIColor.clearColor;
         self.layout = [[UICollectionViewFlowLayout alloc] init];
@@ -40,7 +41,6 @@ static void *contentSizeContext = &contentSizeContext;
         self.collectionView.dataSource = self;
         self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         self.collectionView.backgroundColor = UIColor.clearColor;
-
         
         [self registerCollectionViewClass];
         [self listenCollectionViewContentSize];
@@ -105,6 +105,9 @@ static void *contentSizeContext = &contentSizeContext;
 #pragma mark ------- attribute setting ------
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css {
     NSDictionary *tmpCss = [[NSDictionary alloc] init];
+    if (dataList.count == 0) {
+        return;
+    }
     if (css != nil) {
         tmpCss = css;
     }
@@ -159,7 +162,7 @@ static void *contentSizeContext = &contentSizeContext;
 #pragma mark ------- listen collectionview contentsize -------
 //for fix footerview position
 - (void)listenCollectionViewContentSize {
-    [self.collectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:contentSizeContext];
+    [self.collectionView addObserver:self forKeyPath:@"contentSize.height" options:NSKeyValueObservingOptionNew context:contentSizeContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -167,6 +170,12 @@ static void *contentSizeContext = &contentSizeContext;
         CGRect f = _footerView.frame;
         f.origin.y = self.collectionView.contentSize.height;
         self.footerView.frame = f;
+        
+        if (self.dynamicContent) {
+            CGRect o = self.collectionView.frame;
+            o.size.height = self.collectionView.contentSize.height;
+            self.collectionView.frame = o;
+        }
     }
 }
 
@@ -211,11 +220,18 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSArray *items = self.dataList[indexPath.section][@"items"];
     NSDictionary *item = items[indexPath.row];
+    NSDictionary *extDic = [[NSDictionary alloc] init];
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extDataAtIndexPath:)]) {
+       extDic =  [self.dataSource listView:self extDataAtIndexPath:indexPath];
+    }
     ABUIListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.indexPath = indexPath;
-    [cell reload:item clsStr:[[ABUIListViewMapping shared] classString:item[@"native_id"]]];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:item];
+    [dic setValue:extDic forKey:@"ext"];
+    [cell reload:dic clsStr:[[ABUIListViewMapping shared] classString:item[@"native_id"]]];
     return cell;
 }
 

@@ -22,9 +22,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@protocol ABUIListViewDataSource <NSObject>
+
+@optional
+- (NSDictionary *)listView:(ABUIListView *)listView extDataAtIndexPath:(nonnull NSIndexPath *)indexPath;
+
+@end
+
 @interface ABUIListView : UIView
 @property (nonatomic, weak) id<ABUIListViewDelegate> delegate;
+@property (nonatomic, weak) id<ABUIListViewDataSource> dataSource;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, assign) BOOL dynamicContent;
 /// 禁止滚动
 @property(nonatomic) BOOL bounces;
 /// 头视图
