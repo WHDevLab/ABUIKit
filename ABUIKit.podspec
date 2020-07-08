@@ -29,4 +29,7 @@ Pod::Spec.new do |s|
 	s.subspec 'ABUILabels' do |ss|
 		ss.source_files = 'Core/ABUILabels/*.{h,m}'
 	end
+	s.subspec 'ABUITextFields' do |ss|
+		ss.source_files = 'Core/ABUITextFields/*.{h,m}'
+	end
 end

@@ -59,7 +59,6 @@
         }else{
             [nav.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor hexColor:@"f3f3f2"] frame:CGRectMake(0, 0, SCREEN_WIDTH, STATUS_AND_NAV_BAR_HEIGHT)] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
         }
-        
         //append to childs
         [self addChildViewController:nav];
     }

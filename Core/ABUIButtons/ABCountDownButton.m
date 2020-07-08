@@ -25,6 +25,7 @@
     CountDownChanging _countDownChanging;
     CountDownFinished _countDownFinished;
     TouchedCountDownButtonHandler _touchedCountDownButtonHandler;
+    UIColor *_normalColor;
 }
 @end
 
@@ -46,6 +47,10 @@
 #pragma -mark count down method
 - (void)startCountDownWithSecond:(NSUInteger)totalSecond
 {
+    self.userInteractionEnabled = false;
+    _normalColor = self.backgroundColor;
+    self.backgroundColor = [UIColor grayColor];
+    
     _totalSecond = totalSecond;
     _second = totalSecond;
    
@@ -91,6 +96,8 @@
 }
 
 - (void)stopCountDown{
+    self.userInteractionEnabled = true;
+    self.backgroundColor = _normalColor;
     if (_timer) {
         if ([_timer respondsToSelector:@selector(isValid)])
         {
@@ -110,6 +117,7 @@
                 {
                     [self setTitle:@"重新获取" forState:UIControlStateNormal];
                     [self setTitle:@"重新获取" forState:UIControlStateDisabled];
+                     
 
                 }
             }

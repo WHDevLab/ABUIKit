@@ -10,6 +10,8 @@
 #import "WebViewController.h"
 #import "ABUITextField.h"
 #import "UIColor+AB.h"
+#import "ABUICodeInput.h"
+#import "UIView+AB.h"
 @interface ViewController ()
 
 @end
@@ -42,6 +44,13 @@
     textField.layer.shadowRadius = 12;
     textField.layer.cornerRadius = 9.6;
     [self.view addSubview:textField];
+    
+    ABUICodeInput *codeInput = [[ABUICodeInput alloc] initWithFrame:CGRectMake(15, textField.bottom+20, self.view.frame.size.width-30, 60)];
+    codeInput.titleLabel.text = @"验证码";
+    codeInput.textField.placeholder = @"请输入验证码";
+    [self.view addSubview:codeInput];
+    [codeInput addLineDirection:LineDirectionBottom color:[UIColor colorWithRed:228/255.0 green:227/255.0 blue:228/255.0 alpha:1.0] width:1];
+    
 }
 
 

@@ -140,30 +140,34 @@
 - (void)addLineDirection:(LineDirection)dirction color:(UIColor *)color width:(CGFloat)width{
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectZero];
     lineView.backgroundColor = color;
+    CGFloat lineWidth = width;
+    if (width == 1) {
+        lineWidth = 1.0/[UIScreen mainScreen].scale;
+    }
     switch (dirction) {
         case LineDirectionTop:
         {
-            lineView.frame = CGRectMake(0, 0, self.width, width);
+            lineView.frame = CGRectMake(0, 0, self.width, lineWidth);
         }
             break;
         case LineDirectionRight:
         {
-            lineView.frame = CGRectMake(self.width-width, 0, width, self.height);
+            lineView.frame = CGRectMake(self.width-width, 0, lineWidth, self.height);
         }
             break;
         case LineDirectionBottom:
         {
-            lineView.frame = CGRectMake(0, self.height-width, self.width, width);
+            lineView.frame = CGRectMake(0, self.height-width, self.width, lineWidth);
         }
             break;
         case LineDirectionLeft:
         {
-            lineView.frame = CGRectMake(0, 0, width, self.height);
+            lineView.frame = CGRectMake(0, 0, lineWidth, self.height);
         }
             break;
         case LineDirectionLeftMiddle:
         {
-            lineView.frame = CGRectMake(0, 0, width, self.height/2);
+            lineView.frame = CGRectMake(0, 0, lineWidth, self.height/2);
             lineView.centerY = self.height/2;
         }
         default:

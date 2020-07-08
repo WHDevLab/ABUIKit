@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class ABCountDownButton;
-typedef NSString* (^CountDownChanging)(ABCountDownButton *countDownButton,NSUInteger second);
-typedef NSString* (^CountDownFinished)(ABCountDownButton *countDownButton,NSUInteger second);
+typedef NSString* _Nullable (^CountDownChanging)(ABCountDownButton *countDownButton,NSUInteger second);
+typedef NSString* _Nonnull (^CountDownFinished)(ABCountDownButton *countDownButton,NSUInteger second);
 typedef void (^TouchedCountDownButtonHandler)(ABCountDownButton *countDownButton,NSInteger tag);
 
 @interface ABCountDownButton : UIButton

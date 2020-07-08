@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (CGSize)listView:(ABUIListView *)listView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)listView:(ABUIListView *)listView onContentSizeChanged:(CGSize)contentSize;
+- (void)listViewDidReload:(ABUIListView *)listView;
 @end
 
 @protocol ABUIListViewDataSource <NSObject>
@@ -48,6 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// dataList数据格式参考ABUIListViewTemplete.json
 - (void)setTempleteDataList:(NSArray *)dataList;
 - (void)reloadData;
+- (void)scrollToBottom:(BOOL)animated;
 @end
 
 NS_ASSUME_NONNULL_END

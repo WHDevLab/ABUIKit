@@ -117,6 +117,11 @@ static void *contentSizeContext = &contentSizeContext;
         _dataList = dataList;
     }
     [self.collectionView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(listViewDidReload:)]) {
+            [self.delegate listViewDidReload:self];
+        }
+    });
 }
 
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule {
@@ -162,7 +167,7 @@ static void *contentSizeContext = &contentSizeContext;
 #pragma mark ------- listen collectionview contentsize -------
 //for fix footerview position
 - (void)listenCollectionViewContentSize {
-    [self.collectionView addObserver:self forKeyPath:@"contentSize.height" options:NSKeyValueObservingOptionNew context:contentSizeContext];
+    [self.collectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:contentSizeContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -172,9 +177,9 @@ static void *contentSizeContext = &contentSizeContext;
         self.footerView.frame = f;
         
         if (self.dynamicContent) {
-            CGRect o = self.collectionView.frame;
-            o.size.height = self.collectionView.contentSize.height;
-            self.collectionView.frame = o;
+            if ([self.delegate respondsToSelector:@selector(listView:onContentSizeChanged:)]) {
+                [self.delegate listView:self onContentSizeChanged:self.collectionView.contentSize];
+            }
         }
     }
 }
@@ -343,4 +348,8 @@ static void *contentSizeContext = &contentSizeContext;
     self.collectionView.frame = self.bounds;
 }
 
+- (void)scrollToBottom:(BOOL)animated {
+    CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height;
+    [self.collectionView setContentOffset:CGPointMake(0, y) animated:animated];
+}
 @end

@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
             lineSpacing:(CGFloat)linespace
           lineBreakMode:(NSLineBreakMode)lineBreakMode;
 
+- (NSDictionary *)toDictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END
