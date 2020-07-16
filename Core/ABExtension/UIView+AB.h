@@ -46,6 +46,8 @@ typedef NS_ENUM(NSUInteger, LineDirection) {
 - (void)gradient:(NSArray *)colors direction:(NSInteger)direction;
 
 - (void)borderWidth:(CGFloat)width color:(UIColor *)color;
+- (void)shake;
+- (void)rotate;
 @end
 
 NS_ASSUME_NONNULL_END

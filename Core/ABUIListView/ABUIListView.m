@@ -11,6 +11,7 @@
 #import "ABUIListReusableView.h"
 //#import "UIView+AB.h"
 #import "ABUIListViewMapping.h"
+#import <MJRefresh/MJRefresh.h>
 static void *contentSizeContext = &contentSizeContext;
 @interface ABUIListView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *dataList;
@@ -48,9 +49,33 @@ static void *contentSizeContext = &contentSizeContext;
     return self;
 }
 
+- (void)setupPullRefresh {
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(onPullRefresh)];
+}
+
+- (void)onPullRefresh {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listViewOnHeaderPullRefresh:)]) {
+        [self.delegate listViewOnHeaderPullRefresh:self];
+    }
+}
+
+- (void)beginPullRefreshing {
+    [self.collectionView.mj_header beginRefreshing];
+}
+- (void)endPullRefreshing {
+    [self.collectionView.mj_header endRefreshing];
+}
+
 - (void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection {
     _scrollDirection = scrollDirection;
     self.layout.scrollDirection = scrollDirection;
+    if (scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        self.collectionView.alwaysBounceHorizontal = true;
+        self.collectionView.alwaysBounceVertical = false;
+    }else{
+        self.collectionView.alwaysBounceHorizontal = false;
+        self.collectionView.alwaysBounceVertical = true;
+    }
 }
 
 - (CGFloat)getValueIn:(NSDictionary *)dic key:(NSString *)key df:(CGFloat)df {
@@ -58,7 +83,7 @@ static void *contentSizeContext = &contentSizeContext;
         return df;
     }
     
-    NSString *value = dic[key];
+    NSString *value = [NSString stringWithFormat:@"%@", dic[key]];
     if ([value hasSuffix:@"%"]) {
         value = [value stringByReplacingOccurrencesOfString:@"%" withString:@""];
         return ([value floatValue]/100)*self.frame.size.width;
@@ -106,6 +131,13 @@ static void *contentSizeContext = &contentSizeContext;
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css {
     NSDictionary *tmpCss = [[NSDictionary alloc] init];
     if (dataList.count == 0) {
+        _dataList = dataList;
+        [self.collectionView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([self.delegate respondsToSelector:@selector(listViewDidReload:)]) {
+                [self.delegate listViewDidReload:self];
+            }
+        });
         return;
     }
     if (css != nil) {
@@ -229,14 +261,13 @@ static void *contentSizeContext = &contentSizeContext;
     NSArray *items = self.dataList[indexPath.section][@"items"];
     NSDictionary *item = items[indexPath.row];
     NSDictionary *extDic = [[NSDictionary alloc] init];
-    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extDataAtIndexPath:)]) {
-       extDic =  [self.dataSource listView:self extDataAtIndexPath:indexPath];
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extraDataAtIndexPath:)]) {
+       extDic =  [self.dataSource listView:self extraDataAtIndexPath:indexPath];
     }
     ABUIListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.indexPath = indexPath;
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:item];
-    [dic setValue:extDic forKey:@"ext"];
-    [cell reload:dic clsStr:[[ABUIListViewMapping shared] classString:item[@"native_id"]]];
+    NSString *native_id = [[ABUIListViewMapping shared] classString:item[@"native_id"]];
+    [cell reload:item extra:extDic clsStr:native_id];
     return cell;
 }
 
@@ -292,7 +323,7 @@ static void *contentSizeContext = &contentSizeContext;
     
     CGFloat w = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.width" df:collectionView.frame.size.width];
     CGFloat h = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.height" df:44];
-    return CGSizeMake(w, h);
+    return CGSizeMake(floor(w), h);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -316,13 +347,13 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    CGFloat w = [self getValueIn:self.dataList[section][@"css"] key:@"header.size.width" df:collectionView.frame.size.width];
+    CGFloat w = [self getValueIn:self.dataList[section][@"css"] key:@"header.size.width" df:0];
     CGFloat h = [self getValueIn:self.dataList[section][@"css"] key:@"header.size.height" df:0];
     return CGSizeMake(w, h);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    CGFloat w = [self getValueIn:self.dataList[section][@"css"] key:@"footer.size.width" df:collectionView.frame.size.width];
+    CGFloat w = [self getValueIn:self.dataList[section][@"css"] key:@"footer.size.width" df:0];
     CGFloat h = [self getValueIn:self.dataList[section][@"css"] key:@"footer.size.height" df:0];
     return CGSizeMake(w, h);
 }
@@ -352,4 +383,5 @@ static void *contentSizeContext = &contentSizeContext;
     CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height;
     [self.collectionView setContentOffset:CGPointMake(0, y) animated:animated];
 }
+
 @end

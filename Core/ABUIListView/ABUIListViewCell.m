@@ -13,10 +13,14 @@
 @end
 @implementation ABUIListViewCell
 
-- (void)reload:(NSDictionary *)item clsStr:(NSString *)clsStr {
+- (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(nonnull NSString *)clsStr{
     if (clsStr == nil) {
         NSLog(@"classString is empty");
         return;
+    }
+    if (clsStr != [[self.mainView class] description]) {
+        [self.mainView removeFromSuperview];
+        self.mainView = nil;
     }
     if (self.mainView == nil) {
         self.mainView = [(UIView *)[NSClassFromString(clsStr) alloc] initWithFrame:self.bounds];
@@ -28,8 +32,18 @@
         }
     }
     
-    [(id<ABUIListItemViewProtocol>)self.mainView reload:item];
-    
+    if ([self.mainView respondsToSelector:@selector(reload:extra:indexPath:)]) {
+        [(id<ABUIListItemViewProtocol>)self.mainView reload:item extra:extra indexPath:self.indexPath];
+    }else{
+        [(id<ABUIListItemViewProtocol>)self.mainView reload:item];
+    }
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    if ([self.mainView respondsToSelector:@selector(setHighlighted:)]) {
+        [(id<ABUIListItemViewProtocol>)self.mainView setHighlighted:highlighted];
+    }
 }
 
 - (void)layoutSubviews {

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIListViewCell : UICollectionViewCell
 @property (nonatomic, strong) NSIndexPath *indexPath;
-- (void)reload:(NSDictionary *)item clsStr:(NSString *)clsStr;
+- (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(NSString *)clsStr;
 @end
 
 NS_ASSUME_NONNULL_END

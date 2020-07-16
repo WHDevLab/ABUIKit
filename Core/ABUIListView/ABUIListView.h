@@ -16,18 +16,19 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 - (CGFloat)listView:(ABUIListView *)listView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)listView:(ABUIListView *)listView didSelectItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item;
-//- (void)listView:(ListView *)listView didClickAtIndexPath:(NSIndexPath *)indexPath key:(ListViewItemActionKey)key;
+//- (void)listView:(ABUIListView *)listView didClickAtIndexPath:(NSIndexPath *)indexPath key:(NSString *)key;
 
 - (CGSize)listView:(ABUIListView *)listView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)listView:(ABUIListView *)listView onContentSizeChanged:(CGSize)contentSize;
+- (void)listViewOnHeaderPullRefresh:(ABUIListView *)listView;
 - (void)listViewDidReload:(ABUIListView *)listView;
 @end
 
 @protocol ABUIListViewDataSource <NSObject>
 
 @optional
-- (NSDictionary *)listView:(ABUIListView *)listView extDataAtIndexPath:(nonnull NSIndexPath *)indexPath;
+- (NSDictionary *)listView:(ABUIListView *)listView extraDataAtIndexPath:(nonnull NSIndexPath *)indexPath;
 
 @end
 
@@ -51,6 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTempleteDataList:(NSArray *)dataList;
 - (void)reloadData;
 - (void)scrollToBottom:(BOOL)animated;
+- (void)setupPullRefresh;
+- (void)beginPullRefreshing;
+- (void)endPullRefreshing;
 @end
 
 NS_ASSUME_NONNULL_END

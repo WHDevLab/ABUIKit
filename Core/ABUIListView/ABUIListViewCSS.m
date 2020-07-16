@@ -19,10 +19,10 @@
         self.item_size_height = @"44";
         
         self.footer_size_height = @"0";
-        self.footer_size_width = @"100%";
+        self.footer_size_width = @"0";
         
         self.header_size_height = @"0";
-        self.header_size_width = @"100%";
+        self.header_size_width = @"0";
         
         self.section_insert_left = @"0";
         self.section_insert_right = @"0";

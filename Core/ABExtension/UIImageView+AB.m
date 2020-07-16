@@ -16,4 +16,19 @@
         self.image = [UIImage imageNamed:str];
     }
 }
+
+- (void)loadAni:(NSArray *)names {
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (NSString *str in names) {
+        [arr addObject:[UIImage imageNamed:str]];
+    }
+    self.animationImages = arr;
+}
+
+- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents {
+    [self setUserInteractionEnabled:true];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+    [self addGestureRecognizer:tap];
+}
+
 @end

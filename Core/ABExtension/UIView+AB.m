@@ -236,4 +236,47 @@
     self.layer.borderWidth = width;
 }
 
+- (void)shake
+{
+//    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+//    animation.duration = 0.3;// 动画时间
+//    NSMutableArray *values = [NSMutableArray array];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]];
+//    // 这三个数字，我只研究了前两个，所以最后一个数字我还是按照它原来写1.0；前两个是控制view的大小的；
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.5, 1.5, 1.0)]];
+////    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.9, 0.9, 1.0)]];
+////    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1.0)]];
+//    animation.values = values;
+//    [self.layer addAnimation:animation forKey:nil];
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    // 动画选项设定
+    animation.duration = 0.1; // 动画持续时间
+    animation.repeatCount = 1; // 重复次数
+    animation.autoreverses = YES; // 动画结束时执行逆动画
+    // 缩放倍数
+    animation.fromValue = [NSNumber numberWithFloat:1.0]; // 开始时的倍率
+    animation.toValue = [NSNumber numberWithFloat:1.5]; // 结束时的倍率
+     
+    // 添加动画
+    [self.layer addAnimation:animation forKey:@"scale-layer"];
+
+}
+
+- (void)rotate {
+    // 对Y轴进行旋转（指定Z轴的话，就和UIView的动画一样绕中心旋转）
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+     
+    // 设定动画选项
+    animation.duration = 2.5; // 持续时间
+    animation.repeatCount = 1; // 重复次数
+     
+    // 设定旋转角度
+    animation.fromValue = [NSNumber numberWithFloat:0.0]; // 起始角度
+    animation.toValue = [NSNumber numberWithFloat:2 * M_PI]; // 终止角度
+     
+    // 添加动画
+    [self.layer addAnimation:animation forKey:@"rotate-layer"];
+}
+
 @end

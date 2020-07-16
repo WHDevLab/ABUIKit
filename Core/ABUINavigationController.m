@@ -156,7 +156,7 @@
     if (vc.isVisableNavigationBar) {
         if (vc.preferredStatusBarStyle == UIStatusBarStyleLightContent) {
             [btn setImage:[UIImage imageNamed:@"baifanhui"] forState:UIControlStateNormal];
-            self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+            self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.blackColor};
         }
         else{
             [btn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
