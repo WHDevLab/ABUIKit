@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
 	s.platform         = :ios, '10.0'
 	s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'Photos'
 	s.source_files     = 'Core/*.{h,m}'
+	s.dependency "Toast"
 	s.subspec 'ABUIListView' do |ss|
 		ss.source_files = 'Core/ABUIListView/*.{h,m,json}'
 	end
@@ -31,5 +32,8 @@ Pod::Spec.new do |s|
 	end
 	s.subspec 'ABUITextFields' do |ss|
 		ss.source_files = 'Core/ABUITextFields/*.{h,m}'
+	end
+	s.subspec 'ABUIAnimateBanner' do |ss|
+		ss.source_files = 'Core/ABUIAnimateBanner/*.{h,m}'
 	end
 end

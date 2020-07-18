@@ -27,5 +27,7 @@
 
 #import "ABCountDownButton.h"
 #import "ABUIPopUp.h"
+#import "ABUITips.h"
+#import "ABUIAnimateBanner.h"
 
 #endif /* ABUIKitCore_h */

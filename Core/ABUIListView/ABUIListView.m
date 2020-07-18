@@ -380,7 +380,7 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (void)scrollToBottom:(BOOL)animated {
-    CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height;
+    CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height+self.collectionView.contentInset.bottom;
     [self.collectionView setContentOffset:CGPointMake(0, y) animated:animated];
 }
 
