@@ -261,7 +261,12 @@ description:__VA_ARGS__];                             \
 #define SYSTEM_VERSION    [[[UIDevice currentDevice] systemVersion] doubleValue]
 #define PagePaddingHor  15
 
-#define IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_iPhoneX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 
 // 标准系统状态栏高度
 #define SYS_STATUSBAR_HEIGHT        (IS_iPhoneX?44:20)
