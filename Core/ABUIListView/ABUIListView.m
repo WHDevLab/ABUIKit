@@ -280,6 +280,7 @@ static void *contentSizeContext = &contentSizeContext;
     }
     ABUIListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.indexPath = indexPath;
+    cell.total = items.count;
     NSString *native_id = [[ABUIListViewMapping shared] classString:item[@"native_id"]];
     [cell reload:item extra:extDic clsStr:native_id];
     return cell;

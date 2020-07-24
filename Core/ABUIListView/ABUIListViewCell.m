@@ -33,7 +33,10 @@
     }
     
     if ([self.mainView respondsToSelector:@selector(reload:extra:indexPath:)]) {
-        [(id<ABUIListItemViewProtocol>)self.mainView reload:item extra:extra indexPath:self.indexPath];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:extra];
+        dic[@"isFirst"] = @(self.indexPath.row == 0);
+        dic[@"isEnd"] = @(self.indexPath.row == self.total-1);
+        [(id<ABUIListItemViewProtocol>)self.mainView reload:item extra:dic indexPath:self.indexPath];
     }else{
         [(id<ABUIListItemViewProtocol>)self.mainView reload:item];
     }
