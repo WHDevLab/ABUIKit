@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ABUIListViewCSS.h"
+#import "ABUICollectionView.h"
 NS_ASSUME_NONNULL_BEGIN
+
+typedef enum : NSUInteger {
+    StatDirectionLeft,
+    StatDirectionRight,
+    StatDirectionBottom,
+    StatDirectionTop
+} StatDirection;
 
 @class ABUIListView;
 @protocol ABUIListViewDelegate <NSObject>
@@ -23,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listView:(ABUIListView *)listView onContentSizeChanged:(CGSize)contentSize;
 - (void)listViewOnHeaderPullRefresh:(ABUIListView *)listView;
 - (void)listViewDidReload:(ABUIListView *)listView;
+- (void)listViewDidScrollToBottom:(ABUIListView *)listView;
 @end
 
 @protocol ABUIListViewDataSource <NSObject>
@@ -35,8 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ABUIListView : UIView
 @property (nonatomic, weak) id<ABUIListViewDelegate> delegate;
 @property (nonatomic, weak) id<ABUIListViewDataSource> dataSource;
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) ABUICollectionView *collectionView;
 @property (nonatomic, assign) BOOL dynamicContent;
+@property (nonatomic, assign) StatDirection startDirection;
 /// 禁止滚动
 @property(nonatomic) BOOL bounces;
 /// 头视图
@@ -52,9 +62,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTempleteDataList:(NSArray *)dataList;
 - (void)reloadData;
 - (void)scrollToBottom:(BOOL)animated;
+- (BOOL)isInBottom;
 - (void)setupPullRefresh;
 - (void)beginPullRefreshing;
 - (void)endPullRefreshing;
+
+- (void)adapterSafeArea;
 @end
 
 NS_ASSUME_NONNULL_END

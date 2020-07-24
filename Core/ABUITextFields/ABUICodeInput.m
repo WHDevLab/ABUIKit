@@ -47,9 +47,16 @@
 }
 
 - (void)cbButtonAction {
+    [self.delegate codeinputOnSendCode:self];    
+}
+
+- (void)start {
     [self.cbButton startCountDownWithSecond:self.downCount];
 }
 
+- (NSString *)text{
+    return self.textField.text;
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];

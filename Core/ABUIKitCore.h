@@ -29,5 +29,5 @@
 #import "ABUIPopUp.h"
 #import "ABUITips.h"
 #import "ABUIAnimateBanner.h"
-
+#import "ABUICheckBox.h"
 #endif /* ABUIKitCore_h */

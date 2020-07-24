@@ -3,4 +3,5 @@ target 'ABUIKit' do
   pod 'SDWebImage'
   pod 'MJRefresh'
   pod 'Toast'
+  pod 'PLMediaStreamingKit', '~>3.0.0'
 end

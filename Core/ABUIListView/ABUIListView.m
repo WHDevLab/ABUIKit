@@ -26,13 +26,19 @@ static void *contentSizeContext = &contentSizeContext;
     self = [super initWithFrame:frame];
     if (self) {
         self.dynamicContent = false;
+        self.startDirection = StatDirectionTop;
 //        self.dataList = [[NSArray alloc] init];
         self.backgroundColor = UIColor.clearColor;
         self.layout = [[UICollectionViewFlowLayout alloc] init];
         self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
 
-        self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
+        self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
         self.collectionView.alwaysBounceVertical = true;
+        if (@available(iOS 13.0, *)) {
+            [self.collectionView setAutomaticallyAdjustsScrollIndicatorInsets:false];
+        } else {
+            // Fallback on earlier versions
+        }
         if (@available(iOS 11.0, *)) {
             [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
         } else {
@@ -42,7 +48,6 @@ static void *contentSizeContext = &contentSizeContext;
         self.collectionView.dataSource = self;
         self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         self.collectionView.backgroundColor = UIColor.clearColor;
-        
         [self registerCollectionViewClass];
         [self listenCollectionViewContentSize];
     }
@@ -134,6 +139,7 @@ static void *contentSizeContext = &contentSizeContext;
         _dataList = dataList;
         [self.collectionView reloadData];
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             if ([self.delegate respondsToSelector:@selector(listViewDidReload:)]) {
                 [self.delegate listViewDidReload:self];
             }
@@ -150,6 +156,15 @@ static void *contentSizeContext = &contentSizeContext;
     }
     [self.collectionView reloadData];
     dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.startDirection == StatDirectionRight) {
+            UIEdgeInsets inserts = self.collectionView.contentInset;
+            CGFloat cha = self.collectionView.frame.size.width-self.collectionView.contentSize.width;
+            if (cha <= 0) {
+                cha = 0;
+            }
+            inserts.left = cha;
+            self.collectionView.contentInset = inserts;
+        }
         if ([self.delegate respondsToSelector:@selector(listViewDidReload:)]) {
             [self.delegate listViewDidReload:self];
         }
@@ -237,7 +252,6 @@ static void *contentSizeContext = &contentSizeContext;
     UIEdgeInsets edgeInserts = self.collectionView.contentInset;
     edgeInserts.bottom = footerView.frame.size.height;
     self.collectionView.contentInset = edgeInserts;
-
     
     CGRect f = footerView.frame;
     f.origin.y = self.collectionView.frame.size.height;
@@ -358,6 +372,13 @@ static void *contentSizeContext = &contentSizeContext;
     return CGSizeMake(w, h);
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listViewDidScrollToBottom:)]) {
+        if ([self isInBottom]) {
+             [self.delegate listViewDidScrollToBottom:self];
+        }
+    }
+}
 
 #pragma mark ------- other method -------
 - (void)corner:(UIRectCorner)corners radii:(CGFloat)radii v:(UIView *)v {
@@ -384,4 +405,17 @@ static void *contentSizeContext = &contentSizeContext;
     [self.collectionView setContentOffset:CGPointMake(0, y) animated:animated];
 }
 
+- (BOOL)isInBottom {
+    CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height+self.collectionView.contentInset.bottom;
+    if (y-self.collectionView.contentOffset.y < 50) {
+        return true;
+    }
+    return false;
+}
+
+- (void)adapterSafeArea {
+    UIEdgeInsets inserts = self.collectionView.contentInset;
+    inserts.bottom = inserts.bottom+34;
+    self.collectionView.contentInset = inserts;
+}
 @end

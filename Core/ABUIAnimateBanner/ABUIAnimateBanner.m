@@ -70,7 +70,7 @@
         }];
         //第二个关键帧:从50%时间开始持续25%的时间，也就是5.0*0.25=1.25秒
         [UIView addKeyframeWithRelativeStartTime:0.1 relativeDuration:0.85 animations:^{
-            raw.left = 20;
+            raw.left = 10;
         }];
         //第三个关键帧:从75%时间开始持续25%的时间，也就是5.0*0.25=1.25秒
         [UIView addKeyframeWithRelativeStartTime:0.95 relativeDuration:0.05 animations:^{

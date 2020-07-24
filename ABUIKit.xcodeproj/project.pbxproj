@@ -50,6 +50,8 @@
 		F16CBB1424ADB13B00CA6C18 /* ABUICodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1324ADB13B00CA6C18 /* ABUICodeInput.m */; };
 		F16CBB1724ADE3D300CA6C18 /* ABUIPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */; };
 		F16CBB1A24ADE7D700CA6C18 /* NSArray+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1924ADE7D700CA6C18 /* NSArray+AB.m */; };
+		F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88424C59F92003A6031 /* ABUICheckBox.m */; };
+		F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +145,10 @@
 		F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIPopUp.m; sourceTree = "<group>"; };
 		F16CBB1824ADE7D700CA6C18 /* NSArray+AB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+AB.h"; sourceTree = "<group>"; };
 		F16CBB1924ADE7D700CA6C18 /* NSArray+AB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AB.m"; sourceTree = "<group>"; };
+		F1A4D88324C59F92003A6031 /* ABUICheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUICheckBox.h; sourceTree = "<group>"; };
+		F1A4D88424C59F92003A6031 /* ABUICheckBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUICheckBox.m; sourceTree = "<group>"; };
+		F1A4D88C24C6C2F7003A6031 /* ABUICollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUICollectionView.h; sourceTree = "<group>"; };
+		F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUICollectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +289,10 @@
 				F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */,
 				F154722D24C1427200BC6457 /* ABUITips.h */,
 				F154722E24C1427200BC6457 /* ABUITips.m */,
+				F1A4D88324C59F92003A6031 /* ABUICheckBox.h */,
+				F1A4D88424C59F92003A6031 /* ABUICheckBox.m */,
+				F1A4D88C24C6C2F7003A6031 /* ABUICollectionView.h */,
+				F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -471,11 +481,13 @@
 				F14C363824760FDC0060D435 /* UILabel+AB.m in Sources */,
 				F11F7C3B24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m in Sources */,
 				F14C363424760FDC0060D435 /* ABUIScrollView.m in Sources */,
+				F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */,
 				F11F7C3824BFF69500DB96B3 /* ABUIAnimateBanner.m in Sources */,
 				F14C35E224760B750060D435 /* AppDelegate.m in Sources */,
 				F14C362D24760FDC0060D435 /* ABUITabBarController.m in Sources */,
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
+				F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */,
 				F14C363C24760FDC0060D435 /* UIImage+AB.m in Sources */,
 				F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */,
 				F14C362C24760FDC0060D435 /* ABUINavigationController.m in Sources */,
