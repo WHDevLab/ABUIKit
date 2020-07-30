@@ -68,6 +68,7 @@ typedef enum : NSUInteger {
 - (void)endPullRefreshing;
 
 - (void)adapterSafeArea;
+- (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 NS_ASSUME_NONNULL_END

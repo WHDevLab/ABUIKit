@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (AB)
 - (NSString *)toJSONString;
+- (NSString *)stringValueForKey:(NSString *)key;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ABUITips : NSObject
 + (void)showSucceed:(NSString *)text;
 + (void)showError:(NSString *)text;
-
++ (void)showLoading;
++ (void)hideLoading;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIListViewMapping : NSObject
-@property (nonatomic, strong) NSDictionary *mapping;
+@property (nonatomic, strong) NSMutableDictionary *mapping;
 + (ABUIListViewMapping *)shared;
+- (void)registerClassString:(NSString *)classString native_id:(NSString *)native_id;
 - (NSString *)classString:(NSString *)native_id;
 @end
 

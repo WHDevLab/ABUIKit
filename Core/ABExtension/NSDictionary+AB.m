@@ -28,4 +28,8 @@
     return mutStr;
 }
 
+- (NSString *)stringValueForKey:(NSString *)key {
+    return [NSString stringWithFormat:@"%@", self[key]];
+}
+
 @end

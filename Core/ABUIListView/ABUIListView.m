@@ -40,6 +40,7 @@ static void *contentSizeContext = &contentSizeContext;
             // Fallback on earlier versions
         }
         if (@available(iOS 11.0, *)) {
+            self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
             [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
         } else {
             // Fallback on earlier versions
@@ -331,13 +332,17 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     if ([self.delegate respondsToSelector:@selector(listView:sizeForItemAtIndexPath:)]) {
         return [self.delegate listView:self sizeForItemAtIndexPath:indexPath];
     }
     
     CGFloat w = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.width" df:collectionView.frame.size.width];
     CGFloat h = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.height" df:44];
+    NSArray *items = self.dataList[indexPath.section][@"items"];
+    NSDictionary *item = items[indexPath.row];
+    if ([item[@"item.size.height"] floatValue] > 0) {
+        h = [item[@"item.size.height"] floatValue];
+    }
     return CGSizeMake(floor(w), h);
 }
 
@@ -394,6 +399,11 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (void)reloadData {
     [self.collectionView reloadData];
+//    [UIView animateWithDuration:0 animations:^{
+//        [UICollectionView performBatchUpdates:^{
+//            [self.collectionView reloadData];
+//        } completion:nil];
+//    }];
 }
 
 - (void)layoutSubviews {
@@ -418,5 +428,9 @@ static void *contentSizeContext = &contentSizeContext;
     UIEdgeInsets inserts = self.collectionView.contentInset;
     inserts.bottom = inserts.bottom+34;
     self.collectionView.contentInset = inserts;
+}
+
+- (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.collectionView cellForItemAtIndexPath:indexPath];
 }
 @end

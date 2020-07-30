@@ -17,4 +17,11 @@
      [[UIApplication sharedApplication].keyWindow makeToast:text duration:1 position:CSToastPositionCenter];
 }
 
++ (void)showLoading {
+    [[UIApplication sharedApplication].keyWindow makeToastActivity:CSToastPositionCenter];
+}
+
++ (void)hideLoading {
+    [[UIApplication sharedApplication].keyWindow hideToastActivity];
+}
 @end

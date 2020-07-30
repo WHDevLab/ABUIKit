@@ -50,18 +50,18 @@
     }
 }
 
-- (void)loadWebWithURL:(NSURL *)url {
+- (void)loadWebWithPath:(NSString *)path {
     self.progressView.width = 0;
-    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
-    
-    if ([url.absoluteString hasPrefix:@"http"]) {
+
+    if ([path hasPrefix:@"http"]) {
+        NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
         [self.webView loadRequest:req];
     }else{
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"web" ofType:@"html"];
-        NSString *indexContent = [NSString stringWithContentsOfFile:path encoding: NSUTF8StringEncoding error:nil];
-        [self.webView loadHTMLString:indexContent baseURL:nil];
+        NSString *pp = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+        NSString *indexContent = [NSString stringWithContentsOfFile:pp encoding: NSUTF8StringEncoding error:nil];
+        NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]];
+        [self.webView loadHTMLString:indexContent baseURL:baseURL];
     }
-    
 }
 
 - (void)callFuncName:(NSString *)funcName data:(NSString *)data completionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler {
@@ -129,7 +129,10 @@
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
-
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.webView.frame = self.bounds;
+}
 
 - (void)dealloc
 {

@@ -13,15 +13,29 @@
 @end
 @implementation ABUIListViewCell
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.clipsToBounds = true;
+    }
+    return self;
+}
+
 - (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(nonnull NSString *)clsStr{
     if (clsStr == nil) {
         NSLog(@"classString is empty");
         return;
     }
-    if (clsStr != [[self.mainView class] description]) {
-        [self.mainView removeFromSuperview];
-        self.mainView = nil;
+
+    if (self.mainView != nil) {
+        NSString *curClsStr = [[self.mainView class] description];
+        if (![clsStr isEqualToString:curClsStr]) {
+            [self.mainView removeFromSuperview];
+            self.mainView = nil;
+        }
     }
+    
     if (self.mainView == nil) {
         self.mainView = [(UIView *)[NSClassFromString(clsStr) alloc] initWithFrame:self.bounds];
         if ([self.mainView conformsToProtocol:@protocol(ABUIListItemViewProtocol)]) {

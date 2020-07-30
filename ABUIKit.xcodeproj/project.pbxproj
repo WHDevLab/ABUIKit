@@ -13,6 +13,7 @@
 		F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682FF24A1B432004DD6B8 /* ABUIBorderLabel.m */; };
 		F11F7C3824BFF69500DB96B3 /* ABUIAnimateBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C3724BFF69500DB96B3 /* ABUIAnimateBanner.m */; };
 		F11F7C3B24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C3A24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m */; };
+		F121926724D16AD900630CA2 /* ABUIInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = F121926624D16AD900630CA2 /* ABUIInputView.m */; };
 		F142507D249AFCBC003E83D8 /* ABUIListViewCSS.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */; };
 		F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507F249B0A97003E83D8 /* ABUIWebView.m */; };
 		F1425089249B2022003E83D8 /* web.html in Resources */ = {isa = PBXBuildFile; fileRef = F1425088249B2022003E83D8 /* web.html */; };
@@ -69,6 +70,8 @@
 		F11F7C3724BFF69500DB96B3 /* ABUIAnimateBanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIAnimateBanner.m; sourceTree = "<group>"; };
 		F11F7C3924BFF98B00DB96B3 /* ABUIAnimateBannerRaw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIAnimateBannerRaw.h; sourceTree = "<group>"; };
 		F11F7C3A24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIAnimateBannerRaw.m; sourceTree = "<group>"; };
+		F121926524D16AD900630CA2 /* ABUIInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIInputView.h; sourceTree = "<group>"; };
+		F121926624D16AD900630CA2 /* ABUIInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIInputView.m; sourceTree = "<group>"; };
 		F142507B249AFCBC003E83D8 /* ABUIListViewCSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewCSS.h; sourceTree = "<group>"; };
 		F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewCSS.m; sourceTree = "<group>"; };
 		F142507E249B0A97003E83D8 /* ABUIWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIWebView.h; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				F1A4D88424C59F92003A6031 /* ABUICheckBox.m */,
 				F1A4D88C24C6C2F7003A6031 /* ABUICollectionView.h */,
 				F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */,
+				F121926524D16AD900630CA2 /* ABUIInputView.h */,
+				F121926624D16AD900630CA2 /* ABUIInputView.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -488,6 +493,7 @@
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
 				F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */,
+				F121926724D16AD900630CA2 /* ABUIInputView.m in Sources */,
 				F14C363C24760FDC0060D435 /* UIImage+AB.m in Sources */,
 				F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */,
 				F14C362C24760FDC0060D435 /* ABUINavigationController.m in Sources */,

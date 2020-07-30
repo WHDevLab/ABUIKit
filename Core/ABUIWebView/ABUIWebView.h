@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<ABUIWebViewDelegate> delegate;
 @property (nonatomic, strong) NSString *bridgeMethod;
 
-- (void)loadWebWithURL:(NSURL *)url;
+- (void)loadWebWithPath:(NSString *)path;
 
 - (void)callFuncName:(NSString *)funcName data:(NSString *)data completionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler;
 
