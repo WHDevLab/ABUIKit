@@ -32,4 +32,28 @@
     return [NSString stringWithFormat:@"%@", self[key]];
 }
 
+- (NSString *)stringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue {
+    if (self[key] == nil) {
+        return defaultValue;
+    }
+    return [self stringValueForKey:key];
+}
+
+- (id)svf:(NSString *)key dv:(id)dv {
+    if (self[key] == nil) {
+        return dv;
+    }
+    return self[key];
+}
+
+- (id)valueInKeys:(NSArray *)keys {
+    for (NSString *key in keys) {
+        if (self[key] != nil) {
+            return self[key];
+        }
+    }
+    
+    return @"";
+}
+
 @end

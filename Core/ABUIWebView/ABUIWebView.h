@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 @class ABUIWebView;
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIWebView : UIView
 @property (nonatomic, weak) id<ABUIWebViewDelegate> delegate;
+@property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, assign) BOOL bounces;
 @property (nonatomic, strong) NSString *bridgeMethod;
+@property (nonatomic, assign) BOOL adapterSize;
 
 - (void)loadWebWithPath:(NSString *)path;
 

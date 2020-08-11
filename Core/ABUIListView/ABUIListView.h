@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ABUIListViewCSS.h"
 #import "ABUICollectionView.h"
+#import "ABUIListViewMapping.h"
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
@@ -30,6 +31,7 @@ typedef enum : NSUInteger {
 
 - (void)listView:(ABUIListView *)listView onContentSizeChanged:(CGSize)contentSize;
 - (void)listViewOnHeaderPullRefresh:(ABUIListView *)listView;
+- (void)listViewOnLoadMore:(ABUIListView *)listView;
 - (void)listViewDidReload:(ABUIListView *)listView;
 - (void)listViewDidScrollToBottom:(ABUIListView *)listView;
 @end
@@ -47,6 +49,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) ABUICollectionView *collectionView;
 @property (nonatomic, assign) BOOL dynamicContent;
 @property (nonatomic, assign) StatDirection startDirection;
+
+/// 刷新状态
+@property (nonatomic, assign) BOOL isPullRefreshing;
+@property (nonatomic, assign) BOOL isLoadMoreing;
+///
 /// 禁止滚动
 @property(nonatomic) BOOL bounces;
 /// 头视图
@@ -67,6 +74,11 @@ typedef enum : NSUInteger {
 - (void)beginPullRefreshing;
 - (void)endPullRefreshing;
 
+- (void)setupLoadMore;
+//- (void)beginPullRefreshing;
+- (void)endLoadMore;
+- (void)noMoreData;
+- (void)resetNoMoreData;
 - (void)adapterSafeArea;
 - (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath;
 @end

@@ -13,17 +13,9 @@
 @end
 @implementation ABUIListViewCell
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.clipsToBounds = true;
-    }
-    return self;
-}
-
 - (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(nonnull NSString *)clsStr{
     if (clsStr == nil) {
+        NSLog(@"%@", item);
         NSLog(@"classString is empty");
         return;
     }

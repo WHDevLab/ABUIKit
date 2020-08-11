@@ -349,7 +349,4 @@ return nil; \
 return self; \
 }
 
-#define GRADIENTCOLORS @[(__bridge id)[UIColor colorWithRed:255/255.0 green:36/255.0 blue:152/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:255/255.0 green:150/255.0 blue:43/255.0 alpha:1.0].CGColor]
-
-
 #endif /* ABDefines_h */

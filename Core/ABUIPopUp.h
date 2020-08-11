@@ -15,12 +15,15 @@ typedef enum : NSUInteger {
     ABPopUpDirectionBottom,
 } ABPopUpDirection;
 
+typedef void (^ABUIPopupBlock)();
+
 @interface ABUIPopUp : NSObject
 @property (nonatomic, assign) CGFloat distance;
 
 + (ABUIPopUp *)shared;
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction;
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance;
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance hideBlock:(ABUIPopupBlock)hideBlock;
 - (void)remove;
 - (void)remove:(CGFloat)duration;
 @end

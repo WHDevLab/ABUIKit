@@ -7,10 +7,10 @@
 //
 
 #import "ABUIWebView.h"
-#import <WebKit/WebKit.h>
+
 #import "UIView+AB.h"
 @interface ABUIWebView ()<WKNavigationDelegate, WKScriptMessageHandler>
-@property (nonatomic, strong) WKWebView *webView;
+
 @property (nonatomic,strong)  UIView *progressView;
 @end
 @implementation ABUIWebView
@@ -36,6 +36,7 @@
         //TODO:kvo监听，获得页面title和加载进度值
         [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
         [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
+//        [self.webView addObserver:self forKeyPath:@"scrollView.contentSize" options:NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
 }
@@ -48,6 +49,11 @@
             }
         }
     }
+}
+
+- (void)setBounces:(BOOL)bounces {
+    _bounces = bounces;
+    self.webView.scrollView.bounces = bounces;
 }
 
 - (void)loadWebWithPath:(NSString *)path {
@@ -70,7 +76,8 @@
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    
+    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitUserSelect='none';" completionHandler:nil];
+    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitTouchCallout='none';" completionHandler:nil];
 }
 
 //WKWeView在每次加载请求前会调用此方法来确认是否进行请求跳转
@@ -124,6 +131,11 @@
             [self.delegate abwebview:self onTitleLoaded:self.webView.title];
         }
     }
+    else if ([keyPath isEqualToString:@"scrollView.contentSize"]) {
+//        NSLog(self.webView.scrollView.contentSize);
+//        self.width = self.webView.scrollView.contentSize.width;
+//        self.height = self.webView.scrollView.contentSize.height;
+    }
     else
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -138,6 +150,7 @@
 {
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
     [self.webView removeObserver:self forKeyPath:@"title"];
+//    [self.webView removeObserver:self forKeyPath:@"scrollView.contentSize"];
 }
 
 @end

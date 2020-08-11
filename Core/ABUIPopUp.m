@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UIControl *cover;
 @property (nonatomic, strong) UIView *containView;
 @property (nonatomic, assign) ABPopUpDirection direction;
+@property (nonatomic, strong) ABUIPopupBlock block;
 @end
 @implementation ABUIPopUp
 + (ABUIPopUp *)shared {
@@ -25,6 +26,11 @@
 
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction {
     [self show:v from:direction distance:0];
+}
+
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance hideBlock:(nonnull ABUIPopupBlock)hideBlock {
+    self.block = hideBlock;
+    [self show:v from:direction distance:distance];
 }
 
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance {
@@ -56,6 +62,9 @@
 }
 
 - (void)_animateHidden:(CGFloat)duration {
+    if (self.block != nil) {
+        self.block();
+    }
     if (duration == 0) {
         self.cover.alpha = 0;
         self.containView.top = [UIScreen mainScreen].bounds.size.height;
@@ -71,6 +80,7 @@
         self.containView.top = [UIScreen mainScreen].bounds.size.height;
     } completion:^(BOOL finished) {
         [self.cover removeFromSuperview];
+        [self.containView removeFromSuperview];
         self.containView = nil;
         self.cover = nil;
     }];

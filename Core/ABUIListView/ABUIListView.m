@@ -60,6 +60,9 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (void)onPullRefresh {
+    self.isPullRefreshing = true;
+    [self.collectionView.mj_footer resetNoMoreData];
+    [self.collectionView.mj_footer setHidden:false];
     if (self.delegate && [self.delegate respondsToSelector:@selector(listViewOnHeaderPullRefresh:)]) {
         [self.delegate listViewOnHeaderPullRefresh:self];
     }
@@ -69,7 +72,34 @@ static void *contentSizeContext = &contentSizeContext;
     [self.collectionView.mj_header beginRefreshing];
 }
 - (void)endPullRefreshing {
+    self.isPullRefreshing = false;
     [self.collectionView.mj_header endRefreshing];
+}
+
+- (void)setupLoadMore {
+    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(onLoadMore)];
+}
+
+- (void)onLoadMore {
+    self.isLoadMoreing = true;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listViewOnLoadMore:)]) {
+        [self.delegate listViewOnLoadMore:self];
+    }
+}
+
+- (void)endLoadMore {
+    self.isLoadMoreing = false;
+    [self.collectionView.mj_footer endRefreshing];
+}
+
+- (void)noMoreData {
+    [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+    [self.collectionView.mj_footer setHidden:true];
+}
+
+- (void)resetNoMoreData {
+    [self.collectionView.mj_footer resetNoMoreData];
+    [self.collectionView.mj_footer setHidden:false];
 }
 
 - (void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection {

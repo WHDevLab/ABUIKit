@@ -18,6 +18,15 @@
     return instance;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.mapping = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 - (void)registerClassString:(NSString *)classString native_id:(NSString *)native_id {
     
 }
