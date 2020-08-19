@@ -280,7 +280,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 // 工具栏（UINavigationController.UIToolbar）高度
 #define TOOLBAR_HEIGHT                              44
 
-
+#define SAFEHEIGHT     IS_iPhoneX?34:0
 
 // 标签栏（UITabBarController.UITabBar）高度
 #define TABBAR_HEIGHT                              (IS_iPhoneX?83:49)

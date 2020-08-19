@@ -33,6 +33,19 @@
     [self show:v from:direction distance:distance];
 }
 
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance hideBlock:(nonnull ABUIPopupBlock)hideBlock showBlock:(nonnull ABUIPopupBlock)showBlock {
+    self.block = hideBlock;
+    showBlock();
+    [self show:v from:direction distance:distance];
+}
+
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction duration:(NSInteger)duration distance:(CGFloat)distance hideBlock:(nonnull ABUIPopupBlock)hideBlock showBlock:(nonnull ABUIPopupBlock)showBlock {
+    [self performSelector:@selector(remove) withObject:nil afterDelay:duration];
+    self.block = hideBlock;
+    showBlock();
+    [self show:v from:direction distance:distance];
+}
+
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance {
     self.distance = distance;
     self.direction = direction;
@@ -43,6 +56,7 @@
 }
 
 - (void)_animateShow {
+   
     CGFloat top = self.distance;
     if (self.direction == ABPopUpDirectionBottom) {
         top = [UIScreen mainScreen].bounds.size.height-self.containView.height-self.distance;
@@ -62,12 +76,14 @@
 }
 
 - (void)_animateHidden:(CGFloat)duration {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     if (self.block != nil) {
         self.block();
     }
     if (duration == 0) {
         self.cover.alpha = 0;
         self.containView.top = [UIScreen mainScreen].bounds.size.height;
+        [self.containView removeFromSuperview];
         [self.cover removeFromSuperview];
         self.containView = nil;
         self.cover = nil;

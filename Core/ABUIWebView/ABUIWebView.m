@@ -7,12 +7,20 @@
 //
 
 #import "ABUIWebView.h"
-
 #import "UIView+AB.h"
-@interface ABUIWebView ()<WKNavigationDelegate, WKScriptMessageHandler>
 
-@property (nonatomic,strong)  UIView *progressView;
+@implementation ABUIWebViewScript
+
+
 @end
+
+@interface ABUIWebView ()<WKNavigationDelegate, WKScriptMessageHandler>
+@property (nonatomic, strong)  WKWebViewConfiguration *configuration;
+@property (nonatomic, strong)  UIView *progressView;
+@property (nonatomic, strong) NSMutableArray *scriptQuene;
+@property (nonatomic, assign) BOOL isLoaded;
+@end
+
 @implementation ABUIWebView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -21,11 +29,14 @@
     if (self) {
         
         self.bridgeMethod = @"bridge";
+        self.isLoaded = false;
         
-        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-        [configuration.userContentController addScriptMessageHandler:self name:self.bridgeMethod];
+        self.scriptQuene = [[NSMutableArray alloc] init];
         
-        self.webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:configuration];
+        _configuration = [[WKWebViewConfiguration alloc] init];
+        [_configuration.userContentController addScriptMessageHandler:self name:self.bridgeMethod];
+        
+        self.webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:_configuration];
         self.webView.navigationDelegate = self;
         [self addSubview:self.webView];
         
@@ -43,6 +54,7 @@
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     if (message.name == self.bridgeMethod) {
+        NSLog(@"didReceiveScriptMessage:%@", message.body);
         if (self.delegate && [self.delegate respondsToSelector:@selector(abwebview:onReceiveMessage:)]) {
             if ([message.body isKindOfClass:[NSDictionary class]]) {
                 [self.delegate abwebview:self onReceiveMessage:(NSDictionary *)message.body];
@@ -54,13 +66,16 @@
 - (void)setBounces:(BOOL)bounces {
     _bounces = bounces;
     self.webView.scrollView.bounces = bounces;
+    self.webView.scrollView.showsVerticalScrollIndicator = false;
+    self.webView.scrollView.showsHorizontalScrollIndicator = false;
 }
 
 - (void)loadWebWithPath:(NSString *)path {
+    self.isLoaded = false;
     self.progressView.width = 0;
 
     if ([path hasPrefix:@"http"]) {
-        NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
+        NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
         [self.webView loadRequest:req];
     }else{
         NSString *pp = [[NSBundle mainBundle] pathForResource:path ofType:nil];
@@ -72,12 +87,30 @@
 
 - (void)callFuncName:(NSString *)funcName data:(NSString *)data completionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler {
     NSString *script = [NSString stringWithFormat:@"%@('%@')", funcName, data];
-    [self.webView evaluateJavaScript:script completionHandler:completionHandler];
+    if (self.isLoaded) {
+        [self.webView evaluateJavaScript:script completionHandler:completionHandler];
+    }else{
+        ABUIWebViewScript *sc = [[ABUIWebViewScript alloc] init];
+        sc.script = script;
+        sc.completionHandler = completionHandler;
+        [self.scriptQuene addObject:sc];
+    }
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    self.isLoaded = true;
     [self.webView evaluateJavaScript:@"document.documentElement.style.webkitUserSelect='none';" completionHandler:nil];
     [self.webView evaluateJavaScript:@"document.documentElement.style.webkitTouchCallout='none';" completionHandler:nil];
+    [self.webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.background='rgba(0,0,0,0)'" completionHandler:nil];
+    [self _runScriptQueue];
+}
+
+- (void)_runScriptQueue {
+    for (ABUIWebViewScript *script in self.scriptQuene) {
+        [self.webView evaluateJavaScript:script.script completionHandler:script.completionHandler];
+    }
+    
+    [self.scriptQuene removeAllObjects];
 }
 
 //WKWeView在每次加载请求前会调用此方法来确认是否进行请求跳转
@@ -151,6 +184,7 @@
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
     [self.webView removeObserver:self forKeyPath:@"title"];
 //    [self.webView removeObserver:self forKeyPath:@"scrollView.contentSize"];
+//    [_configuration.userContentController removeScriptMessageHandlerForName:self._bridgeMethod];
 }
 
 @end

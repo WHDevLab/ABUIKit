@@ -24,6 +24,8 @@ typedef void (^ABUIPopupBlock)();
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction;
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance;
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance hideBlock:(ABUIPopupBlock)hideBlock;
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance hideBlock:(ABUIPopupBlock)hideBlock showBlock:(ABUIPopupBlock)showBlock;
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction duration:(NSInteger)duration distance:(CGFloat)distance hideBlock:(nonnull ABUIPopupBlock)hideBlock showBlock:(nonnull ABUIPopupBlock)showBlock;
 - (void)remove;
 - (void)remove:(CGFloat)duration;
 @end

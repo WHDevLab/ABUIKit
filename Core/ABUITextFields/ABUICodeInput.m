@@ -28,7 +28,7 @@
         self.textField.font = [UIFont systemFontOfSize:12];
         
         self.cbButton = [[ABCountDownButton alloc] initWithFrame:CGRectMake(0, 0, 84, 34)];
-        [self.cbButton setBackgroundColor:[UIColor hexColor:@"3dc2d5"]];
+        [self.cbButton setBackgroundColor:[UIColor hexColor:@"FF2B2B"]];
         [self.cbButton setTitle:@"获取验证码" forState:UIControlStateNormal];
         self.cbButton.titleLabel.font = [UIFont systemFontOfSize:11];
         self.cbButton.layer.cornerRadius = 34/2;

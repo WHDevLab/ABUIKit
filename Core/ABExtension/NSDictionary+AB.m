@@ -26,6 +26,14 @@
     //去掉字符串中的换行符
     [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
     return mutStr;
+//    NSError *error;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
+//    if (error) {
+//        NSLog(@"json解析失败:%@", error);
+//        return nil;
+//    }
+//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    return jsonString;
 }
 
 - (NSString *)stringValueForKey:(NSString *)key {

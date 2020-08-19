@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
+
+//(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler
+typedef void (^ABUIWebViewScriptBlock)(_Nullable id, NSError * _Nullable error);
+
 @class ABUIWebView;
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)abwebview:(ABUIWebView *)abwebview onTitleLoaded:(NSString *)string;
 - (void)abwebview:(ABUIWebView *)abwebview onLoadedProgress:(CGFloat)progress;
 - (void)abwebview:(ABUIWebView *)abwebview onReceiveMessage:(NSDictionary *)message;
+@end
+
+@interface ABUIWebViewScript : NSObject
+@property (nonatomic, strong) NSString *script;
+@property (nonatomic, assign) ABUIWebViewScriptBlock completionHandler;
+
 @end
 
 @interface ABUIWebView : UIView
