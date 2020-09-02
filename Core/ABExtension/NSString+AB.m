@@ -81,4 +81,11 @@
     }
     return dic;
 }
+
+- (NSString *)trimmingNewLineAndWhiteSpace {
+    NSString *content = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//    content = [content stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    return content;
+}
+
 @end

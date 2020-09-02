@@ -31,6 +31,7 @@ static void *contentSizeContext = &contentSizeContext;
         self.backgroundColor = UIColor.clearColor;
         self.layout = [[UICollectionViewFlowLayout alloc] init];
         self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.layout.estimatedItemSize = CGSizeZero;
 
         self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
         self.collectionView.alwaysBounceVertical = true;
@@ -204,6 +205,7 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule {
     if (cssModule == nil) {
+        NSLog(@"ABUIListView set cssModule is nil, please check");
         return;
     }
     NSDictionary *css = @{
@@ -441,6 +443,10 @@ static void *contentSizeContext = &contentSizeContext;
     self.collectionView.frame = self.bounds;
 }
 
+- (void)scrollToTop:(BOOL)animated {
+    [self.collectionView setContentOffset:CGPointMake(0, 0) animated:animated];
+}
+
 - (void)scrollToBottom:(BOOL)animated {
     CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height+self.collectionView.contentInset.bottom;
     [self.collectionView setContentOffset:CGPointMake(0, y) animated:animated];
@@ -462,5 +468,9 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath {
     return [self.collectionView cellForItemAtIndexPath:indexPath];
+}
+
+- (BOOL)isEmpty {
+    return self.dataList.count == 0;
 }
 @end

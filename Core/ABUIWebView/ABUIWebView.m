@@ -179,12 +179,15 @@
     self.webView.frame = self.bounds;
 }
 
-- (void)dealloc
-{
+- (void)free {
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
     [self.webView removeObserver:self forKeyPath:@"title"];
-//    [self.webView removeObserver:self forKeyPath:@"scrollView.contentSize"];
-//    [_configuration.userContentController removeScriptMessageHandlerForName:self._bridgeMethod];
+    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:self.bridgeMethod];
+}
+
+- (void)dealloc
+{
+
 }
 
 @end

@@ -69,6 +69,7 @@ typedef enum : NSUInteger {
 - (void)setTempleteDataList:(NSArray *)dataList;
 - (void)reloadData;
 - (void)scrollToBottom:(BOOL)animated;
+- (void)scrollToTop:(BOOL)animated;
 - (BOOL)isInBottom;
 - (void)setupPullRefresh;
 - (void)beginPullRefreshing;
@@ -81,6 +82,7 @@ typedef enum : NSUInteger {
 - (void)resetNoMoreData;
 - (void)adapterSafeArea;
 - (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)isEmpty;
 @end
 
 NS_ASSUME_NONNULL_END

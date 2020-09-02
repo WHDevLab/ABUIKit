@@ -36,7 +36,7 @@
         [self.cbButton addTarget:self action:@selector(cbButtonAction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.cbButton];
         
-        self.downCount = 30;
+        self.downCount = 60;
     }
     return self;
 }

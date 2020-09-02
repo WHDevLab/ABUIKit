@@ -24,6 +24,11 @@
     return instance;
 }
 
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction duration:(NSInteger)duration {
+    [self performSelector:@selector(remove) withObject:nil afterDelay:duration];
+    [self show:v from:direction distance:0];
+}
+
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction {
     [self show:v from:direction distance:0];
 }
@@ -47,12 +52,14 @@
 }
 
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance {
-    self.distance = distance;
-    self.direction = direction;
-    [self _showCover];
-    self.containView = v;
-    [[UIApplication sharedApplication].keyWindow addSubview:v];
-    [self _animateShow];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.distance = distance;
+        self.direction = direction;
+        [self _showCover];
+        self.containView = v;
+        [[UIApplication sharedApplication].keyWindow addSubview:v];
+        [self _animateShow];
+    });
 }
 
 - (void)_animateShow {
