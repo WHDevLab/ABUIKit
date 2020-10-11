@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "WebViewController.h"
+#import "ABUIWebViewController.h"
 #import "ABUITextField.h"
 #import "UIColor+AB.h"
 #import "ABUICodeInput.h"
@@ -55,7 +55,7 @@
 
 
 - (void)gotoWeb {
-    WebViewController *vc = [[WebViewController alloc] init];
+    ABUIWebViewController *vc = [[ABUIWebViewController alloc] init];
     [self.navigationController pushViewController:vc animated:true];
 }
 

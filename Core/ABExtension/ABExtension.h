@@ -18,5 +18,6 @@
 #import "UIColor+AB.h"
 #import "NSString+AB.h"
 #import "NSDictionary+AB.h"
+#import "UIFont+AB.h"
 
 #endif /* ABExtension_h */

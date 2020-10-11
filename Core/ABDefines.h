@@ -280,7 +280,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 // 工具栏（UINavigationController.UIToolbar）高度
 #define TOOLBAR_HEIGHT                              44
 
-#define SAFEHEIGHT     IS_iPhoneX?34:0
+#define SAFEHEIGHT     (IS_iPhoneX?34:0)
 
 // 标签栏（UITabBarController.UITabBar）高度
 #define TABBAR_HEIGHT                              (IS_iPhoneX?83:49)
@@ -312,6 +312,8 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 //无线网络
 #define WWAN                             @"WWAN"
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
 //单例化一个类
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
 \

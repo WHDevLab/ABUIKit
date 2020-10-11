@@ -12,11 +12,14 @@
 //#import "UIView+AB.h"
 #import "ABUIListViewMapping.h"
 #import <MJRefresh/MJRefresh.h>
+#import "ABUIListViewFlowLayout.h"
+#import "ABUITips.h"
 static void *contentSizeContext = &contentSizeContext;
 @interface ABUIListView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *dataList;
+@property (nonatomic, strong) NSDictionary *fRules; ///验证表单使用
 @property (nonatomic, strong) NSDictionary *css;
-@property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+@property (nonatomic, strong) ABUIListViewFlowLayout *layout;
 @end
 
 @implementation ABUIListView
@@ -25,14 +28,16 @@ static void *contentSizeContext = &contentSizeContext;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.runData = [[NSMutableDictionary alloc] init];
+        
         self.dynamicContent = false;
         self.startDirection = StatDirectionTop;
 //        self.dataList = [[NSArray alloc] init];
         self.backgroundColor = UIColor.clearColor;
-        self.layout = [[UICollectionViewFlowLayout alloc] init];
+        self.layout = [[ABUIListViewFlowLayout alloc] init];
         self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.layout.estimatedItemSize = CGSizeZero;
-
+        
         self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
         self.collectionView.alwaysBounceVertical = true;
         if (@available(iOS 13.0, *)) {
@@ -226,6 +231,10 @@ static void *contentSizeContext = &contentSizeContext;
     [self setDataList:dataList css:css];
 }
 
+- (void)setFormRules:(NSDictionary *)rules {
+    _fRules = rules;
+}
+
 - (void)setTempleteDataList:(NSArray *)dataList {
     _dataList = dataList;
     [self.collectionView reloadData];
@@ -309,12 +318,16 @@ static void *contentSizeContext = &contentSizeContext;
     NSDictionary *item = items[indexPath.row];
     NSDictionary *extDic = [[NSDictionary alloc] init];
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extraDataAtIndexPath:)]) {
-       extDic =  [self.dataSource listView:self extraDataAtIndexPath:indexPath];
+       extDic = [self.dataSource listView:self extraDataAtIndexPath:indexPath];
+    }
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extraDataAtIndexPath:item:)]) {
+       extDic = [self.dataSource listView:self extraDataAtIndexPath:indexPath item:item];
     }
     ABUIListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.indexPath = indexPath;
     cell.total = items.count;
     NSString *native_id = [[ABUIListViewMapping shared] classString:item[@"native_id"]];
+    cell.ppx = self;
     [cell reload:item extra:extDic clsStr:native_id];
     return cell;
 }
@@ -364,6 +377,7 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     if ([self.delegate respondsToSelector:@selector(listView:sizeForItemAtIndexPath:)]) {
         return [self.delegate listView:self sizeForItemAtIndexPath:indexPath];
     }
@@ -372,8 +386,16 @@ static void *contentSizeContext = &contentSizeContext;
     CGFloat h = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.height" df:44];
     NSArray *items = self.dataList[indexPath.section][@"items"];
     NSDictionary *item = items[indexPath.row];
+    
+    if ([self.delegate respondsToSelector:@selector(listView:sizeForItemAtIndexPath:item:)]) {
+        return [self.delegate listView:self sizeForItemAtIndexPath:indexPath item:item];
+    }
+    
     if ([item[@"item.size.height"] floatValue] > 0) {
         h = [item[@"item.size.height"] floatValue];
+    }
+    if ([item[@"item.size.width"] floatValue] > 0) {
+        w = [item[@"item.size.width"] floatValue];
     }
     return CGSizeMake(floor(w), h);
 }
@@ -385,11 +407,15 @@ static void *contentSizeContext = &contentSizeContext;
         view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
         NSDictionary *item = sectionDic[@"header"];
         NSDictionary *css = sectionDic[@"css"];
+        view.section = indexPath.section;
         view.backgroundColor = [self hexColor:css[@"header.backgroundColor"]];
+        view.ppx = self;
         [view reload:item clsStr:[[ABUIListViewMapping shared] classString:item[@"native_id"]]];
     }
     else {
         view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"footer" forIndexPath:indexPath];
+        view.ppx = self;
+        view.section = indexPath.section;
         NSDictionary *item = sectionDic[@"footer"];
         NSDictionary *css = sectionDic[@"css"];
         view.backgroundColor = [self hexColor:css[@"footer.backgroundColor"]];
@@ -441,6 +467,8 @@ static void *contentSizeContext = &contentSizeContext;
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.collectionView.frame = self.bounds;
+    CGRect rect = [self.collectionView convertRect:self.collectionView.frame toView:UIApplication.sharedApplication.keyWindow];
+    
 }
 
 - (void)scrollToTop:(BOOL)animated {
@@ -454,7 +482,7 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (BOOL)isInBottom {
     CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height+self.collectionView.contentInset.bottom;
-    if (y-self.collectionView.contentOffset.y < 50) {
+    if (y-self.collectionView.contentOffset.y < 100) {
         return true;
     }
     return false;
@@ -473,4 +501,32 @@ static void *contentSizeContext = &contentSizeContext;
 - (BOOL)isEmpty {
     return self.dataList.count == 0;
 }
+
+- (BOOL)checkForm {
+    BOOL isPass = true;
+    NSString *message = @"";
+    NSArray *itemKeys = self.fRuleKeys;
+    for (NSString *key in itemKeys) {
+        NSDictionary *rule = self.fRules[key][0];
+        NSString *vv = self.runData[key];
+        BOOL required = [rule[@"required"] boolValue];
+        if (required) {
+            if (vv == nil || vv.length == 0) {
+                message = rule[@"message"];
+                isPass = false;
+                break;
+            }
+        }
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listView:formCheckError:)]) {
+        [self.delegate listView:self formCheckError:message];
+    }
+    
+    [ABUITips showError:message];
+    
+    return isPass;
+
+}
+
 @end

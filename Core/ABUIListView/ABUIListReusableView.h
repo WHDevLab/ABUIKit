@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ABUIListView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIListReusableView : UICollectionReusableView
+@property (nonatomic, weak) ABUIListView *ppx;
+@property (nonatomic, assign) NSInteger section;
 - (void)reload:(NSDictionary *)item clsStr:(NSString *)clsStr;
 @end
 

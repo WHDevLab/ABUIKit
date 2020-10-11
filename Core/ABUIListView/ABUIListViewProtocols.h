@@ -8,7 +8,7 @@
 
 #ifndef ABUIListViewProtocols_h
 #define ABUIListViewProtocols_h
-
+#import "ABUIListView.h"
 @protocol ABUIListItemViewProtocol
 @optional
 //创建内容
@@ -20,6 +20,7 @@
 - (void)reload:(NSDictionary *)item extra:(NSDictionary *)extra indexPath:(NSIndexPath *)indexPath;
 - (void)setHighlighted:(BOOL)highlighted;
 
+- (id)userProvideData;
 @end
 
 #endif /* ABUIListViewProtocols_h */

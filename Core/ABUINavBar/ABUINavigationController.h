@@ -1,13 +1,13 @@
 //
 //  ABUINavigationController.h
-//  Demo
+//  ABUIKit
 //
-//  Created by qp on 2020/5/6.
-//  Copyright © 2020 ab. All rights reserved.
+//  Created by qp on 2020/9/24.
+//  Copyright © 2020 abteam. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ABUINavigationConfig.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUINavigationController : UINavigationController

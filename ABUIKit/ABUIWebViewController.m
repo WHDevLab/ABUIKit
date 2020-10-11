@@ -6,13 +6,13 @@
 //  Copyright © 2020 abteam. All rights reserved.
 //
 
-#import "WebViewController.h"
+#import "ABUIWebViewController.h"
 #import "ABUIWebView.h"
-@interface WebViewController ()<ABUIWebViewDelegate>
+@interface ABUIWebViewController ()<ABUIWebViewDelegate>
 @property (nonatomic, strong) ABUIWebView *webView;
 @end
 
-@implementation WebViewController
+@implementation ABUIWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +30,7 @@
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.webView loadWebWithURL:[NSURL fileURLWithPath:[NSBundle.mainBundle pathForResource:@"web" ofType:@"html"]]];
+    [self.webView loadWebWithPath:[NSBundle.mainBundle pathForResource:@"web" ofType:@"html"]];
 }
 
 - (void)viewDidLayoutSubviews {

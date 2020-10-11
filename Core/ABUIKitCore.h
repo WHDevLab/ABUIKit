@@ -32,4 +32,10 @@
 #import "ABUITips.h"
 #import "ABUIAnimateBanner.h"
 #import "ABUICheckBox.h"
+
+#import "ABUITabBarViewController.h"
+#import "ABUIASNumberView.h"
+#import "ABUIListViewBaseItemView.h"
+
+#import "ABUIChatView.h"
 #endif /* ABUIKitCore_h */

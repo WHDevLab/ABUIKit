@@ -8,16 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		42438FAFF24166EC9549ECB6 /* libPods-ABUIKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8F0DB6084B1ACAB1B012AE /* libPods-ABUIKit.a */; };
+		F10D9F8A252FF3FD005728B3 /* ABUIListViewSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9F89252FF3FD005728B3 /* ABUIListViewSelectItemView.m */; };
+		F10D9F8F252FF4BC005728B3 /* ABUIListViewInputItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9F8E252FF4BC005728B3 /* ABUIListViewInputItemView.m */; };
+		F10D9FBB25300A18005728B3 /* ABUIListViewBaseItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9FBA25300A18005728B3 /* ABUIListViewBaseItemView.m */; };
+		F10F2EBB251EF27400088B72 /* ABUIListViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F10F2EBA251EF27400088B72 /* ABUIListViewFlowLayout.m */; };
+		F10F2F20251F45B200088B72 /* ABUINavigationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F10F2F1F251F45B200088B72 /* ABUINavigationConfig.m */; };
+		F10F2F802522E6F400088B72 /* ABUIASNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10F2F7F2522E6F400088B72 /* ABUIASNumberView.m */; };
+		F10F301E252481E300088B72 /* ABTitleHeaderItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10F301D252481E300088B72 /* ABTitleHeaderItemView.m */; };
+		F10F3038252483DA00088B72 /* ABUIListViewTIItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10F3037252483DA00088B72 /* ABUIListViewTIItemView.m */; };
 		F11682C7249F6056004DD6B8 /* ABCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682C6249F6056004DD6B8 /* ABCountDownButton.m */; };
 		F11682D424A03B75004DD6B8 /* ABUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682D324A03B75004DD6B8 /* ABUITextField.m */; };
 		F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682FF24A1B432004DD6B8 /* ABUIBorderLabel.m */; };
 		F11F7C3824BFF69500DB96B3 /* ABUIAnimateBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C3724BFF69500DB96B3 /* ABUIAnimateBanner.m */; };
 		F11F7C3B24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C3A24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m */; };
 		F121926724D16AD900630CA2 /* ABUIInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = F121926624D16AD900630CA2 /* ABUIInputView.m */; };
+		F12BB88F251C937B003CE49C /* ABUITabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12BB88E251C937B003CE49C /* ABUITabBarViewController.m */; };
+		F12BB893251C9400003CE49C /* ABUITabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F12BB892251C9400003CE49C /* ABUITabBarItem.m */; };
+		F12BB8D2251C976E003CE49C /* ABUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12BB8D1251C976E003CE49C /* ABUINavigationController.m */; };
+		F12BB977251DD1CD003CE49C /* UIFont+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F12BB976251DD1CD003CE49C /* UIFont+AB.m */; };
 		F142507D249AFCBC003E83D8 /* ABUIListViewCSS.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */; };
 		F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507F249B0A97003E83D8 /* ABUIWebView.m */; };
 		F1425089249B2022003E83D8 /* web.html in Resources */ = {isa = PBXBuildFile; fileRef = F1425088249B2022003E83D8 /* web.html */; };
-		F142508C249B4900003E83D8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508B249B4900003E83D8 /* WebViewController.m */; };
+		F142508C249B4900003E83D8 /* ABUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508B249B4900003E83D8 /* ABUIWebViewController.m */; };
 		F142508F249B5454003E83D8 /* ABUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508E249B5454003E83D8 /* ABUITextView.m */; };
 		F14C35E224760B750060D435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35E124760B750060D435 /* AppDelegate.m */; };
 		F14C35E824760B750060D435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35E724760B750060D435 /* ViewController.m */; };
@@ -27,8 +39,6 @@
 		F14C362924760FDC0060D435 /* ABUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35FA24760FDC0060D435 /* ABUIViewController.m */; };
 		F14C362A24760FDC0060D435 /* ABUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35FD24760FDC0060D435 /* ABUILabel.m */; };
 		F14C362B24760FDC0060D435 /* ABUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35FF24760FDC0060D435 /* ABUIColor.m */; };
-		F14C362C24760FDC0060D435 /* ABUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C360324760FDC0060D435 /* ABUINavigationController.m */; };
-		F14C362D24760FDC0060D435 /* ABUITabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C360524760FDC0060D435 /* ABUITabBarController.m */; };
 		F14C362E24760FDC0060D435 /* ABUIListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C360724760FDC0060D435 /* ABUIListViewController.m */; };
 		F14C362F24760FDC0060D435 /* ABUIListReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C360E24760FDC0060D435 /* ABUIListReusableView.m */; };
 		F14C363024760FDC0060D435 /* ABUIListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C360F24760FDC0060D435 /* ABUIListViewCell.m */; };
@@ -47,6 +57,8 @@
 		F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C362824760FDC0060D435 /* UIViewController+AB.m */; };
 		F154722924C12EBA00BC6457 /* ABUIAnimateBannerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F154722824C12EBA00BC6457 /* ABUIAnimateBannerConfig.m */; };
 		F154722F24C1427200BC6457 /* ABUITips.m in Sources */ = {isa = PBXBuildFile; fileRef = F154722E24C1427200BC6457 /* ABUITips.m */; };
+		F15ACDEF25121B8E006F2D9E /* ABUIChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = F15ACDEE25121B8E006F2D9E /* ABUIChatView.m */; };
+		F15ACDF225121BDA006F2D9E /* ABUIChatBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F15ACDF125121BDA006F2D9E /* ABUIChatBottomBar.m */; };
 		F16CBB0E24AD76C700CA6C18 /* ABUITextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB0D24AD76C700CA6C18 /* ABUITextInput.m */; };
 		F16CBB1424ADB13B00CA6C18 /* ABUICodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1324ADB13B00CA6C18 /* ABUICodeInput.m */; };
 		F16CBB1724ADE3D300CA6C18 /* ABUIPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */; };
@@ -61,6 +73,22 @@
 		13E13E842FB474A32A1BA94D /* Pods-ABUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABUIKit.debug.xcconfig"; path = "Target Support Files/Pods-ABUIKit/Pods-ABUIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4F9CDE74A8F60BF8DB3A72BB /* Pods-ABUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABUIKit.release.xcconfig"; path = "Target Support Files/Pods-ABUIKit/Pods-ABUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		EE8F0DB6084B1ACAB1B012AE /* libPods-ABUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABUIKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10D9F88252FF3FD005728B3 /* ABUIListViewSelectItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewSelectItemView.h; sourceTree = "<group>"; };
+		F10D9F89252FF3FD005728B3 /* ABUIListViewSelectItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewSelectItemView.m; sourceTree = "<group>"; };
+		F10D9F8D252FF4BC005728B3 /* ABUIListViewInputItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewInputItemView.h; sourceTree = "<group>"; };
+		F10D9F8E252FF4BC005728B3 /* ABUIListViewInputItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewInputItemView.m; sourceTree = "<group>"; };
+		F10D9FB925300A18005728B3 /* ABUIListViewBaseItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewBaseItemView.h; sourceTree = "<group>"; };
+		F10D9FBA25300A18005728B3 /* ABUIListViewBaseItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewBaseItemView.m; sourceTree = "<group>"; };
+		F10F2EB9251EF27400088B72 /* ABUIListViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewFlowLayout.h; sourceTree = "<group>"; };
+		F10F2EBA251EF27400088B72 /* ABUIListViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewFlowLayout.m; sourceTree = "<group>"; };
+		F10F2F1E251F45B200088B72 /* ABUINavigationConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUINavigationConfig.h; sourceTree = "<group>"; };
+		F10F2F1F251F45B200088B72 /* ABUINavigationConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUINavigationConfig.m; sourceTree = "<group>"; };
+		F10F2F7E2522E6F400088B72 /* ABUIASNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIASNumberView.h; sourceTree = "<group>"; };
+		F10F2F7F2522E6F400088B72 /* ABUIASNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIASNumberView.m; sourceTree = "<group>"; };
+		F10F301C252481E300088B72 /* ABTitleHeaderItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTitleHeaderItemView.h; sourceTree = "<group>"; };
+		F10F301D252481E300088B72 /* ABTitleHeaderItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTitleHeaderItemView.m; sourceTree = "<group>"; };
+		F10F3036252483DA00088B72 /* ABUIListViewTIItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewTIItemView.h; sourceTree = "<group>"; };
+		F10F3037252483DA00088B72 /* ABUIListViewTIItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewTIItemView.m; sourceTree = "<group>"; };
 		F11682BC249F5ACA004DD6B8 /* ABExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABExtension.h; sourceTree = "<group>"; };
 		F11682C5249F6056004DD6B8 /* ABCountDownButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABCountDownButton.h; sourceTree = "<group>"; };
 		F11682C6249F6056004DD6B8 /* ABCountDownButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABCountDownButton.m; sourceTree = "<group>"; };
@@ -74,13 +102,21 @@
 		F11F7C3A24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIAnimateBannerRaw.m; sourceTree = "<group>"; };
 		F121926524D16AD900630CA2 /* ABUIInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIInputView.h; sourceTree = "<group>"; };
 		F121926624D16AD900630CA2 /* ABUIInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIInputView.m; sourceTree = "<group>"; };
+		F12BB88D251C937B003CE49C /* ABUITabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITabBarViewController.h; sourceTree = "<group>"; };
+		F12BB88E251C937B003CE49C /* ABUITabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITabBarViewController.m; sourceTree = "<group>"; };
+		F12BB891251C9400003CE49C /* ABUITabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITabBarItem.h; sourceTree = "<group>"; };
+		F12BB892251C9400003CE49C /* ABUITabBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITabBarItem.m; sourceTree = "<group>"; };
+		F12BB8D0251C976E003CE49C /* ABUINavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUINavigationController.h; sourceTree = "<group>"; };
+		F12BB8D1251C976E003CE49C /* ABUINavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUINavigationController.m; sourceTree = "<group>"; };
+		F12BB975251DD1CD003CE49C /* UIFont+AB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+AB.h"; sourceTree = "<group>"; };
+		F12BB976251DD1CD003CE49C /* UIFont+AB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+AB.m"; sourceTree = "<group>"; };
 		F142507B249AFCBC003E83D8 /* ABUIListViewCSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewCSS.h; sourceTree = "<group>"; };
 		F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewCSS.m; sourceTree = "<group>"; };
 		F142507E249B0A97003E83D8 /* ABUIWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIWebView.h; sourceTree = "<group>"; };
 		F142507F249B0A97003E83D8 /* ABUIWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIWebView.m; sourceTree = "<group>"; };
 		F1425088249B2022003E83D8 /* web.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = web.html; sourceTree = "<group>"; };
-		F142508A249B4900003E83D8 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		F142508B249B4900003E83D8 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		F142508A249B4900003E83D8 /* ABUIWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIWebViewController.h; sourceTree = "<group>"; };
+		F142508B249B4900003E83D8 /* ABUIWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIWebViewController.m; sourceTree = "<group>"; };
 		F142508D249B5454003E83D8 /* ABUITextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITextView.h; sourceTree = "<group>"; };
 		F142508E249B5454003E83D8 /* ABUITextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextView.m; sourceTree = "<group>"; };
 		F14C35DD24760B750060D435 /* ABUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,16 +130,12 @@
 		F14C35F224760B790060D435 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F14C35FA24760FDC0060D435 /* ABUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIViewController.m; sourceTree = "<group>"; };
 		F14C35FB24760FDC0060D435 /* ABUIKitCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIKitCore.h; sourceTree = "<group>"; };
-		F14C35FC24760FDC0060D435 /* ABUITabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUITabBarController.h; sourceTree = "<group>"; };
 		F14C35FD24760FDC0060D435 /* ABUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUILabel.m; sourceTree = "<group>"; };
-		F14C35FE24760FDC0060D435 /* ABUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUINavigationController.h; sourceTree = "<group>"; };
 		F14C35FF24760FDC0060D435 /* ABUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIColor.m; sourceTree = "<group>"; };
 		F14C360024760FDC0060D435 /* ABUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIScrollView.h; sourceTree = "<group>"; };
 		F14C360124760FDC0060D435 /* ABUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIKit.h; sourceTree = "<group>"; };
 		F14C360224760FDC0060D435 /* ABUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIViewController.h; sourceTree = "<group>"; };
-		F14C360324760FDC0060D435 /* ABUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUINavigationController.m; sourceTree = "<group>"; };
 		F14C360424760FDC0060D435 /* ABUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUILabel.h; sourceTree = "<group>"; };
-		F14C360524760FDC0060D435 /* ABUITabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUITabBarController.m; sourceTree = "<group>"; };
 		F14C360724760FDC0060D435 /* ABUIListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewController.m; sourceTree = "<group>"; };
 		F14C360824760FDC0060D435 /* ABUIListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListViewCell.h; sourceTree = "<group>"; };
 		F14C360924760FDC0060D435 /* ABUIListReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUIListReusableView.h; sourceTree = "<group>"; };
@@ -142,6 +174,10 @@
 		F154722824C12EBA00BC6457 /* ABUIAnimateBannerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIAnimateBannerConfig.m; sourceTree = "<group>"; };
 		F154722D24C1427200BC6457 /* ABUITips.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITips.h; sourceTree = "<group>"; };
 		F154722E24C1427200BC6457 /* ABUITips.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITips.m; sourceTree = "<group>"; };
+		F15ACDED25121B8E006F2D9E /* ABUIChatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatView.h; sourceTree = "<group>"; };
+		F15ACDEE25121B8E006F2D9E /* ABUIChatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatView.m; sourceTree = "<group>"; };
+		F15ACDF025121BDA006F2D9E /* ABUIChatBottomBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatBottomBar.h; sourceTree = "<group>"; };
+		F15ACDF125121BDA006F2D9E /* ABUIChatBottomBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatBottomBar.m; sourceTree = "<group>"; };
 		F16CBB0C24AD76C700CA6C18 /* ABUITextInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITextInput.h; sourceTree = "<group>"; };
 		F16CBB0D24AD76C700CA6C18 /* ABUITextInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextInput.m; sourceTree = "<group>"; };
 		F16CBB1224ADB13B00CA6C18 /* ABUICodeInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUICodeInput.h; sourceTree = "<group>"; };
@@ -189,6 +225,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F10F3020252482B000088B72 /* ABUIListViewItems */ = {
+			isa = PBXGroup;
+			children = (
+				F10F301C252481E300088B72 /* ABTitleHeaderItemView.h */,
+				F10F301D252481E300088B72 /* ABTitleHeaderItemView.m */,
+				F10F3036252483DA00088B72 /* ABUIListViewTIItemView.h */,
+				F10F3037252483DA00088B72 /* ABUIListViewTIItemView.m */,
+				F10D9F88252FF3FD005728B3 /* ABUIListViewSelectItemView.h */,
+				F10D9F89252FF3FD005728B3 /* ABUIListViewSelectItemView.m */,
+				F10D9F8D252FF4BC005728B3 /* ABUIListViewInputItemView.h */,
+				F10D9F8E252FF4BC005728B3 /* ABUIListViewInputItemView.m */,
+			);
+			path = ABUIListViewItems;
+			sourceTree = "<group>";
+		};
 		F11682C4249F6024004DD6B8 /* ABUIButtons */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +270,28 @@
 				F154722624C12BCF00BC6457 /* ABUIAnimateBannerRawProtocol.h */,
 			);
 			path = ABUIAnimateBanner;
+			sourceTree = "<group>";
+		};
+		F12BB88A251C9357003CE49C /* ABUITabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F12BB88D251C937B003CE49C /* ABUITabBarViewController.h */,
+				F12BB88E251C937B003CE49C /* ABUITabBarViewController.m */,
+				F12BB891251C9400003CE49C /* ABUITabBarItem.h */,
+				F12BB892251C9400003CE49C /* ABUITabBarItem.m */,
+			);
+			path = ABUITabBar;
+			sourceTree = "<group>";
+		};
+		F12BB8CF251C9742003CE49C /* ABUINavBar */ = {
+			isa = PBXGroup;
+			children = (
+				F12BB8D0251C976E003CE49C /* ABUINavigationController.h */,
+				F12BB8D1251C976E003CE49C /* ABUINavigationController.m */,
+				F10F2F1E251F45B200088B72 /* ABUINavigationConfig.h */,
+				F10F2F1F251F45B200088B72 /* ABUINavigationConfig.m */,
+			);
+			path = ABUINavBar;
 			sourceTree = "<group>";
 		};
 		F1425087249B1CF2003E83D8 /* ABUIWebView */ = {
@@ -261,8 +334,8 @@
 				F14C35EE24760B790060D435 /* LaunchScreen.storyboard */,
 				F14C35F124760B790060D435 /* Info.plist */,
 				F14C35F224760B790060D435 /* main.m */,
-				F142508A249B4900003E83D8 /* WebViewController.h */,
-				F142508B249B4900003E83D8 /* WebViewController.m */,
+				F142508A249B4900003E83D8 /* ABUIWebViewController.h */,
+				F142508B249B4900003E83D8 /* ABUIWebViewController.m */,
 			);
 			path = ABUIKit;
 			sourceTree = "<group>";
@@ -270,6 +343,10 @@
 		F14C35F924760FDC0060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F10F3020252482B000088B72 /* ABUIListViewItems */,
+				F12BB8CF251C9742003CE49C /* ABUINavBar */,
+				F12BB88A251C9357003CE49C /* ABUITabBar */,
+				F15ACDEC25121B0B006F2D9E /* ABUIChatView */,
 				F11F7C3524BFF65600DB96B3 /* ABUIAnimateBanner */,
 				F16CBB0824AD648100CA6C18 /* ABUITextFields */,
 				F11682FD24A1B406004DD6B8 /* ABUILabels */,
@@ -284,12 +361,8 @@
 				F14C360424760FDC0060D435 /* ABUILabel.h */,
 				F14C35FD24760FDC0060D435 /* ABUILabel.m */,
 				F14C360624760FDC0060D435 /* ABUIListView */,
-				F14C35FE24760FDC0060D435 /* ABUINavigationController.h */,
-				F14C360324760FDC0060D435 /* ABUINavigationController.m */,
 				F14C360024760FDC0060D435 /* ABUIScrollView.h */,
 				F14C361424760FDC0060D435 /* ABUIScrollView.m */,
-				F14C35FC24760FDC0060D435 /* ABUITabBarController.h */,
-				F14C360524760FDC0060D435 /* ABUITabBarController.m */,
 				F14C360224760FDC0060D435 /* ABUIViewController.h */,
 				F14C35FA24760FDC0060D435 /* ABUIViewController.m */,
 				F142508D249B5454003E83D8 /* ABUITextView.h */,
@@ -304,6 +377,8 @@
 				F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */,
 				F121926524D16AD900630CA2 /* ABUIInputView.h */,
 				F121926624D16AD900630CA2 /* ABUIInputView.m */,
+				F10F2F7E2522E6F400088B72 /* ABUIASNumberView.h */,
+				F10F2F7F2522E6F400088B72 /* ABUIASNumberView.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -327,6 +402,10 @@
 				F14C361024760FDC0060D435 /* ABUIListViewTemplete.json */,
 				F142507B249AFCBC003E83D8 /* ABUIListViewCSS.h */,
 				F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */,
+				F10F2EB9251EF27400088B72 /* ABUIListViewFlowLayout.h */,
+				F10F2EBA251EF27400088B72 /* ABUIListViewFlowLayout.m */,
+				F10D9FB925300A18005728B3 /* ABUIListViewBaseItemView.h */,
+				F10D9FBA25300A18005728B3 /* ABUIListViewBaseItemView.m */,
 			);
 			path = ABUIListView;
 			sourceTree = "<group>";
@@ -355,8 +434,21 @@
 				F11682BC249F5ACA004DD6B8 /* ABExtension.h */,
 				F16CBB1824ADE7D700CA6C18 /* NSArray+AB.h */,
 				F16CBB1924ADE7D700CA6C18 /* NSArray+AB.m */,
+				F12BB975251DD1CD003CE49C /* UIFont+AB.h */,
+				F12BB976251DD1CD003CE49C /* UIFont+AB.m */,
 			);
 			path = ABExtension;
+			sourceTree = "<group>";
+		};
+		F15ACDEC25121B0B006F2D9E /* ABUIChatView */ = {
+			isa = PBXGroup;
+			children = (
+				F15ACDED25121B8E006F2D9E /* ABUIChatView.h */,
+				F15ACDEE25121B8E006F2D9E /* ABUIChatView.m */,
+				F15ACDF025121BDA006F2D9E /* ABUIChatBottomBar.h */,
+				F15ACDF125121BDA006F2D9E /* ABUIChatBottomBar.m */,
+			);
+			path = ABUIChatView;
 			sourceTree = "<group>";
 		};
 		F16CBB0824AD648100CA6C18 /* ABUITextFields */ = {
@@ -495,18 +587,23 @@
 				F14C35E824760B750060D435 /* ViewController.m in Sources */,
 				F14C363824760FDC0060D435 /* UILabel+AB.m in Sources */,
 				F11F7C3B24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m in Sources */,
+				F12BB893251C9400003CE49C /* ABUITabBarItem.m in Sources */,
+				F10F2F20251F45B200088B72 /* ABUINavigationConfig.m in Sources */,
 				F14C363424760FDC0060D435 /* ABUIScrollView.m in Sources */,
 				F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */,
+				F12BB8D2251C976E003CE49C /* ABUINavigationController.m in Sources */,
 				F11F7C3824BFF69500DB96B3 /* ABUIAnimateBanner.m in Sources */,
+				F12BB88F251C937B003CE49C /* ABUITabBarViewController.m in Sources */,
 				F14C35E224760B750060D435 /* AppDelegate.m in Sources */,
-				F14C362D24760FDC0060D435 /* ABUITabBarController.m in Sources */,
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
+				F15ACDEF25121B8E006F2D9E /* ABUIChatView.m in Sources */,
 				F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */,
 				F121926724D16AD900630CA2 /* ABUIInputView.m in Sources */,
+				F10D9FBB25300A18005728B3 /* ABUIListViewBaseItemView.m in Sources */,
 				F14C363C24760FDC0060D435 /* UIImage+AB.m in Sources */,
 				F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */,
-				F14C362C24760FDC0060D435 /* ABUINavigationController.m in Sources */,
+				F10D9F8F252FF4BC005728B3 /* ABUIListViewInputItemView.m in Sources */,
 				F16CBB1A24ADE7D700CA6C18 /* NSArray+AB.m in Sources */,
 				F11682D424A03B75004DD6B8 /* ABUITextField.m in Sources */,
 				F16CBB1724ADE3D300CA6C18 /* ABUIPopUp.m in Sources */,
@@ -514,19 +611,26 @@
 				F14C362F24760FDC0060D435 /* ABUIListReusableView.m in Sources */,
 				F154722F24C1427200BC6457 /* ABUITips.m in Sources */,
 				F11682C7249F6056004DD6B8 /* ABCountDownButton.m in Sources */,
+				F10F3038252483DA00088B72 /* ABUIListViewTIItemView.m in Sources */,
 				F142507D249AFCBC003E83D8 /* ABUIListViewCSS.m in Sources */,
 				F1B0395724FF86F6008B02C1 /* ABUIMoneyInput.m in Sources */,
+				F15ACDF225121BDA006F2D9E /* ABUIChatBottomBar.m in Sources */,
 				F14C362B24760FDC0060D435 /* ABUIColor.m in Sources */,
 				F154722924C12EBA00BC6457 /* ABUIAnimateBannerConfig.m in Sources */,
 				F14C35F324760B790060D435 /* main.m in Sources */,
 				F16CBB0E24AD76C700CA6C18 /* ABUITextInput.m in Sources */,
 				F14C362924760FDC0060D435 /* ABUIViewController.m in Sources */,
+				F12BB977251DD1CD003CE49C /* UIFont+AB.m in Sources */,
 				F16CBB1424ADB13B00CA6C18 /* ABUICodeInput.m in Sources */,
+				F10F2F802522E6F400088B72 /* ABUIASNumberView.m in Sources */,
 				F14C362E24760FDC0060D435 /* ABUIListViewController.m in Sources */,
+				F10D9F8A252FF3FD005728B3 /* ABUIListViewSelectItemView.m in Sources */,
 				F142508F249B5454003E83D8 /* ABUITextView.m in Sources */,
+				F10F301E252481E300088B72 /* ABTitleHeaderItemView.m in Sources */,
 				F14C363224760FDC0060D435 /* ABUIListView.m in Sources */,
 				F14C363924760FDC0060D435 /* UIView+AB.m in Sources */,
-				F142508C249B4900003E83D8 /* WebViewController.m in Sources */,
+				F10F2EBB251EF27400088B72 /* ABUIListViewFlowLayout.m in Sources */,
+				F142508C249B4900003E83D8 /* ABUIWebViewController.m in Sources */,
 				F14C363024760FDC0060D435 /* ABUIListViewCell.m in Sources */,
 				F14C363A24760FDC0060D435 /* NSDictionary+AB.m in Sources */,
 				F14C363624760FDC0060D435 /* NSString+AB.m in Sources */,
@@ -664,7 +768,8 @@
 			baseConfigurationReference = 13E13E842FB474A32A1BA94D /* Pods-ABUIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ABUIKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -673,6 +778,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abteam.ABUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -682,7 +788,8 @@
 			baseConfigurationReference = 4F9CDE74A8F60BF8DB3A72BB /* Pods-ABUIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ABUIKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -691,6 +798,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abteam.ABUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

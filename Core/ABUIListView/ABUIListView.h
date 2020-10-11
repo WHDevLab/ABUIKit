@@ -28,18 +28,24 @@ typedef enum : NSUInteger {
 //- (void)listView:(ABUIListView *)listView didClickAtIndexPath:(NSIndexPath *)indexPath key:(NSString *)key;
 
 - (CGSize)listView:(ABUIListView *)listView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGSize)listView:(ABUIListView *)listView sizeForItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item;
 
 - (void)listView:(ABUIListView *)listView onContentSizeChanged:(CGSize)contentSize;
 - (void)listViewOnHeaderPullRefresh:(ABUIListView *)listView;
 - (void)listViewOnLoadMore:(ABUIListView *)listView;
 - (void)listViewDidReload:(ABUIListView *)listView;
 - (void)listViewDidScrollToBottom:(ABUIListView *)listView;
+- (void)listView:(ABUIListView *)listView didActionItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item itemKey:(NSString *)itemKey actionKey:(NSString *)actionKey actionData:(id)actionData;
+- (void)listView:(ABUIListView *)listView didActionItemAtSection:(NSInteger)section item:(NSDictionary *)item itemKey:(NSString *)itemKey actionKey:(NSString *)actionKey actionData:(id)actionData;
+- (void)listView:(ABUIListView *)listView formCheckError:(NSString *)message;
+//- (void)listViewDidItemActionResponse:(ABUIListView *)listView itemKey:(NSString *)itemKey actionKey:(NSString *)actionKey data:(id)data;
 @end
 
 @protocol ABUIListViewDataSource <NSObject>
 
 @optional
 - (NSDictionary *)listView:(ABUIListView *)listView extraDataAtIndexPath:(nonnull NSIndexPath *)indexPath;
+- (NSDictionary *)listView:(ABUIListView *)listView extraDataAtIndexPath:(nonnull NSIndexPath *)indexPath item:(NSDictionary *)item;
 
 @end
 
@@ -48,6 +54,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) id<ABUIListViewDataSource> dataSource;
 @property (nonatomic, strong) ABUICollectionView *collectionView;
 @property (nonatomic, assign) BOOL dynamicContent;
+/// 当内容大小低于frame的时候，内容滑动方向，例如聊天室聊天视图
 @property (nonatomic, assign) StatDirection startDirection;
 
 /// 刷新状态
@@ -63,8 +70,15 @@ typedef enum : NSUInteger {
 
 @property (nonatomic) UICollectionViewScrollDirection scrollDirection;
 
+/// 数据
+@property (nonatomic, strong) NSDictionary *runData;
+@property (nonatomic, strong) NSArray *fRuleKeys; /// 为了解决 frules allkeys 乱序问题,临时方案,外部指定
+
+@property (nonatomic, strong) UIColor *separatorColor;
+
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css;
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule;
+- (void)setFormRules:(NSDictionary *)rules;
 /// dataList数据格式参考ABUIListViewTemplete.json
 - (void)setTempleteDataList:(NSArray *)dataList;
 - (void)reloadData;
@@ -83,6 +97,7 @@ typedef enum : NSUInteger {
 - (void)adapterSafeArea;
 - (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)isEmpty;
+- (BOOL)checkForm;
 @end
 
 NS_ASSUME_NONNULL_END

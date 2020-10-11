@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ABUIListView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIListViewCell : UICollectionViewCell
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) NSInteger total;
+@property (nonatomic, weak) ABUIListView *ppx;
 - (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(NSString *)clsStr;
+- (void)refreshUserProvideData; //更新用户输入的数据
+- (nullable id)userProvideData; //获取用户输入的数据
+- (void)sendActionWithKey:(NSString *)actionKey actionData:(nullable id)actionData;
 @end
 
 NS_ASSUME_NONNULL_END

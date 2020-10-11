@@ -1,14 +1,17 @@
 //
 //  ABUINavigationController.m
-//  Demo
+//  ABUIKit
 //
-//  Created by qp on 2020/5/6.
-//  Copyright © 2020 ab. All rights reserved.
+//  Created by qp on 2020/9/24.
+//  Copyright © 2020 abteam. All rights reserved.
 //
+
+#import "ABUINavigationController.h"
 
 #import "ABUINavigationController.h"
 #import "ABUIColor.h"
 #import "UIViewController+AB.h"
+
 @interface ABUINavigationController ()<UIGestureRecognizerDelegate, UINavigationControllerDelegate>
 {
     UIImageView *navBarHairlineImageView;
@@ -123,7 +126,7 @@
         
         UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 64, 44)];
         btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [btn setImage:[UIImage imageNamed:@"baifanhui"] forState:UIControlStateNormal];
+        [btn setImage:[ABUINavigationConfig shared].backImage forState:UIControlStateNormal];
         btn.adjustsImageWhenHighlighted = NO;
         [btn addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
         
@@ -150,16 +153,31 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self setNavigationBarHidden:viewController.isVisableNavigationBar == false animated:true];
+    
+    // 设置文字属性
+    if ([viewController preferredStatusBarStyle] == UIStatusBarStyleLightContent) {
+        NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+        textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+        textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
+        [navigationController.navigationBar setTitleTextAttributes:textAttrs];
+    }else{
+        NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+        textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+        textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
+        [navigationController.navigationBar setTitleTextAttributes:textAttrs];
+    }
+
+    
 }
 
 - (void)updateNavStatus:(UIViewController *)vc backButton:(UIButton *)btn {
     if (vc.isVisableNavigationBar) {
         if (vc.preferredStatusBarStyle == UIStatusBarStyleLightContent) {
-            [btn setImage:[UIImage imageNamed:@"baifanhui"] forState:UIControlStateNormal];
+            [btn setImage:[ABUINavigationConfig shared].whiteBackImage forState:UIControlStateNormal];
             self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.blackColor};
         }
         else{
-            [btn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
+            [btn setImage:[ABUINavigationConfig shared].backImage forState:UIControlStateNormal];
             self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.blackColor};
         }
         
@@ -179,16 +197,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

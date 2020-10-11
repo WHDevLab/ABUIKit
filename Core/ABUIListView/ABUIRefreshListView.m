@@ -15,13 +15,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.limit = 0;
         [self setupLoadMore];
         [self setupPullRefresh];
     }
     return self;
 }
 - (void)setDataList:(NSArray *)dataList css:(NSDictionary *)css {
-    
     if (self.isLoadMoreing) {
         [self._dataList addObjectsFromArray:dataList];
     }
@@ -31,7 +31,7 @@
     
     [self endPullRefreshing];
     [self endLoadMore];
-    if (dataList.count == 0) {
+    if (dataList.count == 0 || dataList.count < self.limit) {
         [self noMoreData];
     }
     [super setDataList:self._dataList css:css];

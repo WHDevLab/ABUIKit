@@ -9,7 +9,16 @@
 #import "ABUIBorderLabel.h"
 #import "UIColor+AB.h"
 @implementation ABUIBorderLabel
-
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.interColor = [UIColor blackColor];
+        self.outerColor = [UIColor redColor];
+        self.outerWidth = 2;
+    }
+    return self;
+}
 - (void)drawTextInRect:(CGRect)rect
 
 {

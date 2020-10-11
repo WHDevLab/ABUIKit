@@ -28,7 +28,7 @@
 }
 
 - (void)registerClassString:(NSString *)classString native_id:(NSString *)native_id {
-    
+    [self.mapping setValue:classString forKey:native_id];
 }
 
 - (NSString *)classString:(NSString *)native_id {

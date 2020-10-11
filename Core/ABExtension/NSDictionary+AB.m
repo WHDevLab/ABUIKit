@@ -37,6 +37,9 @@
 }
 
 - (NSString *)stringValueForKey:(NSString *)key {
+    if (self[key] == nil) {
+        return @"";
+    }
     return [NSString stringWithFormat:@"%@", self[key]];
 }
 

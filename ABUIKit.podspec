@@ -36,4 +36,16 @@ Pod::Spec.new do |s|
 	s.subspec 'ABUIAnimateBanner' do |ss|
 		ss.source_files = 'Core/ABUIAnimateBanner/*.{h,m}'
 	end
+	s.subspec 'ABUITabBar' do |ss|
+		ss.source_files = 'Core/ABUITabBar/*.{h,m}'
+	end
+	s.subspec 'ABUINavBar' do |ss|
+		ss.source_files = 'Core/ABUINavBar/*.{h,m}'
+	end
+	s.subspec 'ABUIListViewItems' do |ss|
+		ss.source_files = 'Core/ABUIListViewItems/*.{h,m}'
+	end
+	s.subspec 'ABUIChatView' do |ss|
+		ss.source_files = 'Core/ABUIChatView/*.{h,m}'
+	end
 end

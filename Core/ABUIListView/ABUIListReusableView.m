@@ -8,8 +8,13 @@
 
 #import "ABUIListReusableView.h"
 #import "ABUIListViewProtocols.h"
+#import "ABUIListViewBaseItemView.h"
 @interface ABUIListReusableView ()
 @property (nonatomic, strong) UIView *mainView;
+@property (nonatomic, assign) CGFloat lPadding;
+@property (nonatomic, assign) CGFloat rPadding;
+@property (nonatomic, strong) NSString *itemKey;
+@property (nonatomic, strong) NSDictionary *item;
 @end
 @implementation ABUIListReusableView
 - (void)reload:(NSDictionary *)item clsStr:(NSString *)clsStr {
@@ -17,8 +22,17 @@
         NSLog(@"classString is empty");
         return;
     }
+    self.item = item;
+    self.itemKey = item[@"itemKey"];
     if (self.mainView == nil) {
-        self.mainView = [(UIView *)[NSClassFromString(clsStr) alloc] initWithFrame:self.bounds];
+        CGFloat lPadding = [item[@"padding.left"] floatValue];
+        CGFloat rPadding = [item[@"padding.right"] floatValue];
+        self.lPadding = lPadding;
+        self.rPadding = rPadding;
+        self.mainView = [(UIView *)[NSClassFromString(clsStr) alloc] initWithFrame:CGRectMake(lPadding, 0, self.frame.size.width-lPadding-rPadding, self.frame.size.height)];
+        if ([self.mainView isKindOfClass:[ABUIListViewBaseItemView class]]) {
+            [(ABUIListViewBaseItemView *)self.mainView setCell:self];
+        }
         if ([self.mainView conformsToProtocol:@protocol(ABUIListItemViewProtocol)]) {
             [self addSubview:self.mainView];
             [(id<ABUIListItemViewProtocol>)self.mainView setupAdjustContents];
@@ -28,12 +42,21 @@
     }
     
     [(id<ABUIListItemViewProtocol>)self.mainView reload:item];
+    [(id<ABUIListItemViewProtocol>)self.mainView layoutAdjustContents];
+    
     
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.mainView.frame = self.bounds;
+    self.mainView.frame = CGRectMake(self.lPadding, 0, self.frame.size.width-self.lPadding-self.rPadding, self.frame.size.height);
     [(id<ABUIListItemViewProtocol>)self.mainView layoutAdjustContents];
 }
+
+- (void)sendActionWithKey:(NSString *)actionKey actionData:(nullable id)actionData {
+    if (self.ppx.delegate && [self.ppx.delegate respondsToSelector:@selector(listView:didActionItemAtSection:item:itemKey:actionKey:actionData:)]) {
+        [self.ppx.delegate listView:self.ppx didActionItemAtSection:0 item:self.item itemKey:self.itemKey actionKey:actionKey actionData:actionData];
+    }
+}
+
 @end
