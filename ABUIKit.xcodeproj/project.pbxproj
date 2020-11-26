@@ -31,6 +31,7 @@
 		F1425089249B2022003E83D8 /* web.html in Resources */ = {isa = PBXBuildFile; fileRef = F1425088249B2022003E83D8 /* web.html */; };
 		F142508C249B4900003E83D8 /* ABUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508B249B4900003E83D8 /* ABUIWebViewController.m */; };
 		F142508F249B5454003E83D8 /* ABUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508E249B5454003E83D8 /* ABUITextView.m */; };
+		F14BB6E8256F5C6A00348433 /* ABUISearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F14BB6E7256F5C6A00348433 /* ABUISearchBar.m */; };
 		F14C35E224760B750060D435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35E124760B750060D435 /* AppDelegate.m */; };
 		F14C35E824760B750060D435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35E724760B750060D435 /* ViewController.m */; };
 		F14C35ED24760B790060D435 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14C35EC24760B790060D435 /* Assets.xcassets */; };
@@ -59,6 +60,11 @@
 		F154722F24C1427200BC6457 /* ABUITips.m in Sources */ = {isa = PBXBuildFile; fileRef = F154722E24C1427200BC6457 /* ABUITips.m */; };
 		F15ACDEF25121B8E006F2D9E /* ABUIChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = F15ACDEE25121B8E006F2D9E /* ABUIChatView.m */; };
 		F15ACDF225121BDA006F2D9E /* ABUIChatBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F15ACDF125121BDA006F2D9E /* ABUIChatBottomBar.m */; };
+		F165A7902556448300107ABB /* ABUIChatFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A78F2556448300107ABB /* ABUIChatFaceView.m */; };
+		F165A7942556449500107ABB /* ABUIChatMutiFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A7932556449500107ABB /* ABUIChatMutiFuncView.m */; };
+		F165A904255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A903255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m */; };
+		F165A922255B6C5500107ABB /* ABUIListViewConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A921255B6C5500107ABB /* ABUIListViewConfigure.m */; };
+		F165A926255B6C6500107ABB /* ABUIListViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A925255B6C6500107ABB /* ABUIListViewHelper.m */; };
 		F16CBB0E24AD76C700CA6C18 /* ABUITextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB0D24AD76C700CA6C18 /* ABUITextInput.m */; };
 		F16CBB1424ADB13B00CA6C18 /* ABUICodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1324ADB13B00CA6C18 /* ABUICodeInput.m */; };
 		F16CBB1724ADE3D300CA6C18 /* ABUIPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */; };
@@ -67,6 +73,17 @@
 		F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88424C59F92003A6031 /* ABUICheckBox.m */; };
 		F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */; };
 		F1B0395724FF86F6008B02C1 /* ABUIMoneyInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B0395624FF86F6008B02C1 /* ABUIMoneyInput.m */; };
+		F1BE0F43254F9D4A00F53BCF /* ABUIChatItemTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F42254F9D4A00F53BCF /* ABUIChatItemTimeView.m */; };
+		F1BE0F4B254F9D9E00F53BCF /* ABUIChatItemImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F4A254F9D9E00F53BCF /* ABUIChatItemImageView.m */; };
+		F1BE0F53254F9E0500F53BCF /* ABUIChatItemLBSView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F52254F9E0500F53BCF /* ABUIChatItemLBSView.m */; };
+		F1BE0F58254F9E2300F53BCF /* ABUIChatItemAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F57254F9E2300F53BCF /* ABUIChatItemAudioView.m */; };
+		F1BE0F5C254F9E4400F53BCF /* ABUIChatItemVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F5B254F9E4400F53BCF /* ABUIChatItemVideoView.m */; };
+		F1BE0F74254FA3B900F53BCF /* ABUIChatItemTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F73254FA3B900F53BCF /* ABUIChatItemTextView.m */; };
+		F1BE0F8C254FA69800F53BCF /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1BE0F8B254FA69700F53BCF /* Emoji.xcassets */; };
+		F1BE0F90254FADCE00F53BCF /* ABUIChatItemBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F8F254FADCE00F53BCF /* ABUIChatItemBaseView.m */; };
+		F1BE0FA82550FB8700F53BCF /* ABUIChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0FA72550FB8700F53BCF /* ABUIChatHelper.m */; };
+		F1BE0FC025510C2800F53BCF /* ABUIChatConfirgure.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0FBF25510C2800F53BCF /* ABUIChatConfirgure.m */; };
+		F1CBD9A3253FCCD200363B55 /* ABUIListViewStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +136,8 @@
 		F142508B249B4900003E83D8 /* ABUIWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIWebViewController.m; sourceTree = "<group>"; };
 		F142508D249B5454003E83D8 /* ABUITextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITextView.h; sourceTree = "<group>"; };
 		F142508E249B5454003E83D8 /* ABUITextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextView.m; sourceTree = "<group>"; };
+		F14BB6E6256F5C6A00348433 /* ABUISearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISearchBar.h; sourceTree = "<group>"; };
+		F14BB6E7256F5C6A00348433 /* ABUISearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISearchBar.m; sourceTree = "<group>"; };
 		F14C35DD24760B750060D435 /* ABUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14C35E024760B750060D435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F14C35E124760B750060D435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -178,6 +197,16 @@
 		F15ACDEE25121B8E006F2D9E /* ABUIChatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatView.m; sourceTree = "<group>"; };
 		F15ACDF025121BDA006F2D9E /* ABUIChatBottomBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatBottomBar.h; sourceTree = "<group>"; };
 		F15ACDF125121BDA006F2D9E /* ABUIChatBottomBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatBottomBar.m; sourceTree = "<group>"; };
+		F165A78E2556448300107ABB /* ABUIChatFaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatFaceView.h; sourceTree = "<group>"; };
+		F165A78F2556448300107ABB /* ABUIChatFaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatFaceView.m; sourceTree = "<group>"; };
+		F165A7922556449500107ABB /* ABUIChatMutiFuncView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatMutiFuncView.h; sourceTree = "<group>"; };
+		F165A7932556449500107ABB /* ABUIChatMutiFuncView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatMutiFuncView.m; sourceTree = "<group>"; };
+		F165A902255A9CBE00107ABB /* ABUIListViewHorizontalLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewHorizontalLayout.h; sourceTree = "<group>"; };
+		F165A903255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewHorizontalLayout.m; sourceTree = "<group>"; };
+		F165A920255B6C5500107ABB /* ABUIListViewConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewConfigure.h; sourceTree = "<group>"; };
+		F165A921255B6C5500107ABB /* ABUIListViewConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewConfigure.m; sourceTree = "<group>"; };
+		F165A924255B6C6500107ABB /* ABUIListViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewHelper.h; sourceTree = "<group>"; };
+		F165A925255B6C6500107ABB /* ABUIListViewHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewHelper.m; sourceTree = "<group>"; };
 		F16CBB0C24AD76C700CA6C18 /* ABUITextInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITextInput.h; sourceTree = "<group>"; };
 		F16CBB0D24AD76C700CA6C18 /* ABUITextInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextInput.m; sourceTree = "<group>"; };
 		F16CBB1224ADB13B00CA6C18 /* ABUICodeInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUICodeInput.h; sourceTree = "<group>"; };
@@ -194,6 +223,27 @@
 		F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUICollectionView.m; sourceTree = "<group>"; };
 		F1B0395524FF86F6008B02C1 /* ABUIMoneyInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIMoneyInput.h; sourceTree = "<group>"; };
 		F1B0395624FF86F6008B02C1 /* ABUIMoneyInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIMoneyInput.m; sourceTree = "<group>"; };
+		F1BE0F41254F9D4A00F53BCF /* ABUIChatItemTimeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemTimeView.h; sourceTree = "<group>"; };
+		F1BE0F42254F9D4A00F53BCF /* ABUIChatItemTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemTimeView.m; sourceTree = "<group>"; };
+		F1BE0F49254F9D9E00F53BCF /* ABUIChatItemImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemImageView.h; sourceTree = "<group>"; };
+		F1BE0F4A254F9D9E00F53BCF /* ABUIChatItemImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemImageView.m; sourceTree = "<group>"; };
+		F1BE0F51254F9E0500F53BCF /* ABUIChatItemLBSView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemLBSView.h; sourceTree = "<group>"; };
+		F1BE0F52254F9E0500F53BCF /* ABUIChatItemLBSView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemLBSView.m; sourceTree = "<group>"; };
+		F1BE0F56254F9E2300F53BCF /* ABUIChatItemAudioView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemAudioView.h; sourceTree = "<group>"; };
+		F1BE0F57254F9E2300F53BCF /* ABUIChatItemAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemAudioView.m; sourceTree = "<group>"; };
+		F1BE0F5A254F9E4400F53BCF /* ABUIChatItemVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemVideoView.h; sourceTree = "<group>"; };
+		F1BE0F5B254F9E4400F53BCF /* ABUIChatItemVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemVideoView.m; sourceTree = "<group>"; };
+		F1BE0F72254FA3B900F53BCF /* ABUIChatItemTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemTextView.h; sourceTree = "<group>"; };
+		F1BE0F73254FA3B900F53BCF /* ABUIChatItemTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemTextView.m; sourceTree = "<group>"; };
+		F1BE0F8B254FA69700F53BCF /* Emoji.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Emoji.xcassets; sourceTree = "<group>"; };
+		F1BE0F8E254FADCE00F53BCF /* ABUIChatItemBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemBaseView.h; sourceTree = "<group>"; };
+		F1BE0F8F254FADCE00F53BCF /* ABUIChatItemBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemBaseView.m; sourceTree = "<group>"; };
+		F1BE0FA62550FB8700F53BCF /* ABUIChatHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatHelper.h; sourceTree = "<group>"; };
+		F1BE0FA72550FB8700F53BCF /* ABUIChatHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatHelper.m; sourceTree = "<group>"; };
+		F1BE0FBE25510C2800F53BCF /* ABUIChatConfirgure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatConfirgure.h; sourceTree = "<group>"; };
+		F1BE0FBF25510C2800F53BCF /* ABUIChatConfirgure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatConfirgure.m; sourceTree = "<group>"; };
+		F1CBD9A1253FCCD200363B55 /* ABUIListViewStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewStack.h; sourceTree = "<group>"; };
+		F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +354,15 @@
 			path = ABUIWebView;
 			sourceTree = "<group>";
 		};
+		F14BB6E5256F5C4E00348433 /* ABUISearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				F14BB6E6256F5C6A00348433 /* ABUISearchBar.h */,
+				F14BB6E7256F5C6A00348433 /* ABUISearchBar.m */,
+			);
+			path = ABUISearchBar;
+			sourceTree = "<group>";
+		};
 		F14C35D424760B750060D435 = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +402,7 @@
 		F14C35F924760FDC0060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F14BB6E5256F5C4E00348433 /* ABUISearchBar */,
 				F10F3020252482B000088B72 /* ABUIListViewItems */,
 				F12BB8CF251C9742003CE49C /* ABUINavBar */,
 				F12BB88A251C9357003CE49C /* ABUITabBar */,
@@ -406,6 +466,14 @@
 				F10F2EBA251EF27400088B72 /* ABUIListViewFlowLayout.m */,
 				F10D9FB925300A18005728B3 /* ABUIListViewBaseItemView.h */,
 				F10D9FBA25300A18005728B3 /* ABUIListViewBaseItemView.m */,
+				F1CBD9A1253FCCD200363B55 /* ABUIListViewStack.h */,
+				F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */,
+				F165A902255A9CBE00107ABB /* ABUIListViewHorizontalLayout.h */,
+				F165A903255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m */,
+				F165A920255B6C5500107ABB /* ABUIListViewConfigure.h */,
+				F165A921255B6C5500107ABB /* ABUIListViewConfigure.m */,
+				F165A924255B6C6500107ABB /* ABUIListViewHelper.h */,
+				F165A925255B6C6500107ABB /* ABUIListViewHelper.m */,
 			);
 			path = ABUIListView;
 			sourceTree = "<group>";
@@ -443,10 +511,33 @@
 		F15ACDEC25121B0B006F2D9E /* ABUIChatView */ = {
 			isa = PBXGroup;
 			children = (
+				F1BE0F8B254FA69700F53BCF /* Emoji.xcassets */,
 				F15ACDED25121B8E006F2D9E /* ABUIChatView.h */,
 				F15ACDEE25121B8E006F2D9E /* ABUIChatView.m */,
 				F15ACDF025121BDA006F2D9E /* ABUIChatBottomBar.h */,
 				F15ACDF125121BDA006F2D9E /* ABUIChatBottomBar.m */,
+				F1BE0F41254F9D4A00F53BCF /* ABUIChatItemTimeView.h */,
+				F1BE0F42254F9D4A00F53BCF /* ABUIChatItemTimeView.m */,
+				F1BE0F49254F9D9E00F53BCF /* ABUIChatItemImageView.h */,
+				F1BE0F4A254F9D9E00F53BCF /* ABUIChatItemImageView.m */,
+				F1BE0F51254F9E0500F53BCF /* ABUIChatItemLBSView.h */,
+				F1BE0F52254F9E0500F53BCF /* ABUIChatItemLBSView.m */,
+				F1BE0F56254F9E2300F53BCF /* ABUIChatItemAudioView.h */,
+				F1BE0F57254F9E2300F53BCF /* ABUIChatItemAudioView.m */,
+				F1BE0F5A254F9E4400F53BCF /* ABUIChatItemVideoView.h */,
+				F1BE0F5B254F9E4400F53BCF /* ABUIChatItemVideoView.m */,
+				F1BE0F72254FA3B900F53BCF /* ABUIChatItemTextView.h */,
+				F1BE0F73254FA3B900F53BCF /* ABUIChatItemTextView.m */,
+				F1BE0F8E254FADCE00F53BCF /* ABUIChatItemBaseView.h */,
+				F1BE0F8F254FADCE00F53BCF /* ABUIChatItemBaseView.m */,
+				F1BE0FA62550FB8700F53BCF /* ABUIChatHelper.h */,
+				F1BE0FA72550FB8700F53BCF /* ABUIChatHelper.m */,
+				F1BE0FBE25510C2800F53BCF /* ABUIChatConfirgure.h */,
+				F1BE0FBF25510C2800F53BCF /* ABUIChatConfirgure.m */,
+				F165A78E2556448300107ABB /* ABUIChatFaceView.h */,
+				F165A78F2556448300107ABB /* ABUIChatFaceView.m */,
+				F165A7922556449500107ABB /* ABUIChatMutiFuncView.h */,
+				F165A7932556449500107ABB /* ABUIChatMutiFuncView.m */,
 			);
 			path = ABUIChatView;
 			sourceTree = "<group>";
@@ -525,6 +616,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BE0F8C254FA69800F53BCF /* Emoji.xcassets in Resources */,
 				F14C363124760FDC0060D435 /* ABUIListViewTemplete.json in Resources */,
 				F1425089249B2022003E83D8 /* web.html in Resources */,
 				F14C35F024760B790060D435 /* LaunchScreen.storyboard in Resources */,
@@ -584,18 +676,24 @@
 				F14C363B24760FDC0060D435 /* UIImageView+AB.m in Sources */,
 				F14C363724760FDC0060D435 /* UIColor+AB.m in Sources */,
 				F14C363324760FDC0060D435 /* ABUIListViewMapping.m in Sources */,
+				F165A7942556449500107ABB /* ABUIChatMutiFuncView.m in Sources */,
 				F14C35E824760B750060D435 /* ViewController.m in Sources */,
 				F14C363824760FDC0060D435 /* UILabel+AB.m in Sources */,
 				F11F7C3B24BFF98B00DB96B3 /* ABUIAnimateBannerRaw.m in Sources */,
+				F1BE0F53254F9E0500F53BCF /* ABUIChatItemLBSView.m in Sources */,
+				F165A926255B6C6500107ABB /* ABUIListViewHelper.m in Sources */,
 				F12BB893251C9400003CE49C /* ABUITabBarItem.m in Sources */,
 				F10F2F20251F45B200088B72 /* ABUINavigationConfig.m in Sources */,
 				F14C363424760FDC0060D435 /* ABUIScrollView.m in Sources */,
+				F1BE0F90254FADCE00F53BCF /* ABUIChatItemBaseView.m in Sources */,
 				F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */,
 				F12BB8D2251C976E003CE49C /* ABUINavigationController.m in Sources */,
 				F11F7C3824BFF69500DB96B3 /* ABUIAnimateBanner.m in Sources */,
+				F1CBD9A3253FCCD200363B55 /* ABUIListViewStack.m in Sources */,
 				F12BB88F251C937B003CE49C /* ABUITabBarViewController.m in Sources */,
 				F14C35E224760B750060D435 /* AppDelegate.m in Sources */,
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
+				F1BE0F43254F9D4A00F53BCF /* ABUIChatItemTimeView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
 				F15ACDEF25121B8E006F2D9E /* ABUIChatView.m in Sources */,
 				F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */,
@@ -603,8 +701,12 @@
 				F10D9FBB25300A18005728B3 /* ABUIListViewBaseItemView.m in Sources */,
 				F14C363C24760FDC0060D435 /* UIImage+AB.m in Sources */,
 				F116830024A1B432004DD6B8 /* ABUIBorderLabel.m in Sources */,
+				F165A7902556448300107ABB /* ABUIChatFaceView.m in Sources */,
 				F10D9F8F252FF4BC005728B3 /* ABUIListViewInputItemView.m in Sources */,
 				F16CBB1A24ADE7D700CA6C18 /* NSArray+AB.m in Sources */,
+				F1BE0F58254F9E2300F53BCF /* ABUIChatItemAudioView.m in Sources */,
+				F1BE0F4B254F9D9E00F53BCF /* ABUIChatItemImageView.m in Sources */,
+				F1BE0F74254FA3B900F53BCF /* ABUIChatItemTextView.m in Sources */,
 				F11682D424A03B75004DD6B8 /* ABUITextField.m in Sources */,
 				F16CBB1724ADE3D300CA6C18 /* ABUIPopUp.m in Sources */,
 				F14C363524760FDC0060D435 /* UIApplication+AB.m in Sources */,
@@ -615,11 +717,15 @@
 				F142507D249AFCBC003E83D8 /* ABUIListViewCSS.m in Sources */,
 				F1B0395724FF86F6008B02C1 /* ABUIMoneyInput.m in Sources */,
 				F15ACDF225121BDA006F2D9E /* ABUIChatBottomBar.m in Sources */,
+				F14BB6E8256F5C6A00348433 /* ABUISearchBar.m in Sources */,
 				F14C362B24760FDC0060D435 /* ABUIColor.m in Sources */,
+				F165A922255B6C5500107ABB /* ABUIListViewConfigure.m in Sources */,
 				F154722924C12EBA00BC6457 /* ABUIAnimateBannerConfig.m in Sources */,
 				F14C35F324760B790060D435 /* main.m in Sources */,
+				F1BE0FA82550FB8700F53BCF /* ABUIChatHelper.m in Sources */,
 				F16CBB0E24AD76C700CA6C18 /* ABUITextInput.m in Sources */,
 				F14C362924760FDC0060D435 /* ABUIViewController.m in Sources */,
+				F165A904255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m in Sources */,
 				F12BB977251DD1CD003CE49C /* UIFont+AB.m in Sources */,
 				F16CBB1424ADB13B00CA6C18 /* ABUICodeInput.m in Sources */,
 				F10F2F802522E6F400088B72 /* ABUIASNumberView.m in Sources */,
@@ -632,9 +738,11 @@
 				F10F2EBB251EF27400088B72 /* ABUIListViewFlowLayout.m in Sources */,
 				F142508C249B4900003E83D8 /* ABUIWebViewController.m in Sources */,
 				F14C363024760FDC0060D435 /* ABUIListViewCell.m in Sources */,
+				F1BE0FC025510C2800F53BCF /* ABUIChatConfirgure.m in Sources */,
 				F14C363A24760FDC0060D435 /* NSDictionary+AB.m in Sources */,
 				F14C363624760FDC0060D435 /* NSString+AB.m in Sources */,
 				F14C362A24760FDC0060D435 /* ABUILabel.m in Sources */,
+				F1BE0F5C254F9E4400F53BCF /* ABUIChatItemVideoView.m in Sources */,
 				F17513DA24F3671F008729D7 /* ABUIRefreshListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

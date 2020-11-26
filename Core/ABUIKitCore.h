@@ -38,4 +38,7 @@
 #import "ABUIListViewBaseItemView.h"
 
 #import "ABUIChatView.h"
+#import "ABUIChatConfirgure.h"
+
+#import "ABUISearchBar.h"
 #endif /* ABUIKitCore_h */

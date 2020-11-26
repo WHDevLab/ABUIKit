@@ -19,6 +19,7 @@
         [self addSubview:self.titleLabel];
         
         self.textField = [[ABUITextField alloc] initWithFrame:CGRectZero];
+        self.textField.placeholder = @"验证码";
         [self addSubview:self.textField];
         
         self.titleLabel.frame = CGRectMake(0, 0, 68, 44);
@@ -61,13 +62,13 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    self.cbButton.left = self.width-self.cbButton.width;
+    self.cbButton.left = self.width-self.cbButton.width-self.padding;
     self.cbButton.centerY = self.height/2;
     
-    self.titleLabel.left = 0;
+    self.titleLabel.left = self.padding;
     self.titleLabel.centerY = self.height/2;
     
-    self.textField.frame = CGRectMake(self.titleLabel.right, 0, self.width-self.titleLabel.width-self.cbButton.width, self.height);
+    self.textField.frame = CGRectMake(self.titleLabel.right+10, 0, self.cbButton.left-self.titleLabel.right-10, self.height);
 }
 
 @end

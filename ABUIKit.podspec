@@ -47,5 +47,11 @@ Pod::Spec.new do |s|
 	end
 	s.subspec 'ABUIChatView' do |ss|
 		ss.source_files = 'Core/ABUIChatView/*.{h,m}'
+		ss.resource_bundles =  {
+			'ABWXEmoji' => ['Core/ABUIChatView/Emoji.xcassets']
+		}
+	end
+	s.subspec 'ABUISearchBar' do |ss|
+		ss.source_files = 'Core/ABUISearchBar/*.{h,m}'
 	end
 end

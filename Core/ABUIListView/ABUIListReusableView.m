@@ -42,7 +42,13 @@
     }
     
     [(id<ABUIListItemViewProtocol>)self.mainView reload:item];
-    [(id<ABUIListItemViewProtocol>)self.mainView layoutAdjustContents];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [(id<ABUIListItemViewProtocol>)self.mainView layoutAdjustContents];
+    });
+
+
+    
     
     
 }

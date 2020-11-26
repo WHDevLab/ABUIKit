@@ -279,4 +279,14 @@
     [self.layer addAnimation:animation forKey:@"rotate-layer"];
 }
 
+- (void)doShakeAnimation {
+    
+}
+
+- (void)addShadow {
+    self.layer.shadowColor = [[UIColor hexColor:@"#ABBCCD"] colorWithAlphaComponent:0.35].CGColor;
+    self.layer.shadowOffset = CGSizeMake(-3,-4);
+    self.layer.shadowOpacity = 1;
+    self.layer.shadowRadius = 10;
+}
 @end

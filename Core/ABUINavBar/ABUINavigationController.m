@@ -44,7 +44,9 @@
     self.navigationBar.translucent = NO;
 
     navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationBar];
-    [navBarHairlineImageView addSubview:self.navBarHairlineView];
+    [navBarHairlineImageView setHidden:true];
+    [self.navigationBar setShadowImage:nil];
+//    [navBarHairlineImageView addSubview:self.navBarHairlineView];
     
     self.navigationBar.translucent = false;
     
@@ -108,7 +110,7 @@
     // 设置普通状态的文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [ABUIColor hexColor:@"30331"];
-    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:15];
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
     [appearance setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     
     // 设置不可用状态(disable)的文字属性
@@ -137,6 +139,7 @@
         viewController.navigationItem.leftBarButtonItem = bar;
 
     }
+    [self updateNavStatus:viewController backButton:nil];
     [super pushViewController:viewController animated:animated];
 }
 
@@ -148,25 +151,25 @@
         navigationController.interactivePopGestureRecognizer.enabled = NO;
         navigationController.interactivePopGestureRecognizer.delegate = nil;
     }
-
+    [self updateNavStatus:viewController backButton:nil];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self setNavigationBarHidden:viewController.isVisableNavigationBar == false animated:true];
     
-    // 设置文字属性
-    if ([viewController preferredStatusBarStyle] == UIStatusBarStyleLightContent) {
-        NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-        textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-        textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
-        [navigationController.navigationBar setTitleTextAttributes:textAttrs];
-    }else{
-        NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-        textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
-        textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
-        [navigationController.navigationBar setTitleTextAttributes:textAttrs];
-    }
-
+//    // 设置文字属性
+//    if ([viewController preferredStatusBarStyle] == UIStatusBarStyleLightContent) {
+//        NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+//        textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+//        textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
+//        [navigationController.navigationBar setTitleTextAttributes:textAttrs];
+//    }else{
+//        NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+//        textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+//        textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
+//        [navigationController.navigationBar setTitleTextAttributes:textAttrs];
+//    }
+//    [self updateNavStatus:viewController backButton:nil];
     
 }
 
@@ -185,7 +188,7 @@
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-//    [self updateNavStatus:self.topViewController backButton:nil];
+    [self updateNavStatus:self.topViewController backButton:nil];
     return self.topViewController.preferredStatusBarStyle;
 }
 

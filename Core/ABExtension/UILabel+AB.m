@@ -14,4 +14,11 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     [self addGestureRecognizer:tap];
 }
+
+- (UILabel *)initWithColor:(UIColor *)color font:(UIFont *)font {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.font = font;
+    label.textColor = color;
+    return label;
+}
 @end

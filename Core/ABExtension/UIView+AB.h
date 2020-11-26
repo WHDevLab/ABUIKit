@@ -41,6 +41,7 @@ typedef NS_ENUM(NSUInteger, LineDirection) {
 - (void)corner:(UIRectCorner)corners radii:(CGFloat)radii;
 
 - (void)addTopShadow;
+- (void)addShadow;
 
 /// direction: 0左->右，1右->左, 2上->下, 3下->上
 - (void)gradient:(NSArray *)colors direction:(NSInteger)direction;
@@ -48,6 +49,11 @@ typedef NS_ENUM(NSUInteger, LineDirection) {
 - (void)borderWidth:(CGFloat)width color:(UIColor *)color;
 - (void)shake;
 - (void)rotate;
+
+
+
+/// animate
+- (void)doShakeAnimation;
 @end
 
 NS_ASSUME_NONNULL_END

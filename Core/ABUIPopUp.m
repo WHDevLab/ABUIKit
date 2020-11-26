@@ -57,7 +57,8 @@
         self.direction = direction;
         [self _showCover];
         self.containView = v;
-        [[UIApplication sharedApplication].keyWindow addSubview:v];
+        NSLog(@"added");
+        [[UIApplication sharedApplication].keyWindow addSubview:self.containView];
         [self _animateShow];
     });
 }
@@ -78,7 +79,7 @@
         self.cover.alpha = 0.2;
         self.containView.top = top;
     } completion:^(BOOL finished) {
-        
+        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.containView];
     }];
 }
 
@@ -110,6 +111,7 @@
 }
 
 - (void)_showCover {
+    [self.cover removeFromSuperview];
     self.cover = [[UIControl alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.cover.backgroundColor = UIColor.blackColor;
     [self.cover addTarget:self action:@selector(remove) forControlEvents:UIControlEventTouchUpInside];

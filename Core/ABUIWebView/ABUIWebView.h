@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)abwebview:(ABUIWebView *)abwebview onTitleLoaded:(NSString *)string;
 - (void)abwebview:(ABUIWebView *)abwebview onLoadedProgress:(CGFloat)progress;
 - (void)abwebview:(ABUIWebView *)abwebview onReceiveMessage:(NSDictionary *)message;
+- (void)abwebview:(ABUIWebView *)abwebview newHeight:(CGFloat)height;
 @end
 
 @interface ABUIWebViewScript : NSObject
@@ -33,9 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL bounces;
 @property (nonatomic, strong) NSString *bridgeMethod;
 @property (nonatomic, assign) BOOL adapterSize;
+@property (nonatomic, assign) BOOL isShowProgress;
+@property (nonatomic, assign) BOOL scrollEnable;
 
 - (void)loadWebWithPath:(NSString *)path;
-
+- (void)loadWebWithHTMLString:(NSString *)string;
 - (void)callFuncName:(NSString *)funcName data:(NSString *)data completionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler;
 
 - (void)free;

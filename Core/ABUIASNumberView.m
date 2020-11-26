@@ -77,7 +77,7 @@
 }
 
 - (void)r {
-    NSLog(@"%i", _count);
+//    NSLog(@"%i", _count);
     self.textField.text = [NSString stringWithFormat:@"%i", _count];
     [self.subButton setUserInteractionEnabled:true];
     [self.addButton setUserInteractionEnabled:true];

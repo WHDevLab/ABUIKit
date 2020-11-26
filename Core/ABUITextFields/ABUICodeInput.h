@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 @interface ABUICodeInput : UIView
-@property (nonatomic, assign) id<ABUICodeInputDelegate> delegate;
+@property (nonatomic, weak) id<ABUICodeInputDelegate> delegate;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) ABUITextField *textField;
 @property (nonatomic, strong) ABCountDownButton *cbButton;
@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, assign) NSInteger downCount;
+@property (nonatomic, assign) CGFloat padding;
 
 - (void)start;
 @end

@@ -14,21 +14,66 @@
 #import <MJRefresh/MJRefresh.h>
 #import "ABUIListViewFlowLayout.h"
 #import "ABUITips.h"
+#import "ABUIListViewHorizontalLayout.h"
 static void *contentSizeContext = &contentSizeContext;
 @interface ABUIListView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *dataList;
 @property (nonatomic, strong) NSDictionary *fRules; ///验证表单使用
 @property (nonatomic, strong) NSDictionary *css;
 @property (nonatomic, strong) ABUIListViewFlowLayout *layout;
+
+@property (nonatomic, strong) NSArray *keepOrgSectionsData;
 @end
 
 @implementation ABUIListView
+
+- (instancetype)initWithFrame:(CGRect)frame configure:(ABUIListViewConfigure *)configure {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.runData = [[NSMutableDictionary alloc] init];
+        self.stack = [[ABUIListViewStack alloc] init];
+        
+        self.dynamicContent = false;
+        self.startDirection = StatDirectionTop;
+//        self.dataList = [[NSArray alloc] init];
+        self.backgroundColor = UIColor.clearColor;
+        self.layout = [[ABUIListViewFlowLayout alloc] initWithType:configure.layoutType];
+        self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.layout.estimatedItemSize = CGSizeZero;
+        
+        self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
+        self.collectionView.alwaysBounceVertical = true;
+        if (@available(iOS 13.0, *)) {
+            [self.collectionView setAutomaticallyAdjustsScrollIndicatorInsets:false];
+        } else {
+            // Fallback on earlier versions
+        }
+        if (@available(iOS 11.0, *)) {
+            self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
+            [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+        } else {
+            // Fallback on earlier versions
+        }
+        self.collectionView.delegate = self;
+        self.collectionView.dataSource = self;
+        self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        self.collectionView.backgroundColor = UIColor.clearColor;
+        [self registerCollectionViewClass];
+        [self listenCollectionViewContentSize];
+    }
+    return self;
+}
+
+- (void)setDefaultRunData:(NSDictionary *)data {
+    self.runData = [[NSMutableDictionary alloc] initWithDictionary:data];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.runData = [[NSMutableDictionary alloc] init];
+        self.stack = [[ABUIListViewStack alloc] init];
         
         self.dynamicContent = false;
         self.startDirection = StatDirectionTop;
@@ -112,6 +157,7 @@ static void *contentSizeContext = &contentSizeContext;
     _scrollDirection = scrollDirection;
     self.layout.scrollDirection = scrollDirection;
     if (scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        self.collectionView.pagingEnabled = true;
         self.collectionView.alwaysBounceHorizontal = true;
         self.collectionView.alwaysBounceVertical = false;
     }else{
@@ -171,6 +217,10 @@ static void *contentSizeContext = &contentSizeContext;
 
 #pragma mark ------- attribute setting ------
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css {
+    self.css = css;
+    
+    [self.collectionView.mj_header setHidden:dataList.count == 0];
+    [self.collectionView.mj_footer setHidden:dataList.count == 0];
     NSDictionary *tmpCss = [[NSDictionary alloc] init];
     if (dataList.count == 0) {
         _dataList = dataList;
@@ -206,6 +256,20 @@ static void *contentSizeContext = &contentSizeContext;
             [self.delegate listViewDidReload:self];
         }
     });
+
+}
+
+- (void)setInsetBottom:(CGFloat)insetBottom {
+    _insetBottom = insetBottom;
+    UIEdgeInsets inserts = self.collectionView.contentInset;
+    inserts.bottom = insetBottom;
+    
+    self.collectionView.contentInset = inserts;
+}
+
+
+- (void)_loadDataToView {
+    
 }
 
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule {
@@ -227,8 +291,9 @@ static void *contentSizeContext = &contentSizeContext;
         @"section.inset.bottom":cssModule.section_insert_bottom,
         @"section.inset.right":cssModule.section_insert_right
     };
-    
+
     [self setDataList:dataList css:css];
+
 }
 
 - (void)setFormRules:(NSDictionary *)rules {
@@ -237,6 +302,12 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (void)setTempleteDataList:(NSArray *)dataList {
     _dataList = dataList;
+    
+    
+    [self.collectionView.mj_header setHidden:dataList.count == 0];
+    [self.collectionView.mj_footer setHidden:dataList.count == 0];
+    
+    _keepOrgSectionsData = [[NSArray alloc] initWithArray:dataList];
     [self.collectionView reloadData];
 }
 
@@ -316,6 +387,9 @@ static void *contentSizeContext = &contentSizeContext;
     
     NSArray *items = self.dataList[indexPath.section][@"items"];
     NSDictionary *item = items[indexPath.row];
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:editItemAtIndexPath:item:)]) {
+        item = [self.dataSource listView:self editItemAtIndexPath:indexPath item:[[NSMutableDictionary alloc] initWithDictionary:item]];
+    }
     NSDictionary *extDic = [[NSDictionary alloc] init];
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extraDataAtIndexPath:)]) {
        extDic = [self.dataSource listView:self extraDataAtIndexPath:indexPath];
@@ -328,6 +402,7 @@ static void *contentSizeContext = &contentSizeContext;
     cell.total = items.count;
     NSString *native_id = [[ABUIListViewMapping shared] classString:item[@"native_id"]];
     cell.ppx = self;
+    cell.stack = self.stack;
     [cell reload:item extra:extDic clsStr:native_id];
     return cell;
 }
@@ -346,6 +421,11 @@ static void *contentSizeContext = &contentSizeContext;
         NSArray *items = self.dataList[indexPath.section][@"items"];
         NSDictionary *item = items[indexPath.row];
         [self.delegate listView:self didSelectItemAtIndexPath:indexPath item:item];
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listView:didSelectItemAtIndexPath:item:itemKey:)]) {
+        NSArray *items = self.dataList[indexPath.section][@"items"];
+        NSDictionary *item = items[indexPath.row];
+        [self.delegate listView:self didSelectItemAtIndexPath:indexPath item:item itemKey:item[@"itemKey"]];
     }
 }
 
@@ -397,7 +477,7 @@ static void *contentSizeContext = &contentSizeContext;
     if ([item[@"item.size.width"] floatValue] > 0) {
         w = [item[@"item.size.width"] floatValue];
     }
-    return CGSizeMake(floor(w), h);
+    return CGSizeMake(floor(w), floor(h));
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -436,11 +516,30 @@ static void *contentSizeContext = &contentSizeContext;
     return CGSizeMake(w, h);
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listViewBeginDragging:)]) {
+        [self.delegate listViewBeginDragging:self];
+    }
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (self.delegate && [self.delegate respondsToSelector:@selector(listViewDidScrollToBottom:)]) {
         if ([self isInBottom]) {
              [self.delegate listViewDidScrollToBottom:self];
         }
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (decelerate == false) {
+        [self scrollViewDidEndDecelerating:scrollView];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    int page = scrollView.contentOffset.x/scrollView.frame.size.width;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listView:onPageChanged:)]) {
+        [self.delegate listView:self onPageChanged:page];
     }
 }
 
@@ -455,8 +554,23 @@ static void *contentSizeContext = &contentSizeContext;
     v.layer.mask = maskLayer;
 }
 
+- (void)reloadSection:(int)section {
+    if (section > 0 && section < [self numberOfSectionsInCollectionView:self.collectionView]) {
+        [UIView performWithoutAnimation:^{
+            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:section]];
+        }];
+        
+    }
+}
+
 - (void)reloadData {
-    [self.collectionView reloadData];
+    [UIView performWithoutAnimation:^{
+        [self.collectionView reloadData];
+        [self.collectionView layoutIfNeeded];
+        if ([self.delegate respondsToSelector:@selector(listViewDidReload:)]) {
+            [self.delegate listViewDidReload:self];
+        }
+    }];
 //    [UIView animateWithDuration:0 animations:^{
 //        [UICollectionView performBatchUpdates:^{
 //            [self.collectionView reloadData];
@@ -464,18 +578,18 @@ static void *contentSizeContext = &contentSizeContext;
 //    }];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
     self.collectionView.frame = self.bounds;
-    CGRect rect = [self.collectionView convertRect:self.collectionView.frame toView:UIApplication.sharedApplication.keyWindow];
-    
 }
-
 - (void)scrollToTop:(BOOL)animated {
     [self.collectionView setContentOffset:CGPointMake(0, 0) animated:animated];
 }
 
 - (void)scrollToBottom:(BOOL)animated {
+    if (self.collectionView.contentSize.height <= self.collectionView.frame.size.height) {
+        return;
+    }
     CGFloat y = self.collectionView.contentSize.height-self.collectionView.frame.size.height+self.collectionView.contentInset.bottom;
     [self.collectionView setContentOffset:CGPointMake(0, y) animated:animated];
 }
@@ -500,6 +614,10 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (BOOL)isEmpty {
     return self.dataList.count == 0;
+}
+
+- (BOOL)isContentFull {
+    return self.collectionView.contentSize.height > self.collectionView.frame.size.height;
 }
 
 - (BOOL)checkForm {
@@ -527,6 +645,28 @@ static void *contentSizeContext = &contentSizeContext;
     
     return isPass;
 
+}
+
+- (void)hotReloadSection:(int)section {
+    NSMutableArray *dataSections = [[NSMutableArray alloc] init];
+    for (int i=0; i<_keepOrgSectionsData.count; i++) {
+        NSMutableDictionary *dataSection = [[NSMutableDictionary alloc] initWithDictionary:_keepOrgSectionsData[i]];
+        NSArray *items = dataSection[@"items"];
+        NSMutableArray *nItems = [[NSMutableArray alloc] init];
+        for (int j=0; j<items.count; j++) {
+            if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:visableItemAtIndexPath:item:)]) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
+                if ([self.dataSource listView:self visableItemAtIndexPath:indexPath item:items[j]]) {
+                    [nItems addObject:items[j]];
+                }
+            }
+        }
+        dataSection[@"items"] = nItems;
+        [dataSections addObject:dataSection];
+    }
+    
+    _dataList = dataSections;
+    [self.collectionView reloadData];
 }
 
 @end

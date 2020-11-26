@@ -20,6 +20,9 @@
 - (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(nonnull NSString *)clsStr{
     self.item = item;
     self.itemKey = item[@"itemKey"];
+    if (self.itemKey == nil) {
+        self.itemKey = clsStr;
+    }
     if (clsStr == nil) {
         NSLog(@"%@", item);
         NSLog(@"classString is empty");
