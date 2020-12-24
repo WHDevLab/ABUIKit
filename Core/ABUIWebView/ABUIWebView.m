@@ -21,23 +21,25 @@
 
 @implementation ABUIWebView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame adjustMobile:(BOOL)adjustMobile {
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.bridgeMethod = @"bridge";
         self.scrollEnable = true;
         self.isShowProgress = true;
         self.isLoaded = false;
         
         self.scriptQuene = [[NSMutableArray alloc] init];
-        
+//        "window.onload = function() { window.location.href='ready://'+document.body.scrollHeight}
         NSString *jScript = @"var meta = document.createElement('meta');"
                             "meta.name = 'viewport';"
                             "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';"
                             "var head = document.getElementsByTagName('head')[0];"
                             "head.appendChild(meta);document.documentElement.style.webkitTouchCallout='none';document.documentElement.style.webkitUserSelect='none';";
+        
+        if (adjustMobile == false) {
+            jScript = @"";
+        }
         
         WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
         
@@ -73,9 +75,13 @@
         [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
         [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
         [self.webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
-
     }
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    return [self initWithFrame:frame adjustMobile:true];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -106,6 +112,10 @@
 }
 
 - (void)loadWebWithPath:(NSString *)path {
+    if (path == nil) {
+        return;
+    }
+    self.webPath = path;
     self.isLoaded = false;
     self.progressView.width = 0;
 
@@ -119,6 +129,26 @@
         [self.webView loadHTMLString:indexContent baseURL:baseURL];
     }
 }
+
+//- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+//    if (navigationAction.navigationType == WKNavigationTypeOther) {
+//        if ([[[navigationAction.request URL] scheme] isEqualToString:@"ready"]) {
+//            float contentHeight = [[[navigationAction.request URL] host] floatValue];
+//            CGRect webFrame = self.wkWebView.frame;
+//            webFrame.size.height = contentHeight;
+//            webView.frame = webFrame;
+//
+//            NSLog(@"onload = %f",contentHeight);
+//
+//            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:3 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+//
+//            decisionHandler(WKNavigationActionPolicyCancel);
+//            return;
+//        }
+//    }
+//    decisionHandler(WKNavigationActionPolicyAllow);
+//}
+
 
 - (void)loadWebWithHTMLString:(NSString *)string {
     NSString *header =@"<head><meta content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\" name=\"viewport\"><style>body,html{width: 100%;height: 100%;}*{margin:0;padding:0;}img{max-width:100%;min-width:100%;display:block; width:auto; height:auto;}</style></head>";
@@ -138,9 +168,25 @@
     }
 }
 
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+    NSLog(@"didCommitNavigation");
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"didFailNavigation");
+}
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    NSLog(@"didFinishNavigation");
     self.isLoaded = true;
     [self _runScriptQueue];
+
+//    if (self.adapterSize) {
+//        [webView evaluateJavaScript:@"document.body.offsetHeight" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+//            CGFloat documentHeight = [result doubleValue];
+//            self.height = documentHeight;
+//        }];
+//    }
     if (self.scrollEnable == true) {
         return;
     }
@@ -189,6 +235,14 @@
 //WKWeView在每次加载请求前会调用此方法来确认是否进行请求跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     
+//    if (navigationAction.navigationType == WKNavigationTypeOther) {
+//        if ([[[navigationAction.request URL] scheme] isEqualToString:@"ready"]) {
+//            float contentHeight = [[[navigationAction.request URL] host] floatValue];
+//            self.height = contentHeight;
+//            decisionHandler(WKNavigationActionPolicyCancel);
+//            return;
+//        }
+//    }
     if ([navigationAction.request.URL.scheme caseInsensitiveCompare:self.bridgeMethod] == NSOrderedSame) {
         decisionHandler(WKNavigationActionPolicyCancel);
         NSString *queryString = navigationAction.request.URL.query;
@@ -238,6 +292,7 @@
         }
     }
     else if ([keyPath isEqualToString:@"contentSize"] && self.adapterSize) {
+        NSLog(@"%@", self.webView.scrollView);
         self.height = self.webView.scrollView.contentSize.height;
         self.width = self.webView.scrollView.contentSize.width;
 //        self.width = self.webView.scrollView.contentSize.width;

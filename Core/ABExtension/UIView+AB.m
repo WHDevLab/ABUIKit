@@ -289,4 +289,18 @@
     self.layer.shadowOpacity = 1;
     self.layer.shadowRadius = 10;
 }
+
+- (void)doTwinkle {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];//必须写opacity才行。
+    animation.fromValue = [NSNumber numberWithFloat:1.0f];
+    animation.toValue = [NSNumber numberWithFloat:0.5f];//这是透明度。
+    animation.autoreverses = YES;
+    animation.duration = 0.5;
+    animation.repeatCount = MAXFLOAT;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];///没有的话是均匀的动画。
+    [self.layer addAnimation:animation forKey:nil];
+}
+
 @end

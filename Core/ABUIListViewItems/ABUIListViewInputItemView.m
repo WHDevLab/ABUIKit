@@ -18,7 +18,7 @@
 @implementation ABUIListViewInputItemView
 
 +(void)load {
-    [[ABUIListViewMapping shared] registerClassString:@"ABUIListViewInputItemView" native_id:@"abinput"];
+    [[ABUIListViewMapping shared] registerClassString:@"ABUIListViewInputItemView" native_id:@"abitem_input"];
 }
 
 - (void)setupAdjustContents {
@@ -38,16 +38,14 @@
 }
 
 - (void)onTextFieldChanged {
-    [self.cell refreshUserProvideData];
+    [self.cell setUserProvideData:self.phTextField.text];
 }
 
-- (id)userProvideData {
-    return self.phTextField.text;
-}
 
 - (void)layoutAdjustContents {
     
 }
+
 
 - (void)reload:(NSDictionary *)item {
     self.titleLabel.text = item[@"title"];

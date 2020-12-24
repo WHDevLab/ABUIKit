@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIListViewStack : NSObject
-
+- (void)setData:(NSDictionary *)data;
+- (void)set:(id)value key:(NSString *)key;
+- (id)get:(NSString *)key;
+- (NSDictionary *)all;
 @end
 
 NS_ASSUME_NONNULL_END

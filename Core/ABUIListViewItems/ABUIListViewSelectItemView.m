@@ -19,7 +19,7 @@
 @implementation ABUIListViewSelectItemView
 
 +(void)load {
-    [[ABUIListViewMapping shared] registerClassString:@"ABUIListViewSelectItemView" native_id:@"abselect"];
+    [[ABUIListViewMapping shared] registerClassString:@"ABUIListViewSelectItemView" native_id:@"abitem_select"];
 }
 
 - (void)setupAdjustContents {

@@ -9,7 +9,8 @@
 #import "ABUISearchBar.h"
 #import "UIView+AB.h"
 #import "UIColor+AB.h"
-@interface ABUISearchBar ()
+#import "NSString+AB.h"
+@interface ABUISearchBar ()<UITextFieldDelegate>
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UITextField *inputTextField;
 @end
@@ -26,7 +27,9 @@
         
         self.inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(self.iconImageView.right+5, 0, self.width-self.iconImageView.right-20, self.height)];
         self.inputTextField.textColor = [UIColor hexColor:@"999999"];
+        self.inputTextField.returnKeyType = UIReturnKeySearch;
         self.inputTextField.font = [UIFont systemFontOfSize:15];
+        self.inputTextField.delegate = self;
         [self addSubview:self.inputTextField];
     }
     return self;
@@ -45,6 +48,14 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.iconImageView.centerY = self.height/2;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(searchBarOnSearch:)]) {
+        [self.delegate searchBarOnSearch:[textField.text trim]];
+    }
+    [textField endEditing:true];
+    return true;
 }
 
 @end

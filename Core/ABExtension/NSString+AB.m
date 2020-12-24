@@ -88,4 +88,8 @@
     return content;
 }
 
+- (NSString *)trim {
+    return [self trimmingNewLineAndWhiteSpace];
+}
+
 @end

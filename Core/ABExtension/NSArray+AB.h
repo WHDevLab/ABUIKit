@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSArray (AB)
 - (void)iterationInBlock:(void (^)(NSMutableDictionary *dic))block;
+- (NSString *)toJSONString;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -4,7 +4,7 @@
 //
 //  Created by qp on 2020/9/24.
 //  Copyright © 2020 abteam. All rights reserved.
-//
+// 暗黑模式下，导航栏会变成黑色，关闭暗黑模式
 
 #import "ABUINavigationController.h"
 
@@ -50,6 +50,7 @@
     
     self.navigationBar.translucent = false;
     
+    self.titleFont = [UIFont boldSystemFontOfSize:16];
 }
 
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
@@ -85,8 +86,8 @@
 + (void)setupNavigationBarTheme{
     //获取全局的 UINavigationBar
     UINavigationBar *appearance = [UINavigationBar appearance];
-    appearance.opaque = NO;
-    appearance.translucent = NO;
+//    appearance.opaque = NO;
+//    appearance.translucent = NO;
     
     // 设置导航栏背景
 //    [appearance setBarTintColor:[UIColor hexColor:@"ffffff"]];
@@ -174,14 +175,17 @@
 }
 
 - (void)updateNavStatus:(UIViewController *)vc backButton:(UIButton *)btn {
+    if (self.titleFont == nil) {
+        self.titleFont = [UIFont boldSystemFontOfSize:16];
+    }
     if (vc.isVisableNavigationBar) {
         if (vc.preferredStatusBarStyle == UIStatusBarStyleLightContent) {
             [btn setImage:[ABUINavigationConfig shared].whiteBackImage forState:UIControlStateNormal];
-            self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.blackColor};
+            self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor, NSFontAttributeName:self.titleFont};
         }
         else{
             [btn setImage:[ABUINavigationConfig shared].backImage forState:UIControlStateNormal];
-            self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.blackColor};
+            self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.blackColor, NSFontAttributeName:self.titleFont};
         }
         
     }

@@ -45,6 +45,9 @@ Pod::Spec.new do |s|
 	s.subspec 'ABUIListViewItems' do |ss|
 		ss.source_files = 'Core/ABUIListViewItems/*.{h,m}'
 	end
+	s.subspec 'ABUIProgressView' do |ss|
+		ss.source_files = 'Core/ABUIProgressView/*.{h,m}'
+	end
 	s.subspec 'ABUIChatView' do |ss|
 		ss.source_files = 'Core/ABUIChatView/*.{h,m}'
 		ss.resource_bundles =  {
@@ -53,5 +56,8 @@ Pod::Spec.new do |s|
 	end
 	s.subspec 'ABUISearchBar' do |ss|
 		ss.source_files = 'Core/ABUISearchBar/*.{h,m}'
+	end
+	s.subspec 'ABUIDocumentView' do |ss|
+		ss.source_files = 'Core/ABUIDocumentView/*.{h,m}'
 	end
 end

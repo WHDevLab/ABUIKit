@@ -12,6 +12,8 @@
 #import "ABUIListViewMapping.h"
 #import "ABUIListViewStack.h"
 #import "ABUIListViewConfigure.h"
+#import "ABUISeatView.h"
+@class ABUIListViewCell;
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
@@ -22,6 +24,12 @@ typedef enum : NSUInteger {
 } StatDirection;
 
 @class ABUIListView;
+
+@protocol ABUIListViewHeaderViewDelegate <NSObject>
+- (void)onListViewScroll:(CGFloat)offset;
+
+@end
+
 @protocol ABUIListViewDelegate <NSObject>
 
 @optional
@@ -37,12 +45,15 @@ typedef enum : NSUInteger {
 - (void)listViewOnHeaderPullRefresh:(ABUIListView *)listView;
 - (void)listViewOnLoadMore:(ABUIListView *)listView;
 - (void)listViewDidReload:(ABUIListView *)listView;
+- (void)listViewDidScroll:(ABUIListView *)listView offset:(CGFloat)offset;
 - (void)listViewDidScrollToBottom:(ABUIListView *)listView;
 - (void)listViewBeginDragging:(ABUIListView *)listView;
 - (void)listView:(ABUIListView *)listView onPageChanged:(int)page;
 - (void)listView:(ABUIListView *)listView didActionItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item itemKey:(NSString *)itemKey actionKey:(NSString *)actionKey actionData:(id)actionData;
 - (void)listView:(ABUIListView *)listView didActionItemAtSection:(NSInteger)section item:(NSDictionary *)item itemKey:(NSString *)itemKey actionKey:(NSString *)actionKey actionData:(id)actionData;
 - (void)listView:(ABUIListView *)listView formCheckError:(NSString *)message;
+- (void)listViewOnSeatButton:(ABUIListView *)listView;
+- (void)listView:(ABUIListView *)listView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
 //- (void)listViewDidItemActionResponse:(ABUIListView *)listView itemKey:(NSString *)itemKey actionKey:(NSString *)actionKey data:(id)data;
 @end
 
@@ -84,10 +95,21 @@ typedef enum : NSUInteger {
 /// 数据
 @property (nonatomic, strong) NSDictionary *runData;
 @property (nonatomic, strong) ABUIListViewStack *stack;
+@property (nonatomic, strong) ABUIListViewStack *innerStack;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, ABUIListViewCell *> *cellViewMap;
 @property (nonatomic, strong) NSArray *fRuleKeys; /// 为了解决 frules allkeys 乱序问题,临时方案,外部指定
 
 @property (nonatomic, strong) UIColor *separatorColor;
 @property (nonatomic, assign) CGFloat insetBottom;
+
+@property (nonatomic, assign) BOOL enableSeat;
+@property (nonatomic, strong) NSString *seatTitle;
+@property (nonatomic, strong) NSString *seatImageName;
+@property (nonatomic, strong) NSString *seatNetTitle;
+@property (nonatomic, strong) NSString *seatNetImageName;
+@property (nonatomic, strong) ABUISeatViewConfig *seatConfig;
+@property (nonatomic, assign) BOOL formCheck;
+
 - (instancetype)initWithFrame:(CGRect)frame configure:(ABUIListViewConfigure *)configure;
 - (void)setDefaultRunData:(NSDictionary *)data;
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css;
@@ -115,8 +137,10 @@ typedef enum : NSUInteger {
 - (BOOL)checkForm;
 - (BOOL)isContentFull; //内容是否铺满
 
-/// -1 全刷，用于一些行在特定条件才展示
+/// -1 全刷，用于一些行在特定条件才展示, 通过回调 visableItemAtIndexPath
 - (void)hotReloadSection:(int)section; //刷新数据中哪些行需要展示哪些不需要展示，做一层筛选
+- (NSArray *)visableCells;
+- (void)reloadUserProvide:(NSString *)itemKey;
 @end
 
 NS_ASSUME_NONNULL_END

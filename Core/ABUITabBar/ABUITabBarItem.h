@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *icon_nm;
 @property (nonatomic, strong) NSString *icon_hl;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIColor *navColor;
+@property (nonatomic, strong) UIFont *navTitleFont;
 @end
 
 NS_ASSUME_NONNULL_END

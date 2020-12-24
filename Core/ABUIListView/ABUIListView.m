@@ -15,6 +15,7 @@
 #import "ABUIListViewFlowLayout.h"
 #import "ABUITips.h"
 #import "ABUIListViewHorizontalLayout.h"
+#import "ABUISeatView.h"
 static void *contentSizeContext = &contentSizeContext;
 @interface ABUIListView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *dataList;
@@ -22,7 +23,10 @@ static void *contentSizeContext = &contentSizeContext;
 @property (nonatomic, strong) NSDictionary *css;
 @property (nonatomic, strong) ABUIListViewFlowLayout *layout;
 
-@property (nonatomic, strong) NSArray *keepOrgSectionsData;
+@property (nonatomic, strong) NSArray *keepOrgSectionsData; //保存原始数据，用于筛选item
+@property (nonatomic, strong) ABUISeatView *seatView;
+//@property (nonatomic, strong) NSMutableDictionary *rules;
+//@property (nonatomic, strong) NSMutableArray *ruleSortedKeys;
 @end
 
 @implementation ABUIListView
@@ -32,14 +36,20 @@ static void *contentSizeContext = &contentSizeContext;
     if (self) {
         self.runData = [[NSMutableDictionary alloc] init];
         self.stack = [[ABUIListViewStack alloc] init];
+        self.innerStack = [[ABUIListViewStack alloc] init];
+        self.cellViewMap = [[NSMutableDictionary alloc] init];
         
         self.dynamicContent = false;
         self.startDirection = StatDirectionTop;
 //        self.dataList = [[NSArray alloc] init];
         self.backgroundColor = UIColor.clearColor;
-        self.layout = [[ABUIListViewFlowLayout alloc] initWithType:configure.layoutType];
-        self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        self.layout.estimatedItemSize = CGSizeZero;
+        if (configure.layout == nil) {
+            self.layout = [[ABUIListViewFlowLayout alloc] initWithType:configure.layoutType];
+            self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+            self.layout.estimatedItemSize = CGSizeZero;
+        }else{
+            self.layout = configure.layout;
+        }
         
         self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
         self.collectionView.alwaysBounceVertical = true;
@@ -60,8 +70,52 @@ static void *contentSizeContext = &contentSizeContext;
         self.collectionView.backgroundColor = UIColor.clearColor;
         [self registerCollectionViewClass];
         [self listenCollectionViewContentSize];
+        
+        if (configure.enableMove) {
+            UILongPressGestureRecognizer *longPresssGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressMethod:)];
+            [self.collectionView addGestureRecognizer:longPresssGes];
+        }
     }
     return self;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listView:moveItemAtIndexPath:toIndexPath:)]) {
+        [self.delegate listView:self moveItemAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+    }
+}
+
+- (void)longPressMethod:(UILongPressGestureRecognizer *)longPressGes {
+    CGPoint point = [longPressGes locationInView:longPressGes.view];
+    // 判断手势状态
+    switch (longPressGes.state) {
+            
+        case UIGestureRecognizerStateBegan: {
+            
+            // 判断手势落点位置是否在路径上(长按cell时,显示对应cell的位置,如path = 1 - 0,即表示长按的是第1组第0个cell). 点击除了cell的其他地方皆显示为null
+            NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[longPressGes locationInView:self.collectionView]];
+            // 如果点击的位置不是cell,break
+            if (nil == indexPath) {
+                break;
+            }
+            // 在路径上则开始移动该路径上的cell
+            [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
+        }
+            break;
+            
+        case UIGestureRecognizerStateChanged:
+            // 移动过程当中随时更新cell位置
+            [self.collectionView updateInteractiveMovementTargetPosition:point];
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            // 移动结束后关闭cell移动
+            [self.collectionView endInteractiveMovement];
+            break;
+        default:
+            [self.collectionView cancelInteractiveMovement];
+            break;
+    }
 }
 
 - (void)setDefaultRunData:(NSDictionary *)data {
@@ -74,11 +128,14 @@ static void *contentSizeContext = &contentSizeContext;
     if (self) {
         self.runData = [[NSMutableDictionary alloc] init];
         self.stack = [[ABUIListViewStack alloc] init];
+        self.innerStack = [[ABUIListViewStack alloc] init];
+        self.cellViewMap = [[NSMutableDictionary alloc] init];
         
         self.dynamicContent = false;
         self.startDirection = StatDirectionTop;
 //        self.dataList = [[NSArray alloc] init];
         self.backgroundColor = UIColor.clearColor;
+//        self.layout = [[ABUIListViewFlowLayout alloc] init];
         self.layout = [[ABUIListViewFlowLayout alloc] init];
         self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.layout.estimatedItemSize = CGSizeZero;
@@ -182,8 +239,6 @@ static void *contentSizeContext = &contentSizeContext;
 - (UIColor *)hexColor:(NSString *)stringToConvert
 {
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    
-    
     if ([cString length] < 6)
         return [UIColor clearColor];
     if ([cString hasPrefix:@"#"])
@@ -218,7 +273,13 @@ static void *contentSizeContext = &contentSizeContext;
 #pragma mark ------- attribute setting ------
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css {
     self.css = css;
-    
+    [self.seatView removeFromSuperview];
+    if (dataList.count == 0 && self.enableSeat) {
+        self.seatView = [[ABUISeatView alloc] initWithFrame:self.collectionView.frame];
+        self.seatView.config = self.seatConfig;
+        [self.seatView.actionButton addTarget:self action:@selector(onSeatViewAction) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:self.seatView];
+    }
     [self.collectionView.mj_header setHidden:dataList.count == 0];
     [self.collectionView.mj_footer setHidden:dataList.count == 0];
     NSDictionary *tmpCss = [[NSDictionary alloc] init];
@@ -241,6 +302,7 @@ static void *contentSizeContext = &contentSizeContext;
     }else{
         _dataList = dataList;
     }
+    [self readForm];
     [self.collectionView reloadData];
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.startDirection == StatDirectionRight) {
@@ -256,7 +318,34 @@ static void *contentSizeContext = &contentSizeContext;
             [self.delegate listViewDidReload:self];
         }
     });
+}
 
+- (void)onSeatViewAction {
+    [self.seatView removeFromSuperview];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listViewOnSeatButton:)]) {
+        [self.delegate listViewOnSeatButton:self];
+    }
+}
+
+- (void)readForm {
+    if (self.formCheck) {
+        self.fRules = [[NSMutableDictionary alloc] init];
+        self.fRuleKeys = [[NSMutableArray alloc] init];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        NSMutableArray *sortedKeys = [[NSMutableArray alloc] init];
+        for (NSDictionary *sectionDic in self.dataList) {
+            NSArray *items = sectionDic[@"items"];
+            for (NSDictionary *item in items) {
+                if (item[@"itemKey"] != nil && item[@"form"] != nil) {
+                    [sortedKeys addObject:item[@"itemKey"]];
+                    dic[item[@"itemKey"]] = item[@"form"];
+                }
+            }
+        }
+        
+        self.fRuleKeys = sortedKeys;
+        self.fRules = dic;
+    }
 }
 
 - (void)setInsetBottom:(CGFloat)insetBottom {
@@ -303,7 +392,7 @@ static void *contentSizeContext = &contentSizeContext;
 - (void)setTempleteDataList:(NSArray *)dataList {
     _dataList = dataList;
     
-    
+    [self readForm];
     [self.collectionView.mj_header setHidden:dataList.count == 0];
     [self.collectionView.mj_footer setHidden:dataList.count == 0];
     
@@ -386,6 +475,7 @@ static void *contentSizeContext = &contentSizeContext;
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSArray *items = self.dataList[indexPath.section][@"items"];
+    NSDictionary *css = self.dataList[indexPath.section][@"css"];
     NSDictionary *item = items[indexPath.row];
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:editItemAtIndexPath:item:)]) {
         item = [self.dataSource listView:self editItemAtIndexPath:indexPath item:[[NSMutableDictionary alloc] initWithDictionary:item]];
@@ -397,13 +487,16 @@ static void *contentSizeContext = &contentSizeContext;
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extraDataAtIndexPath:item:)]) {
        extDic = [self.dataSource listView:self extraDataAtIndexPath:indexPath item:item];
     }
+    NSMutableDictionary *dd = [[NSMutableDictionary alloc] initWithDictionary:extDic];
+    dd[@"section.css"] = css;
     ABUIListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.indexPath = indexPath;
     cell.total = items.count;
     NSString *native_id = [[ABUIListViewMapping shared] classString:item[@"native_id"]];
     cell.ppx = self;
     cell.stack = self.stack;
-    [cell reload:item extra:extDic clsStr:native_id];
+    cell.innerStack = self.innerStack;
+    [cell reload:item extra:dd clsStr:native_id];
     return cell;
 }
 
@@ -457,7 +550,7 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     if ([self.delegate respondsToSelector:@selector(listView:sizeForItemAtIndexPath:)]) {
         return [self.delegate listView:self sizeForItemAtIndexPath:indexPath];
     }
@@ -465,8 +558,8 @@ static void *contentSizeContext = &contentSizeContext;
     CGFloat w = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.width" df:collectionView.frame.size.width];
     CGFloat h = [self getValueIn:self.dataList[indexPath.section][@"css"] key:@"item.size.height" df:44];
     NSArray *items = self.dataList[indexPath.section][@"items"];
+    NSDictionary *css = self.dataList[indexPath.section][@"css"];
     NSDictionary *item = items[indexPath.row];
-    
     if ([self.delegate respondsToSelector:@selector(listView:sizeForItemAtIndexPath:item:)]) {
         return [self.delegate listView:self sizeForItemAtIndexPath:indexPath item:item];
     }
@@ -476,6 +569,17 @@ static void *contentSizeContext = &contentSizeContext;
     }
     if ([item[@"item.size.width"] floatValue] > 0) {
         w = [item[@"item.size.width"] floatValue];
+    }
+    
+    if (item[@"_identifier"] != nil) {
+        NSString *_identifier = item[@"_identifier"];
+        NSDictionary *dic = [self.innerStack get:_identifier];
+        if (dic[@"height"] != nil) {
+            h = [dic[@"height"] floatValue];
+        }
+    }
+    if (w == self.frame.size.width) {
+        w = w-[css[@"section.inset.left"] floatValue]-[css[@"section.inset.right"] floatValue];
     }
     return CGSizeMake(floor(w), floor(h));
 }
@@ -523,9 +627,19 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listViewDidScroll:offset:)]) {
+        [self.delegate listViewDidScroll:self offset:scrollView.contentOffset.y];
+    }
     if (self.delegate && [self.delegate respondsToSelector:@selector(listViewDidScrollToBottom:)]) {
         if ([self isInBottom]) {
              [self.delegate listViewDidScrollToBottom:self];
+        }
+    }
+    
+    if ([self.headerView conformsToProtocol:@protocol(ABUIListViewHeaderViewDelegate)]) {
+        id<ABUIListViewHeaderViewDelegate> h = (id<ABUIListViewHeaderViewDelegate>)self.headerView;
+        if ([h respondsToSelector:@selector(onListViewScroll:)]) {
+            [h onListViewScroll:scrollView.contentOffset.y+self.headerView.frame.size.height];
         }
     }
 }
@@ -625,8 +739,17 @@ static void *contentSizeContext = &contentSizeContext;
     NSString *message = @"";
     NSArray *itemKeys = self.fRuleKeys;
     for (NSString *key in itemKeys) {
-        NSDictionary *rule = self.fRules[key][0];
+        NSDictionary *rule = @{};
+        if ([self.fRules[key] isKindOfClass:[NSArray class]]) {
+            rule = self.fRules[key][0];
+        }else{
+            rule = self.fRules[key];
+        }
+
         NSString *vv = self.runData[key];
+        if (self.runData.count == 0) {
+            vv = [self.stack get:key];
+        }
         BOOL required = [rule[@"required"] boolValue];
         if (required) {
             if (vv == nil || vv.length == 0) {
@@ -667,6 +790,20 @@ static void *contentSizeContext = &contentSizeContext;
     
     _dataList = dataSections;
     [self.collectionView reloadData];
+}
+
+- (NSArray *)visableCells {
+    return self.collectionView.visibleCells;
+}
+
+- (void)reloadUserProvide:(NSString *)itemKey {
+    for (ABUIListViewCell *cell in self.collectionView.visibleCells) {
+        if ([cell isKindOfClass:[ABUIListViewCell class]]) {
+            if ([cell.item[@"itemKey"] isEqualToString:itemKey]) {
+                [(id<ABUIListItemViewProtocol>)cell.mainView reloadUserProvideData];
+            }
+        }
+    }
 }
 
 @end

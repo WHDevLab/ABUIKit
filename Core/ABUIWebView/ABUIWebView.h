@@ -36,7 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL adapterSize;
 @property (nonatomic, assign) BOOL isShowProgress;
 @property (nonatomic, assign) BOOL scrollEnable;
-
+@property (nonatomic, strong) NSString *webPath;
+- (instancetype)initWithFrame:(CGRect)frame adjustMobile:(BOOL)adjustMobile;
 - (void)loadWebWithPath:(NSString *)path;
 - (void)loadWebWithHTMLString:(NSString *)string;
 - (void)callFuncName:(NSString *)funcName data:(NSString *)data completionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler;

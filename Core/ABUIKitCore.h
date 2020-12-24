@@ -41,4 +41,6 @@
 #import "ABUIChatConfirgure.h"
 
 #import "ABUISearchBar.h"
+#import "ABUIProgressView.h"
+#import "ABUIWebViewController.h"
 #endif /* ABUIKitCore_h */

@@ -67,8 +67,12 @@
     
     self.titleLabel.left = self.padding;
     self.titleLabel.centerY = self.height/2;
-    
+
     self.textField.frame = CGRectMake(self.titleLabel.right+10, 0, self.cbButton.left-self.titleLabel.right-10, self.height);
+    
+    if (self.titleLabel.text.length == 0) {
+        self.textField.left = 0;
+    }
 }
 
 @end

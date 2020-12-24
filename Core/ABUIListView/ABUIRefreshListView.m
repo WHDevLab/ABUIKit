@@ -22,6 +22,7 @@
     return self;
 }
 - (void)setDataList:(NSArray *)dataList css:(NSDictionary *)css {
+    
     if (self.isLoadMoreing) {
         [self._dataList addObjectsFromArray:dataList];
     }
@@ -31,9 +32,9 @@
     
     [self endPullRefreshing];
     [self endLoadMore];
+    [super setDataList:self._dataList css:css];
     if (dataList.count == 0 || dataList.count < self.limit) {
         [self noMoreData];
     }
-    [super setDataList:self._dataList css:css];
 }
 @end

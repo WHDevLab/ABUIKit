@@ -54,6 +54,8 @@ typedef NS_ENUM(NSUInteger, LineDirection) {
 
 /// animate
 - (void)doShakeAnimation;
+/// twinkle
+- (void)doTwinkle;
 @end
 
 NS_ASSUME_NONNULL_END

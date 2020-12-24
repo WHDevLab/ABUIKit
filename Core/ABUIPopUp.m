@@ -52,6 +52,7 @@
 }
 
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance {
+    [self.containView removeFromSuperview];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.distance = distance;
         self.direction = direction;
@@ -70,7 +71,7 @@
         top = [UIScreen mainScreen].bounds.size.height-self.containView.height-self.distance;
     }
     if (self.direction == ABPopUpDirectionCenter) {
-        top = ([UIScreen mainScreen].bounds.size.height-self.containView.height)/2;
+        top = ([UIScreen mainScreen].bounds.size.height-self.containView.height)/2+self.distance;
     }
     self.cover.alpha = 0;
     self.containView.top = [UIScreen mainScreen].bounds.size.height;

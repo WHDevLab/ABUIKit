@@ -19,10 +19,8 @@
 @implementation ABUITabBarViewController
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.titleNormalColor = [UIColor hexColor:@"99999"];
+    self.titleNormalColor = [UIColor hexColor:@"999999"];
     self.titleSelectColor = [UIColor redColor];
-    
-    [self configTabBar];
 }
 - (void)setUpChildsWithItems:(NSArray<ABUITabBarItem *> *)items {
     for (ABUITabBarItem *item in items) {
@@ -37,6 +35,11 @@
         UIViewController *vc = [[NSClassFromString(module) alloc] init];
         vc.title = title;
         ABUINavigationController *nav = [[ABUINavigationController alloc] initWithRootViewController:vc];
+        nav.titleFont = item.navTitleFont;
+//        nav.navigationBar.barStyle = UIBarStyleDefault;
+//        nav.navigationBar.translucent = YES;
+//        nav.navigationBar.tintColor = nil;
+
     
         //create image from image name
         UIImage *nmImage = [[UIImage imageNamed:nmIconName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -44,7 +47,7 @@
         
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:nmImage selectedImage:hlImage];
         nav.tabBarItem = tabBarItem;
-        
+        [nav.navigationBar setBackgroundImage:[UIImage imageWithColor:item.navColor] forBarMetrics:UIBarMetricsDefault];
         
 //        if (navDic != nil) {
 //            NSMutableArray *colors = [[NSMutableArray alloc] init];
@@ -59,6 +62,8 @@
         //append to childs
         [self addChildViewController:nav];
     }
+    
+    [self configTabBar];
 }
 
 
@@ -75,7 +80,7 @@
         
         self.tabBar.standardAppearance.backgroundImage = [UIImage imageWithColor:UIColor.whiteColor];
         self.tabBar.standardAppearance.shadowImage = [UIImage imageWithColor:UIColor.whiteColor];
-        self.tabBar.unselectedItemTintColor = [UIColor hexColor:@"C5C7D3"];
+        self.tabBar.unselectedItemTintColor = self.titleNormalColor;
     } else {
         [UITabBar appearance].backgroundImage = [UIImage new];
         [UITabBar appearance].shadowImage = [UIImage new];
@@ -83,7 +88,7 @@
 
 
     [UITabBar appearance].backgroundColor = UIColor.whiteColor;
-    [UITabBar appearance].tintColor = [UIColor hexColor:@"#FF2A40"];
+    [UITabBar appearance].tintColor = self.titleSelectColor;
 
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleNormalColor} forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:self.titleSelectColor} forState:UIControlStateSelected];

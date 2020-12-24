@@ -32,6 +32,8 @@
 		F142508C249B4900003E83D8 /* ABUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508B249B4900003E83D8 /* ABUIWebViewController.m */; };
 		F142508F249B5454003E83D8 /* ABUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508E249B5454003E83D8 /* ABUITextView.m */; };
 		F14BB6E8256F5C6A00348433 /* ABUISearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F14BB6E7256F5C6A00348433 /* ABUISearchBar.m */; };
+		F14BB72E2570A63700348433 /* ABUISeatView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14BB72D2570A63700348433 /* ABUISeatView.m */; };
+		F14BB7542570DBB600348433 /* ABUINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F14BB7532570DBB500348433 /* ABUINavigationBar.m */; };
 		F14C35E224760B750060D435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35E124760B750060D435 /* AppDelegate.m */; };
 		F14C35E824760B750060D435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35E724760B750060D435 /* ViewController.m */; };
 		F14C35ED24760B790060D435 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14C35EC24760B790060D435 /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		F165A904255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A903255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m */; };
 		F165A922255B6C5500107ABB /* ABUIListViewConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A921255B6C5500107ABB /* ABUIListViewConfigure.m */; };
 		F165A926255B6C6500107ABB /* ABUIListViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F165A925255B6C6500107ABB /* ABUIListViewHelper.m */; };
+		F16A5377258749E200C42C3F /* ABUIProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F16A5376258749E200C42C3F /* ABUIProgressView.m */; };
+		F16A543D2589939400C42C3F /* ABUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16A543C2589939400C42C3F /* ABUIWebViewController.m */; };
 		F16CBB0E24AD76C700CA6C18 /* ABUITextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB0D24AD76C700CA6C18 /* ABUITextInput.m */; };
 		F16CBB1424ADB13B00CA6C18 /* ABUICodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1324ADB13B00CA6C18 /* ABUICodeInput.m */; };
 		F16CBB1724ADE3D300CA6C18 /* ABUIPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */; };
@@ -73,6 +77,7 @@
 		F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88424C59F92003A6031 /* ABUICheckBox.m */; };
 		F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */; };
 		F1B0395724FF86F6008B02C1 /* ABUIMoneyInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B0395624FF86F6008B02C1 /* ABUIMoneyInput.m */; };
+		F1B92F712591FA320023382F /* ABUIDocumentFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B92F702591FA320023382F /* ABUIDocumentFileCell.m */; };
 		F1BE0F43254F9D4A00F53BCF /* ABUIChatItemTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F42254F9D4A00F53BCF /* ABUIChatItemTimeView.m */; };
 		F1BE0F4B254F9D9E00F53BCF /* ABUIChatItemImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F4A254F9D9E00F53BCF /* ABUIChatItemImageView.m */; };
 		F1BE0F53254F9E0500F53BCF /* ABUIChatItemLBSView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F52254F9E0500F53BCF /* ABUIChatItemLBSView.m */; };
@@ -83,6 +88,7 @@
 		F1BE0F90254FADCE00F53BCF /* ABUIChatItemBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0F8F254FADCE00F53BCF /* ABUIChatItemBaseView.m */; };
 		F1BE0FA82550FB8700F53BCF /* ABUIChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0FA72550FB8700F53BCF /* ABUIChatHelper.m */; };
 		F1BE0FC025510C2800F53BCF /* ABUIChatConfirgure.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0FBF25510C2800F53BCF /* ABUIChatConfirgure.m */; };
+		F1CAF798258AFB2400CD4D54 /* ABUIDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CAF797258AFB2400CD4D54 /* ABUIDocumentView.m */; };
 		F1CBD9A3253FCCD200363B55 /* ABUIListViewStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +144,10 @@
 		F142508E249B5454003E83D8 /* ABUITextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextView.m; sourceTree = "<group>"; };
 		F14BB6E6256F5C6A00348433 /* ABUISearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISearchBar.h; sourceTree = "<group>"; };
 		F14BB6E7256F5C6A00348433 /* ABUISearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISearchBar.m; sourceTree = "<group>"; };
+		F14BB72C2570A63700348433 /* ABUISeatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISeatView.h; sourceTree = "<group>"; };
+		F14BB72D2570A63700348433 /* ABUISeatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISeatView.m; sourceTree = "<group>"; };
+		F14BB7522570DBB500348433 /* ABUINavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUINavigationBar.h; sourceTree = "<group>"; };
+		F14BB7532570DBB500348433 /* ABUINavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUINavigationBar.m; sourceTree = "<group>"; };
 		F14C35DD24760B750060D435 /* ABUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14C35E024760B750060D435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F14C35E124760B750060D435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -207,6 +217,10 @@
 		F165A921255B6C5500107ABB /* ABUIListViewConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewConfigure.m; sourceTree = "<group>"; };
 		F165A924255B6C6500107ABB /* ABUIListViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewHelper.h; sourceTree = "<group>"; };
 		F165A925255B6C6500107ABB /* ABUIListViewHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewHelper.m; sourceTree = "<group>"; };
+		F16A5375258749E200C42C3F /* ABUIProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIProgressView.h; sourceTree = "<group>"; };
+		F16A5376258749E200C42C3F /* ABUIProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIProgressView.m; sourceTree = "<group>"; };
+		F16A543B2589939400C42C3F /* ABUIWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIWebViewController.h; sourceTree = "<group>"; };
+		F16A543C2589939400C42C3F /* ABUIWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIWebViewController.m; sourceTree = "<group>"; };
 		F16CBB0C24AD76C700CA6C18 /* ABUITextInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITextInput.h; sourceTree = "<group>"; };
 		F16CBB0D24AD76C700CA6C18 /* ABUITextInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextInput.m; sourceTree = "<group>"; };
 		F16CBB1224ADB13B00CA6C18 /* ABUICodeInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUICodeInput.h; sourceTree = "<group>"; };
@@ -223,6 +237,8 @@
 		F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUICollectionView.m; sourceTree = "<group>"; };
 		F1B0395524FF86F6008B02C1 /* ABUIMoneyInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIMoneyInput.h; sourceTree = "<group>"; };
 		F1B0395624FF86F6008B02C1 /* ABUIMoneyInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIMoneyInput.m; sourceTree = "<group>"; };
+		F1B92F6F2591FA320023382F /* ABUIDocumentFileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIDocumentFileCell.h; sourceTree = "<group>"; };
+		F1B92F702591FA320023382F /* ABUIDocumentFileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIDocumentFileCell.m; sourceTree = "<group>"; };
 		F1BE0F41254F9D4A00F53BCF /* ABUIChatItemTimeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemTimeView.h; sourceTree = "<group>"; };
 		F1BE0F42254F9D4A00F53BCF /* ABUIChatItemTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatItemTimeView.m; sourceTree = "<group>"; };
 		F1BE0F49254F9D9E00F53BCF /* ABUIChatItemImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatItemImageView.h; sourceTree = "<group>"; };
@@ -242,6 +258,8 @@
 		F1BE0FA72550FB8700F53BCF /* ABUIChatHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatHelper.m; sourceTree = "<group>"; };
 		F1BE0FBE25510C2800F53BCF /* ABUIChatConfirgure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIChatConfirgure.h; sourceTree = "<group>"; };
 		F1BE0FBF25510C2800F53BCF /* ABUIChatConfirgure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIChatConfirgure.m; sourceTree = "<group>"; };
+		F1CAF796258AFB2400CD4D54 /* ABUIDocumentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIDocumentView.h; sourceTree = "<group>"; };
+		F1CAF797258AFB2400CD4D54 /* ABUIDocumentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIDocumentView.m; sourceTree = "<group>"; };
 		F1CBD9A1253FCCD200363B55 /* ABUIListViewStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewStack.h; sourceTree = "<group>"; };
 		F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,6 +358,8 @@
 				F12BB8D1251C976E003CE49C /* ABUINavigationController.m */,
 				F10F2F1E251F45B200088B72 /* ABUINavigationConfig.h */,
 				F10F2F1F251F45B200088B72 /* ABUINavigationConfig.m */,
+				F14BB7522570DBB500348433 /* ABUINavigationBar.h */,
+				F14BB7532570DBB500348433 /* ABUINavigationBar.m */,
 			);
 			path = ABUINavBar;
 			sourceTree = "<group>";
@@ -350,6 +370,8 @@
 				F1425088249B2022003E83D8 /* web.html */,
 				F142507E249B0A97003E83D8 /* ABUIWebView.h */,
 				F142507F249B0A97003E83D8 /* ABUIWebView.m */,
+				F16A543B2589939400C42C3F /* ABUIWebViewController.h */,
+				F16A543C2589939400C42C3F /* ABUIWebViewController.m */,
 			);
 			path = ABUIWebView;
 			sourceTree = "<group>";
@@ -402,6 +424,8 @@
 		F14C35F924760FDC0060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1CAF795258AFB0600CD4D54 /* ABUIDocumentView */,
+				F16A5374258749D300C42C3F /* ABUIProgressView */,
 				F14BB6E5256F5C4E00348433 /* ABUISearchBar */,
 				F10F3020252482B000088B72 /* ABUIListViewItems */,
 				F12BB8CF251C9742003CE49C /* ABUINavBar */,
@@ -439,6 +463,8 @@
 				F121926624D16AD900630CA2 /* ABUIInputView.m */,
 				F10F2F7E2522E6F400088B72 /* ABUIASNumberView.h */,
 				F10F2F7F2522E6F400088B72 /* ABUIASNumberView.m */,
+				F14BB72C2570A63700348433 /* ABUISeatView.h */,
+				F14BB72D2570A63700348433 /* ABUISeatView.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -542,6 +568,15 @@
 			path = ABUIChatView;
 			sourceTree = "<group>";
 		};
+		F16A5374258749D300C42C3F /* ABUIProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				F16A5375258749E200C42C3F /* ABUIProgressView.h */,
+				F16A5376258749E200C42C3F /* ABUIProgressView.m */,
+			);
+			path = ABUIProgressView;
+			sourceTree = "<group>";
+		};
 		F16CBB0824AD648100CA6C18 /* ABUITextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +590,17 @@
 				F1B0395624FF86F6008B02C1 /* ABUIMoneyInput.m */,
 			);
 			path = ABUITextFields;
+			sourceTree = "<group>";
+		};
+		F1CAF795258AFB0600CD4D54 /* ABUIDocumentView */ = {
+			isa = PBXGroup;
+			children = (
+				F1CAF796258AFB2400CD4D54 /* ABUIDocumentView.h */,
+				F1CAF797258AFB2400CD4D54 /* ABUIDocumentView.m */,
+				F1B92F6F2591FA320023382F /* ABUIDocumentFileCell.h */,
+				F1B92F702591FA320023382F /* ABUIDocumentFileCell.m */,
+			);
+			path = ABUIDocumentView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -693,6 +739,7 @@
 				F12BB88F251C937B003CE49C /* ABUITabBarViewController.m in Sources */,
 				F14C35E224760B750060D435 /* AppDelegate.m in Sources */,
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
+				F1CAF798258AFB2400CD4D54 /* ABUIDocumentView.m in Sources */,
 				F1BE0F43254F9D4A00F53BCF /* ABUIChatItemTimeView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
 				F15ACDEF25121B8E006F2D9E /* ABUIChatView.m in Sources */,
@@ -715,16 +762,21 @@
 				F11682C7249F6056004DD6B8 /* ABCountDownButton.m in Sources */,
 				F10F3038252483DA00088B72 /* ABUIListViewTIItemView.m in Sources */,
 				F142507D249AFCBC003E83D8 /* ABUIListViewCSS.m in Sources */,
+				F14BB7542570DBB600348433 /* ABUINavigationBar.m in Sources */,
+				F16A543D2589939400C42C3F /* ABUIWebViewController.m in Sources */,
 				F1B0395724FF86F6008B02C1 /* ABUIMoneyInput.m in Sources */,
 				F15ACDF225121BDA006F2D9E /* ABUIChatBottomBar.m in Sources */,
 				F14BB6E8256F5C6A00348433 /* ABUISearchBar.m in Sources */,
 				F14C362B24760FDC0060D435 /* ABUIColor.m in Sources */,
 				F165A922255B6C5500107ABB /* ABUIListViewConfigure.m in Sources */,
 				F154722924C12EBA00BC6457 /* ABUIAnimateBannerConfig.m in Sources */,
+				F1B92F712591FA320023382F /* ABUIDocumentFileCell.m in Sources */,
 				F14C35F324760B790060D435 /* main.m in Sources */,
 				F1BE0FA82550FB8700F53BCF /* ABUIChatHelper.m in Sources */,
+				F14BB72E2570A63700348433 /* ABUISeatView.m in Sources */,
 				F16CBB0E24AD76C700CA6C18 /* ABUITextInput.m in Sources */,
 				F14C362924760FDC0060D435 /* ABUIViewController.m in Sources */,
+				F16A5377258749E200C42C3F /* ABUIProgressView.m in Sources */,
 				F165A904255A9CBE00107ABB /* ABUIListViewHorizontalLayout.m in Sources */,
 				F12BB977251DD1CD003CE49C /* UIFont+AB.m in Sources */,
 				F16CBB1424ADB13B00CA6C18 /* ABUICodeInput.m in Sources */,

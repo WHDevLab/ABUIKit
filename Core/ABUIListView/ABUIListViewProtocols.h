@@ -21,6 +21,7 @@
 - (void)setHighlighted:(BOOL)highlighted;
 
 - (id)userProvideData;
+- (void)reloadUserProvideData;
 @end
 
 #endif /* ABUIListViewProtocols_h */

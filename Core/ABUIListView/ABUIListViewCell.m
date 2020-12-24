@@ -7,13 +7,10 @@
 //
 
 #import "ABUIListViewCell.h"
-#import "ABUIListViewProtocols.h"
 #import "ABUIListViewBaseItemView.h"
 @interface ABUIListViewCell ()
-@property (nonatomic, strong) UIView *mainView;
 @property (nonatomic, strong) NSString *itemKey;
 
-@property (nonatomic, strong) NSDictionary *item;
 @end
 @implementation ABUIListViewCell
 
@@ -76,11 +73,24 @@
 - (void)refreshUserProvideData {
     if ([self.mainView respondsToSelector:@selector(userProvideData)]) {
         id data = [(id<ABUIListItemViewProtocol>)self.mainView userProvideData];
-        [self.ppx.runData setValue:data forKey:self.itemKey];
+        if ([self.ppx.runData isKindOfClass:[NSMutableDictionary class]]) {
+            [self.ppx.runData setValue:data forKey:self.itemKey];
+        }
+        [self.ppx.stack set:data key:self.itemKey];
     }
 }
 
+- (void)setUserProvideData:(id)data {
+    [self.ppx.stack set:data key:self.itemKey];
+}
+
 - (void)sendActionWithKey:(NSString *)actionKey actionData:(nullable id)actionData {
+    if (self.ppx.delegate && [self.ppx.delegate respondsToSelector:@selector(listView:didActionItemAtIndexPath:item:itemKey:actionKey:actionData:)]) {
+        [self.ppx.delegate listView:self.ppx didActionItemAtIndexPath:self.indexPath item:self.item itemKey:self.itemKey actionKey:actionKey actionData:actionData];
+    }
+}
+
+- (void)sendActionWithData:(id)actionData forKey:(NSString *)actionKey {
     if (self.ppx.delegate && [self.ppx.delegate respondsToSelector:@selector(listView:didActionItemAtIndexPath:item:itemKey:actionKey:actionData:)]) {
         [self.ppx.delegate listView:self.ppx didActionItemAtIndexPath:self.indexPath item:self.item itemKey:self.itemKey actionKey:actionKey actionData:actionData];
     }
@@ -93,7 +103,51 @@
 }
 
 - (nullable id)userProvideData {
+    return [self.ppx.stack get:self.itemKey];
     return self.ppx.runData[self.itemKey];
+}
+
+- (void)save:(id)value forKey:(NSString *)key {
+    NSString *_identifier = self.item[@"_identifier"];
+    if (_identifier == nil) {
+        return;
+    }
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:[self.innerStack get:_identifier]];
+    dic[key] = value;
+    [self.innerStack set:dic key:_identifier];
+}
+
+- (id)get:(NSString *)key {
+    NSString *_identifier = self.item[@"_identifier"];
+    if (_identifier == nil) {
+        return nil;
+    }
+    
+    return [self.innerStack get:_identifier][key];
+}
+
+- (void)changeHeightIfNeed:(CGFloat)height {
+    NSString *_identifier = self.item[@"_identifier"];
+    if (_identifier == nil) {
+        return;
+    }
+    if ([self.innerStack get:_identifier] == nil) {
+        [self changeHeight:ceil(height)];
+    }
+}
+
+- (void)changeHeight:(CGFloat)height {
+    NSString *_identifier = self.item[@"_identifier"];
+    if (_identifier == nil) {
+        return;
+    }
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:[self.innerStack get:_identifier]];
+    if ([dic[@"height"] floatValue] == ceil(height)) {
+        return;
+    }
+    dic[@"height"] = @(ceil(height));
+    [self.innerStack set:dic key:_identifier];
+    [self sendActionWithData:nil forKey:@"im"];
 }
 
 @end

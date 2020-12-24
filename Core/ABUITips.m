@@ -18,10 +18,7 @@
 }
 
 + (void)showLoading {
-    [NSObject cancelPreviousPerformRequestsWithTarget:[UIApplication sharedApplication].keyWindow];
-    [[UIApplication sharedApplication].keyWindow hideToastActivity];
     [[UIApplication sharedApplication].keyWindow makeToastActivity:CSToastPositionCenter];
-    [[UIApplication sharedApplication].keyWindow performSelector:@selector(hideToastActivity) withObject:nil afterDelay:2];
 }
 
 + (void)hideLoading {

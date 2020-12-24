@@ -17,6 +17,7 @@
 #import "UIApplication+AB.h"
 #import "UIColor+AB.h"
 #import "NSString+AB.h"
+#import "NSArray+AB.h"
 #import "NSDictionary+AB.h"
 #import "UIFont+AB.h"
 

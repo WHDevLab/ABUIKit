@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUINavigationController : UINavigationController
 @property (nonatomic, strong) UIColor *titleColor;
+@property (nonatomic, strong) UIFont *titleFont;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary *)toDictionary;
 
 - (NSString *)trimmingNewLineAndWhiteSpace;
-
+- (NSString *)trim;
 @end
 
 NS_ASSUME_NONNULL_END
