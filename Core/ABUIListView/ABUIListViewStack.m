@@ -37,7 +37,13 @@
 }
 
 - (NSDictionary *)all {
-    return self._data;
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    for (NSString *key in self._data.allKeys) {
+        if ([key hasPrefix:@"_"] == false) {
+            dic[key] = self._data[key];
+        }
+    }
+    return dic;
 }
 
 - (void)dealloc

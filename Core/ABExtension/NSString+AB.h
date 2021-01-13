@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <CommonCrypto/CommonCrypto.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (AB)
@@ -43,6 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)trimmingNewLineAndWhiteSpace;
 - (NSString *)trim;
+- (NSString *)decryptAES128WithKey:(NSString *)key iv:(NSString *)iv encryptStr:(NSString *)encryptStr;
 @end
 
 NS_ASSUME_NONNULL_END

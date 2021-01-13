@@ -92,4 +92,97 @@
     return [self trimmingNewLineAndWhiteSpace];
 }
 
+- (NSString *)decryptAES128WithKey:(NSString *)key iv:(NSString *)iv encryptStr:(NSString *)encryptStr {
+    NSString *str = [encryptStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:str options:0x0];
+    
+    
+    char keyPtr[kCCKeySizeAES128 + 1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    
+    char ivPtr[kCCBlockSizeAES128 + 1];
+    bzero(ivPtr, sizeof(ivPtr));
+    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+    
+    NSUInteger dataLength = [data length];
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    size_t numBytesDecrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES128,
+                                          kCCOptionPKCS7Padding,
+                                          keyPtr, kCCBlockSizeAES128,
+                                          ivPtr,
+                                          [data bytes], dataLength,
+                                          buffer, bufferSize,
+                                          &numBytesDecrypted);
+    if (cryptStatus == kCCSuccess) {
+        NSData *decryptData = [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:decryptData options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@", dic);
+        return [[NSString alloc] initWithData:decryptData encoding:NSUTF8StringEncoding];
+    }
+    free(buffer);
+    return @"";
+}
+////AES128加密
+//- (NSData *)AES128ParmEncryptWithKey:(NSString *)key iv:(NSString *)iv
+//{
+//    char keyPtr[kCCKeySizeAES128+1];
+//    bzero(keyPtr, sizeof(keyPtr));
+//    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+//
+//    char ivPtr[kCCBlockSizeAES128 + 1];
+//    bzero(ivPtr, sizeof(ivPtr));
+//    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+//
+//
+//    NSUInteger dataLength = [self length];
+//    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+//    void *buffer = malloc(bufferSize);
+//    size_t numBytesEncrypted = 0;
+//    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmAES128,
+//                                          kCCOptionPKCS7Padding | kCCOptionECBMode,
+//                                          keyPtr, kCCBlockSizeAES128,
+//                                          ivPtr,
+//                                          [self bytes], dataLength,
+//                                          buffer, bufferSize,
+//                                          &numBytesEncrypted);
+//    if (cryptStatus == kCCSuccess) {
+//        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
+//    }
+//    free(buffer);
+//    return nil;
+//}
+//
+////解密
+//- (NSData *)AES128ParmDecryptWithKey:(NSString *)key iv:(NSString *)iv
+//{
+//    char keyPtr[kCCKeySizeAES128 + 1];
+//    bzero(keyPtr, sizeof(keyPtr));
+//    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+//
+//    char ivPtr[kCCBlockSizeAES128 + 1];
+//    bzero(ivPtr, sizeof(ivPtr));
+//    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+//
+//    NSUInteger dataLength = [self length];
+//    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+//    void *buffer = malloc(bufferSize);
+//    size_t numBytesDecrypted = 0;
+//    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES128,
+//                                          kCCOptionPKCS7Padding|kCCOptionECBMode,
+//                                          keyPtr, kCCBlockSizeAES128,
+//                                          ivPtr,
+//                                          [self bytes], dataLength,
+//                                          buffer, bufferSize,
+//                                          &numBytesDecrypted);
+//    if (cryptStatus == kCCSuccess) {
+//        return [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];
+//    }
+//    free(buffer);
+//    return nil;
+//}
+//
+
 @end

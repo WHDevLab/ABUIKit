@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.statusBarStyle = UIStatusBarStyleDefault ;
+    self.title = @"加载中";
     self.webView = [[ABUIWebView alloc] initWithFrame:self.view.bounds adjustMobile:false];
     [self.view addSubview:self.webView];
     self.webView.delegate = self;
@@ -35,6 +36,6 @@
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+    return self.statusBarStyle;
 }
 @end

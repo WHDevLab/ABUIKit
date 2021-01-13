@@ -312,7 +312,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 //无线网络
 #define WWAN                             @"WWAN"
-
+#define ABWeakSelf __weak typeof(self) weakSelf = self;
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
 //单例化一个类
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \

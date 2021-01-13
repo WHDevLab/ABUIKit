@@ -10,7 +10,6 @@
 #import "ABUIListViewBaseItemView.h"
 @interface ABUIListViewCell ()
 @property (nonatomic, strong) NSString *itemKey;
-
 @end
 @implementation ABUIListViewCell
 
@@ -103,7 +102,14 @@
 }
 
 - (nullable id)userProvideData {
-    return [self.ppx.stack get:self.itemKey];
+    id v = [self.ppx.stack get:self.itemKey];
+    if (self.item[@"show"] != nil) {
+        NSDictionary *show = self.item[@"show"];
+        if (show.count > 0) {
+            return show[v];
+        }
+    }
+    return v;
     return self.ppx.runData[self.itemKey];
 }
 

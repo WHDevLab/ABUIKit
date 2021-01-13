@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIWebViewController : ABUIViewController
 @property (nonatomic, strong) NSString *path;
+@property (nonatomic) UIStatusBarStyle statusBarStyle;
 @end
 
 NS_ASSUME_NONNULL_END

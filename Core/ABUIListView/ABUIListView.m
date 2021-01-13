@@ -274,10 +274,11 @@ static void *contentSizeContext = &contentSizeContext;
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css {
     self.css = css;
     [self.seatView removeFromSuperview];
-    if (dataList.count == 0 && self.enableSeat) {
+    if (dataList.count == 0 && (self.enableSeat || self.seatConfig != nil)) {
         self.seatView = [[ABUISeatView alloc] initWithFrame:self.collectionView.frame];
         self.seatView.config = self.seatConfig;
         [self.seatView.actionButton addTarget:self action:@selector(onSeatViewAction) forControlEvents:UIControlEventTouchUpInside];
+//        [self.seatView addTarget:self action:@selector(onSeatViewAction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.seatView];
     }
     [self.collectionView.mj_header setHidden:dataList.count == 0];
@@ -333,16 +334,23 @@ static void *contentSizeContext = &contentSizeContext;
         self.fRuleKeys = [[NSMutableArray alloc] init];
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSMutableArray *sortedKeys = [[NSMutableArray alloc] init];
+        NSMutableDictionary *stackDic = [[NSMutableDictionary alloc] init];
         for (NSDictionary *sectionDic in self.dataList) {
             NSArray *items = sectionDic[@"items"];
             for (NSDictionary *item in items) {
                 if (item[@"itemKey"] != nil && item[@"form"] != nil) {
-                    [sortedKeys addObject:item[@"itemKey"]];
-                    dic[item[@"itemKey"]] = item[@"form"];
+                    NSString *itemKey = item[@"itemKey"];
+                    [sortedKeys addObject:itemKey];
+                    dic[itemKey] = item[@"form"];
+                    NSString *itemValueKey = item[@"itemValueKey"];
+                    if (itemValueKey != nil) {
+                        stackDic[itemKey] = [NSString stringWithFormat:@"%@", item[itemValueKey]];
+                    }
+                    
                 }
             }
         }
-        
+        [self.stack setData:stackDic];
         self.fRuleKeys = sortedKeys;
         self.fRules = dic;
     }
@@ -752,7 +760,12 @@ static void *contentSizeContext = &contentSizeContext;
         }
         BOOL required = [rule[@"required"] boolValue];
         if (required) {
-            if (vv == nil || vv.length == 0) {
+            if (vv == nil) {
+                message = rule[@"message"];
+                isPass = false;
+                break;
+            }
+            if ([vv isKindOfClass:[NSString class]] && vv.length == 0) {
                 message = rule[@"message"];
                 isPass = false;
                 break;

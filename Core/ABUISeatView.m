@@ -9,6 +9,7 @@
 #import "ABUISeatView.h"
 #import "UIColor+AB.h"
 #import "UIView+AB.h"
+#import "UIFont+AB.h"
 
 @implementation ABUISeatViewConfig
 
@@ -37,19 +38,19 @@
         [self addSubview:self.imageView];
         
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.titleLabel.textColor = [UIColor hexColor:@"333333"];
-        self.titleLabel.font = [UIFont systemFontOfSize:16];
+        self.titleLabel.textColor = [UIColor hexColor:@"#B9B9C8"];
+        self.titleLabel.font = [UIFont PingFangSC:15];
         [self addSubview:self.titleLabel];
         
-        self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
-        [self.actionButton setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
-        [self.actionButton setTitleColor:[UIColor.blueColor colorWithAlphaComponent:0.6] forState:UIControlStateHighlighted];
-        self.actionButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
+        [self.actionButton setTitleColor:[UIColor hexColor:@"#2488FC"] forState:UIControlStateNormal];
+        [self.actionButton setTitleColor:[[UIColor hexColor:@"#2488FC"] colorWithAlphaComponent:0.6] forState:UIControlStateHighlighted];
+        self.actionButton.titleLabel.font = [UIFont PingFangSC:15];
         [self addSubview:self.actionButton];
         [self.actionButton addTarget:self action:@selector(onActionDown) forControlEvents:UIControlEventTouchDown];
-        self.actionButton.layer.borderColor = [[UIColor blueColor] colorWithAlphaComponent:0.8].CGColor;
+        self.actionButton.layer.borderColor = [[UIColor hexColor:@"#2488FC"] colorWithAlphaComponent:0.8].CGColor;
         self.actionButton.layer.borderWidth = 1;
-        self.actionButton.layer.cornerRadius = 5;
+        self.actionButton.layer.cornerRadius = 15;
         
         [self setActionTitle:@"点击刷新"];
     }
@@ -100,11 +101,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.top = self.height/2-self.imageView.height;
-    self.titleLabel.top = self.imageView.bottom;
+    self.imageView.top = self.height/2-self.imageView.height-40;
+    self.titleLabel.top = self.imageView.bottom+10;
     
     self.actionButton.centerX = self.width/2;
-    self.actionButton.top = self.titleLabel.bottom+10;
+    self.actionButton.top = self.titleLabel.bottom+30;
 }
 
 @end

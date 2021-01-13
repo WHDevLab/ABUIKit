@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (ABUISeatViewConfig *)title:(NSString *)title imageName:(NSString *)imageName;
 @end
 
-@interface ABUISeatView : UIView
+@interface ABUISeatView : UIControl
 @property (nonatomic, strong) ABUISeatViewConfig *config;
 @property (nonatomic, assign) NSString *seatTitle;
 @property (nonatomic, assign) NSString *actionTitle;

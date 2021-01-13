@@ -8,7 +8,7 @@
 
 #import "ABUIListViewController.h"
 #import "ABUIListView.h"
-@interface ABUIListViewController ()<ABUIListViewDelegate>
+@interface ABUIListViewController ()
 @end
 
 @implementation ABUIListViewController

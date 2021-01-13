@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ABUIListView.h"
+#import "ABUIViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ABUIListViewController : UIViewController
+@interface ABUIListViewController : ABUIViewController<ABUIListViewDelegate>
 @property (nonatomic, strong) ABUIListView *listView;
 @end
 
