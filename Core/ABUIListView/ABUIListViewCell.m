@@ -72,9 +72,6 @@
 - (void)refreshUserProvideData {
     if ([self.mainView respondsToSelector:@selector(userProvideData)]) {
         id data = [(id<ABUIListItemViewProtocol>)self.mainView userProvideData];
-        if ([self.ppx.runData isKindOfClass:[NSMutableDictionary class]]) {
-            [self.ppx.runData setValue:data forKey:self.itemKey];
-        }
         [self.ppx.stack set:data key:self.itemKey];
     }
 }
@@ -110,7 +107,6 @@
         }
     }
     return v;
-    return self.ppx.runData[self.itemKey];
 }
 
 - (void)save:(id)value forKey:(NSString *)key {

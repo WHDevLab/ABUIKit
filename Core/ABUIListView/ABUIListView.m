@@ -31,10 +31,31 @@ static void *contentSizeContext = &contentSizeContext;
 
 @implementation ABUIListView
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.stack = [[ABUIListViewStack alloc] init];
+        self.innerStack = [[ABUIListViewStack alloc] init];
+        self.cellViewMap = [[NSMutableDictionary alloc] init];
+        
+        self.dynamicContent = false;
+        self.startDirection = StatDirectionTop;
+//        self.dataList = [[NSArray alloc] init];
+        self.backgroundColor = UIColor.clearColor;
+//        self.layout = [[ABUIListViewFlowLayout alloc] init];
+        self.layout = [[ABUIListViewFlowLayout alloc] init];
+        self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.layout.estimatedItemSize = CGSizeZero;
+        
+        [self initCollectionView];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame configure:(ABUIListViewConfigure *)configure {
     self = [super initWithFrame:frame];
     if (self) {
-        self.runData = [[NSMutableDictionary alloc] init];
         self.stack = [[ABUIListViewStack alloc] init];
         self.innerStack = [[ABUIListViewStack alloc] init];
         self.cellViewMap = [[NSMutableDictionary alloc] init];
@@ -51,25 +72,7 @@ static void *contentSizeContext = &contentSizeContext;
             self.layout = configure.layout;
         }
         
-        self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
-        self.collectionView.alwaysBounceVertical = true;
-        if (@available(iOS 13.0, *)) {
-            [self.collectionView setAutomaticallyAdjustsScrollIndicatorInsets:false];
-        } else {
-            // Fallback on earlier versions
-        }
-        if (@available(iOS 11.0, *)) {
-            self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
-            [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-        } else {
-            // Fallback on earlier versions
-        }
-        self.collectionView.delegate = self;
-        self.collectionView.dataSource = self;
-        self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        self.collectionView.backgroundColor = UIColor.clearColor;
-        [self registerCollectionViewClass];
-        [self listenCollectionViewContentSize];
+        [self initCollectionView];
         
         if (configure.enableMove) {
             UILongPressGestureRecognizer *longPresssGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressMethod:)];
@@ -77,6 +80,28 @@ static void *contentSizeContext = &contentSizeContext;
         }
     }
     return self;
+}
+
+- (void)initCollectionView {
+    self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
+    self.collectionView.alwaysBounceVertical = true;
+    if (@available(iOS 13.0, *)) {
+        [self.collectionView setAutomaticallyAdjustsScrollIndicatorInsets:false];
+    } else {
+        // Fallback on earlier versions
+    }
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
+        [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    } else {
+        // Fallback on earlier versions
+    }
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.collectionView.backgroundColor = UIColor.clearColor;
+    [self registerCollectionViewClass];
+    [self listenCollectionViewContentSize];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
@@ -116,51 +141,6 @@ static void *contentSizeContext = &contentSizeContext;
             [self.collectionView cancelInteractiveMovement];
             break;
     }
-}
-
-- (void)setDefaultRunData:(NSDictionary *)data {
-    self.runData = [[NSMutableDictionary alloc] initWithDictionary:data];
-}
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.runData = [[NSMutableDictionary alloc] init];
-        self.stack = [[ABUIListViewStack alloc] init];
-        self.innerStack = [[ABUIListViewStack alloc] init];
-        self.cellViewMap = [[NSMutableDictionary alloc] init];
-        
-        self.dynamicContent = false;
-        self.startDirection = StatDirectionTop;
-//        self.dataList = [[NSArray alloc] init];
-        self.backgroundColor = UIColor.clearColor;
-//        self.layout = [[ABUIListViewFlowLayout alloc] init];
-        self.layout = [[ABUIListViewFlowLayout alloc] init];
-        self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        self.layout.estimatedItemSize = CGSizeZero;
-        
-        self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
-        self.collectionView.alwaysBounceVertical = true;
-        if (@available(iOS 13.0, *)) {
-            [self.collectionView setAutomaticallyAdjustsScrollIndicatorInsets:false];
-        } else {
-            // Fallback on earlier versions
-        }
-        if (@available(iOS 11.0, *)) {
-            self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
-            [self.collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-        } else {
-            // Fallback on earlier versions
-        }
-        self.collectionView.delegate = self;
-        self.collectionView.dataSource = self;
-        self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        self.collectionView.backgroundColor = UIColor.clearColor;
-        [self registerCollectionViewClass];
-        [self listenCollectionViewContentSize];
-    }
-    return self;
 }
 
 - (void)setupPullRefresh {
@@ -754,10 +734,7 @@ static void *contentSizeContext = &contentSizeContext;
             rule = self.fRules[key];
         }
 
-        NSString *vv = self.runData[key];
-        if (self.runData.count == 0) {
-            vv = [self.stack get:key];
-        }
+        NSString *vv = [self.stack get:key];
         BOOL required = [rule[@"required"] boolValue];
         if (required) {
             if (vv == nil) {

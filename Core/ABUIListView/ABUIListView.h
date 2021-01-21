@@ -92,8 +92,6 @@ typedef enum : NSUInteger {
 
 @property (nonatomic) UICollectionViewScrollDirection scrollDirection;
 
-/// 数据
-@property (nonatomic, strong) NSDictionary *runData;
 @property (nonatomic, strong) ABUIListViewStack *stack;
 @property (nonatomic, strong) ABUIListViewStack *innerStack;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, ABUIListViewCell *> *cellViewMap;
@@ -111,7 +109,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL formCheck;
 
 - (instancetype)initWithFrame:(CGRect)frame configure:(ABUIListViewConfigure *)configure;
-- (void)setDefaultRunData:(NSDictionary *)data;
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css;
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule;
 - (void)setFormRules:(NSDictionary *)rules;
