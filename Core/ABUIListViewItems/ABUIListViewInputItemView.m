@@ -48,6 +48,7 @@
 
 
 - (void)reload:(NSDictionary *)item {
+    NSDictionary *css = item[@"css"];
     self.titleLabel.text = item[@"title"];
     
     self.phTextField.placeholder = item[@"placeholder"];
@@ -55,6 +56,12 @@
     
     self.phTextField.keyboardType = UIKeyboardTypeDefault;
     if ([item[@"type"] isEqualToString:@"number"]) {
+        self.phTextField.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    if ([item[@"type"] isEqualToString:@"pwd"]) {
+        self.phTextField.secureTextEntry = true;
+    }
+    if ([item[@"css.type"] isEqualToString:@"number"]) {
         self.phTextField.keyboardType = UIKeyboardTypeNumberPad;
     }
     

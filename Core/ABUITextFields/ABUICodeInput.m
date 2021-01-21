@@ -21,6 +21,7 @@
         self.textField = [[ABUITextField alloc] initWithFrame:CGRectZero];
         self.textField.placeholder = @"验证码";
         [self addSubview:self.textField];
+        self.textField.keyboardType = UIKeyboardTypeNumberPad;
         
         self.titleLabel.frame = CGRectMake(0, 0, 68, 44);
         self.titleLabel.font = [UIFont boldSystemFontOfSize:13];
@@ -69,6 +70,7 @@
     self.titleLabel.centerY = self.height/2;
 
     self.textField.frame = CGRectMake(self.titleLabel.right+10, 0, self.cbButton.left-self.titleLabel.right-10, self.height);
+    self.textField.centerY = self.height/2;
     
     if (self.titleLabel.text.length == 0) {
         self.textField.left = 0;

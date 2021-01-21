@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ABUIListViewBaseItemView : UIView<ABUIListItemViewProtocol>
 @property (nonatomic, weak) ABUIListViewCell *cell;
 @property (nonatomic, weak) ABUIListViewStack *stack;
+
+- (void)listenInput:(UITextField *)textField;
+- (void)onTextFieldChanged;
+- (void)reloadTextFiedData;
 @end
 
 NS_ASSUME_NONNULL_END
