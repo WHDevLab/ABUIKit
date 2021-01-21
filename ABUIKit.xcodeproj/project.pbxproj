@@ -615,6 +615,7 @@
 				F14C35DA24760B750060D435 /* Frameworks */,
 				F14C35DB24760B750060D435 /* Resources */,
 				383CFFDAB7CC6E92ABC278B2 /* [CP] Copy Pods Resources */,
+				65F955C9C9D74D132C93FFD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -688,6 +689,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ABUIKit/Pods-ABUIKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65F955C9C9D74D132C93FFD1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABUIKit/Pods-ABUIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABUIKit/Pods-ABUIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ABUIKit/Pods-ABUIKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7C29BD8D7094E1631CD977F5 /* [CP] Check Pods Manifest.lock */ = {

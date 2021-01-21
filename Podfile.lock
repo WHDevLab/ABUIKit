@@ -1,5 +1,8 @@
 PODS:
   - MJRefresh (3.4.3)
+  - PLMediaStreamingKit (3.0.2):
+    - PLMediaStreamingKit/iphoneos (= 3.0.2)
+  - PLMediaStreamingKit/iphoneos (3.0.2)
   - SDWebImage (5.8.1):
     - SDWebImage/Core (= 5.8.1)
   - SDWebImage/Core (5.8.1)
@@ -7,20 +10,23 @@ PODS:
 
 DEPENDENCIES:
   - MJRefresh
+  - PLMediaStreamingKit (~> 3.0.0)
   - SDWebImage
   - Toast
 
 SPEC REPOS:
   trunk:
     - MJRefresh
+    - PLMediaStreamingKit
     - SDWebImage
     - Toast
 
 SPEC CHECKSUMS:
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  PLMediaStreamingKit: 20e0dac77a93e488c8b06bfabf8fdb0fc61f07b5
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: 0a7f45a35f684ccd912d4e727cda6b44eb4cda70
+PODFILE CHECKSUM: daeda8052b8f3ce5f91f2641cd94409f584ea416
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
