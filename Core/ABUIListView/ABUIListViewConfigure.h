@@ -20,6 +20,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) ABUIListViewLayoutType layoutType;
 @property (nonatomic, strong) UICollectionViewLayout *layout;
 @property (nonatomic, assign) BOOL enableMove;
+@property (nonatomic, strong) UIColor *sectionColor;
+
 + (ABUIListViewConfigure *)defaultSectionColor;
 + (ABUIListViewConfigure *)hor;
 @end

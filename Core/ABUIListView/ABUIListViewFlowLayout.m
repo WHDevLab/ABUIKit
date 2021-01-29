@@ -15,18 +15,19 @@ static NSString *kCellReuseIdentifier = @"view_cell";
 @end
 
 @implementation ABUIListViewDecorationView
-- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+- (void)applyLayoutAttributes:(ABUICollectionViewLayoutAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = layoutAttributes.color;
 }
 @end
 
 @implementation ABUIListViewFlowLayout
-- (instancetype)initWithType:(ABUIListViewLayoutType)type
+
+- (instancetype)initWithConfigure:(ABUIListViewConfigure *)configure
 {
     self = [super init];
     if (self) {
-        self.layoutType = type;
+        self.configure = configure;
     }
     return self;
 }
@@ -38,7 +39,7 @@ static NSString *kCellReuseIdentifier = @"view_cell";
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
-    if (self.layoutType & ABUIListViewLayoutTypeSectionColor) {
+    if (self.configure.sectionColor != nil) {
         NSMutableArray *allAttributes = [NSMutableArray arrayWithArray:attributes];
         
         NSInteger sections = [self.collectionView numberOfSections];
@@ -54,11 +55,12 @@ static NSString *kCellReuseIdentifier = @"view_cell";
                 CGFloat height = lastFrame.origin.y-firstFrame.origin.y+lastFrame.size.height;
                 CGRect sectionFrame = CGRectMake(self.collectionView.contentInset.left, firstFrame.origin.y, self.collectionView.frame.size.width, height);
                 
-                UICollectionViewLayoutAttributes *decorationAttributes =
+                ABUICollectionViewLayoutAttributes *decorationAttributes =
                 [ABUICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:kDecorationReuseIdentifier
                                                                             withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
                 decorationAttributes.frame = sectionFrame;
                 decorationAttributes.zIndex = -1;
+                decorationAttributes.color = self.configure.sectionColor;
 
                 // Add the attribute to the list
                 [allAttributes addObject:decorationAttributes];

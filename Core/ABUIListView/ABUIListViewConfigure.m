@@ -13,6 +13,7 @@
 + (ABUIListViewConfigure *)defaultSectionColor {
     ABUIListViewConfigure *config = [[ABUIListViewConfigure alloc] init];
     config.layoutType = ABUIListViewLayoutTypeSectionColor;
+    config.sectionColor = [UIColor whiteColor];
     return config;
 }
 

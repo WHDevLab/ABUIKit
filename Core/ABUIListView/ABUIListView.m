@@ -25,6 +25,7 @@ static void *contentSizeContext = &contentSizeContext;
 
 @property (nonatomic, strong) NSArray *keepOrgSectionsData; //保存原始数据，用于筛选item
 @property (nonatomic, strong) ABUISeatView *seatView;
+@property (nonatomic, strong) NSMutableDictionary *extraMap;
 //@property (nonatomic, strong) NSMutableDictionary *rules;
 //@property (nonatomic, strong) NSMutableArray *ruleSortedKeys;
 @end
@@ -35,15 +36,8 @@ static void *contentSizeContext = &contentSizeContext;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.stack = [[ABUIListViewStack alloc] init];
-        self.innerStack = [[ABUIListViewStack alloc] init];
-        self.cellViewMap = [[NSMutableDictionary alloc] init];
+        [self initData];
         
-        self.dynamicContent = false;
-        self.startDirection = StatDirectionTop;
-//        self.dataList = [[NSArray alloc] init];
-        self.backgroundColor = UIColor.clearColor;
-//        self.layout = [[ABUIListViewFlowLayout alloc] init];
         self.layout = [[ABUIListViewFlowLayout alloc] init];
         self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.layout.estimatedItemSize = CGSizeZero;
@@ -53,25 +47,23 @@ static void *contentSizeContext = &contentSizeContext;
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame layout:(UICollectionViewLayout *)layout {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initData];
+        self.layout = layout;
+        [self initCollectionView];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame configure:(ABUIListViewConfigure *)configure {
     self = [super initWithFrame:frame];
     if (self) {
-        self.stack = [[ABUIListViewStack alloc] init];
-        self.innerStack = [[ABUIListViewStack alloc] init];
-        self.cellViewMap = [[NSMutableDictionary alloc] init];
-        
-        self.dynamicContent = false;
-        self.startDirection = StatDirectionTop;
-//        self.dataList = [[NSArray alloc] init];
-        self.backgroundColor = UIColor.clearColor;
-        if (configure.layout == nil) {
-            self.layout = [[ABUIListViewFlowLayout alloc] initWithType:configure.layoutType];
-            self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-            self.layout.estimatedItemSize = CGSizeZero;
-        }else{
-            self.layout = configure.layout;
-        }
-        
+        [self initData];
+        self.layout = [[ABUIListViewFlowLayout alloc] initWithConfigure:configure];
+        self.layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.layout.estimatedItemSize = CGSizeZero;
         [self initCollectionView];
         
         if (configure.enableMove) {
@@ -82,7 +74,19 @@ static void *contentSizeContext = &contentSizeContext;
     return self;
 }
 
+- (void)initData {
+    self.stack = [[ABUIListViewStack alloc] init];
+    self.innerStack = [[ABUIListViewStack alloc] init];
+    self.cellViewMap = [[NSMutableDictionary alloc] init];
+    
+    self.dynamicContent = false;
+    self.startDirection = StatDirectionTop;
+    self.backgroundColor = UIColor.clearColor;
+    self.extraMap = [[NSMutableDictionary alloc] init];
+}
+
 - (void)initCollectionView {
+//    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[ABUICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
     self.collectionView.alwaysBounceVertical = true;
     if (@available(iOS 13.0, *)) {
@@ -102,6 +106,8 @@ static void *contentSizeContext = &contentSizeContext;
     self.collectionView.backgroundColor = UIColor.clearColor;
     [self registerCollectionViewClass];
     [self listenCollectionViewContentSize];
+    
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
@@ -475,6 +481,7 @@ static void *contentSizeContext = &contentSizeContext;
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(listView:extraDataAtIndexPath:item:)]) {
        extDic = [self.dataSource listView:self extraDataAtIndexPath:indexPath item:item];
     }
+    self.extraMap[indexPath] = extDic;
     NSMutableDictionary *dd = [[NSMutableDictionary alloc] initWithDictionary:extDic];
     dd[@"section.css"] = css;
     ABUIListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
@@ -508,6 +515,11 @@ static void *contentSizeContext = &contentSizeContext;
         NSDictionary *item = items[indexPath.row];
         [self.delegate listView:self didSelectItemAtIndexPath:indexPath item:item itemKey:item[@"itemKey"]];
     }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listView:didSelectItemAtIndexPath:item:extra:)]) {
+        NSArray *items = self.dataList[indexPath.section][@"items"];
+        NSDictionary *item = items[indexPath.row];
+        [self.delegate listView:self didSelectItemAtIndexPath:indexPath item:item extra:self.extraMap[indexPath]];
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -530,11 +542,13 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return [self getValueIn:self.dataList[section][@"css"] key:@"item.rowSpacing" df:0];
+    CGFloat v = [self getValueIn:self.dataList[section][@"css"] key:@"item.rowSpacing" df:0];
+    return v;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return [self getValueIn:self.dataList[section][@"css"] key:@"item.columnSpacing" df:0];
+    CGFloat v = [self getValueIn:self.dataList[section][@"css"] key:@"item.columnSpacing" df:0];
+    return v;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

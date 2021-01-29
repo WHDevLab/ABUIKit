@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABTitleHeaderItemView : UIView<ABUIListItemViewProtocol>
-
+@property (nonatomic, strong) UILabel *titleLabel;
 @end
 
 NS_ASSUME_NONNULL_END

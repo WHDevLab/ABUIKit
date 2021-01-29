@@ -26,11 +26,14 @@
 		F12BB893251C9400003CE49C /* ABUITabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F12BB892251C9400003CE49C /* ABUITabBarItem.m */; };
 		F12BB8D2251C976E003CE49C /* ABUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12BB8D1251C976E003CE49C /* ABUINavigationController.m */; };
 		F12BB977251DD1CD003CE49C /* UIFont+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F12BB976251DD1CD003CE49C /* UIFont+AB.m */; };
+		F135605525BFF33900BE872F /* ABUISkuTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F135605425BFF33900BE872F /* ABUISkuTopView.m */; };
+		F135606E25C0042800BE872F /* sku.json in Resources */ = {isa = PBXBuildFile; fileRef = F135606D25C0042800BE872F /* sku.json */; };
 		F142507D249AFCBC003E83D8 /* ABUIListViewCSS.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */; };
 		F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142507F249B0A97003E83D8 /* ABUIWebView.m */; };
 		F1425089249B2022003E83D8 /* web.html in Resources */ = {isa = PBXBuildFile; fileRef = F1425088249B2022003E83D8 /* web.html */; };
 		F142508C249B4900003E83D8 /* ABUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508B249B4900003E83D8 /* ABUIWebViewController.m */; };
 		F142508F249B5454003E83D8 /* ABUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F142508E249B5454003E83D8 /* ABUITextView.m */; };
+		F148937225BAB35D00F64923 /* ABUISkuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F148937125BAB35D00F64923 /* ABUISkuHelper.m */; };
 		F14BB6E8256F5C6A00348433 /* ABUISearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F14BB6E7256F5C6A00348433 /* ABUISearchBar.m */; };
 		F14BB72E2570A63700348433 /* ABUISeatView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14BB72D2570A63700348433 /* ABUISeatView.m */; };
 		F14BB7542570DBB600348433 /* ABUINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F14BB7532570DBB500348433 /* ABUINavigationBar.m */; };
@@ -90,6 +93,8 @@
 		F1BE0FC025510C2800F53BCF /* ABUIChatConfirgure.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0FBF25510C2800F53BCF /* ABUIChatConfirgure.m */; };
 		F1CAF798258AFB2400CD4D54 /* ABUIDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CAF797258AFB2400CD4D54 /* ABUIDocumentView.m */; };
 		F1CBD9A3253FCCD200363B55 /* ABUIListViewStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */; };
+		F1E87A2925BA5C840044C85F /* ABUISkuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E87A2825BA5C840044C85F /* ABUISkuView.m */; };
+		F1E87A2D25BA62980044C85F /* ABUISkuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E87A2C25BA62980044C85F /* ABUISkuItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +138,9 @@
 		F12BB8D1251C976E003CE49C /* ABUINavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUINavigationController.m; sourceTree = "<group>"; };
 		F12BB975251DD1CD003CE49C /* UIFont+AB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+AB.h"; sourceTree = "<group>"; };
 		F12BB976251DD1CD003CE49C /* UIFont+AB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+AB.m"; sourceTree = "<group>"; };
+		F135605325BFF33900BE872F /* ABUISkuTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISkuTopView.h; sourceTree = "<group>"; };
+		F135605425BFF33900BE872F /* ABUISkuTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISkuTopView.m; sourceTree = "<group>"; };
+		F135606D25C0042800BE872F /* sku.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sku.json; sourceTree = "<group>"; };
 		F142507B249AFCBC003E83D8 /* ABUIListViewCSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewCSS.h; sourceTree = "<group>"; };
 		F142507C249AFCBC003E83D8 /* ABUIListViewCSS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewCSS.m; sourceTree = "<group>"; };
 		F142507E249B0A97003E83D8 /* ABUIWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIWebView.h; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 		F142508B249B4900003E83D8 /* ABUIWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIWebViewController.m; sourceTree = "<group>"; };
 		F142508D249B5454003E83D8 /* ABUITextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUITextView.h; sourceTree = "<group>"; };
 		F142508E249B5454003E83D8 /* ABUITextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUITextView.m; sourceTree = "<group>"; };
+		F148937025BAB35D00F64923 /* ABUISkuHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISkuHelper.h; sourceTree = "<group>"; };
+		F148937125BAB35D00F64923 /* ABUISkuHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISkuHelper.m; sourceTree = "<group>"; };
 		F14BB6E6256F5C6A00348433 /* ABUISearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISearchBar.h; sourceTree = "<group>"; };
 		F14BB6E7256F5C6A00348433 /* ABUISearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISearchBar.m; sourceTree = "<group>"; };
 		F14BB72C2570A63700348433 /* ABUISeatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISeatView.h; sourceTree = "<group>"; };
@@ -262,6 +272,10 @@
 		F1CAF797258AFB2400CD4D54 /* ABUIDocumentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIDocumentView.m; sourceTree = "<group>"; };
 		F1CBD9A1253FCCD200363B55 /* ABUIListViewStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewStack.h; sourceTree = "<group>"; };
 		F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewStack.m; sourceTree = "<group>"; };
+		F1E87A2725BA5C840044C85F /* ABUISkuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISkuView.h; sourceTree = "<group>"; };
+		F1E87A2825BA5C840044C85F /* ABUISkuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISkuView.m; sourceTree = "<group>"; };
+		F1E87A2B25BA62980044C85F /* ABUISkuItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISkuItemView.h; sourceTree = "<group>"; };
+		F1E87A2C25BA62980044C85F /* ABUISkuItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISkuItemView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +438,7 @@
 		F14C35F924760FDC0060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1E87A2625BA5C680044C85F /* ABUISkuView */,
 				F1CAF795258AFB0600CD4D54 /* ABUIDocumentView */,
 				F16A5374258749D300C42C3F /* ABUIProgressView */,
 				F14BB6E5256F5C4E00348433 /* ABUISearchBar */,
@@ -603,6 +618,22 @@
 			path = ABUIDocumentView;
 			sourceTree = "<group>";
 		};
+		F1E87A2625BA5C680044C85F /* ABUISkuView */ = {
+			isa = PBXGroup;
+			children = (
+				F135606D25C0042800BE872F /* sku.json */,
+				F1E87A2725BA5C840044C85F /* ABUISkuView.h */,
+				F1E87A2825BA5C840044C85F /* ABUISkuView.m */,
+				F1E87A2B25BA62980044C85F /* ABUISkuItemView.h */,
+				F1E87A2C25BA62980044C85F /* ABUISkuItemView.m */,
+				F148937025BAB35D00F64923 /* ABUISkuHelper.h */,
+				F148937125BAB35D00F64923 /* ABUISkuHelper.m */,
+				F135605325BFF33900BE872F /* ABUISkuTopView.h */,
+				F135605425BFF33900BE872F /* ABUISkuTopView.m */,
+			);
+			path = ABUISkuView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -668,6 +699,7 @@
 				F1425089249B2022003E83D8 /* web.html in Resources */,
 				F14C35F024760B790060D435 /* LaunchScreen.storyboard in Resources */,
 				F14C35ED24760B790060D435 /* Assets.xcassets in Resources */,
+				F135606E25C0042800BE872F /* sku.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +780,7 @@
 				F165A926255B6C6500107ABB /* ABUIListViewHelper.m in Sources */,
 				F12BB893251C9400003CE49C /* ABUITabBarItem.m in Sources */,
 				F10F2F20251F45B200088B72 /* ABUINavigationConfig.m in Sources */,
+				F135605525BFF33900BE872F /* ABUISkuTopView.m in Sources */,
 				F14C363424760FDC0060D435 /* ABUIScrollView.m in Sources */,
 				F1BE0F90254FADCE00F53BCF /* ABUIChatItemBaseView.m in Sources */,
 				F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */,
@@ -757,9 +790,11 @@
 				F12BB88F251C937B003CE49C /* ABUITabBarViewController.m in Sources */,
 				F14C35E224760B750060D435 /* AppDelegate.m in Sources */,
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
+				F1E87A2D25BA62980044C85F /* ABUISkuItemView.m in Sources */,
 				F1CAF798258AFB2400CD4D54 /* ABUIDocumentView.m in Sources */,
 				F1BE0F43254F9D4A00F53BCF /* ABUIChatItemTimeView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
+				F1E87A2925BA5C840044C85F /* ABUISkuView.m in Sources */,
 				F15ACDEF25121B8E006F2D9E /* ABUIChatView.m in Sources */,
 				F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */,
 				F121926724D16AD900630CA2 /* ABUIInputView.m in Sources */,
@@ -813,6 +848,7 @@
 				F14C363624760FDC0060D435 /* NSString+AB.m in Sources */,
 				F14C362A24760FDC0060D435 /* ABUILabel.m in Sources */,
 				F1BE0F5C254F9E4400F53BCF /* ABUIChatItemVideoView.m in Sources */,
+				F148937225BAB35D00F64923 /* ABUISkuHelper.m in Sources */,
 				F17513DA24F3671F008729D7 /* ABUIRefreshListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

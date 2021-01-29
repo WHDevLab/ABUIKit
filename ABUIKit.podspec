@@ -60,4 +60,7 @@ Pod::Spec.new do |s|
 	s.subspec 'ABUIDocumentView' do |ss|
 		ss.source_files = 'Core/ABUIDocumentView/*.{h,m}'
 	end
+	s.subspec 'ABUISkuView' do |ss|
+		ss.source_files = 'Core/ABUISkuView/*.{h,m,json}'
+	end
 end

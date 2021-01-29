@@ -36,6 +36,7 @@ typedef enum : NSUInteger {
 - (CGFloat)listView:(ABUIListView *)listView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)listView:(ABUIListView *)listView didSelectItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item;
 - (void)listView:(ABUIListView *)listView didSelectItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item itemKey:(nullable NSString *)itemKey;
+- (void)listView:(ABUIListView *)listView didSelectItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item extra:(NSDictionary *)extra;
 //- (void)listView:(ABUIListView *)listView didClickAtIndexPath:(NSIndexPath *)indexPath key:(NSString *)key;
 
 - (CGSize)listView:(ABUIListView *)listView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -108,6 +109,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) ABUISeatViewConfig *seatConfig;
 @property (nonatomic, assign) BOOL formCheck;
 
+- (instancetype)initWithFrame:(CGRect)frame layout:(UICollectionViewLayout *)layout;
 - (instancetype)initWithFrame:(CGRect)frame configure:(ABUIListViewConfigure *)configure;
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css;
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule;

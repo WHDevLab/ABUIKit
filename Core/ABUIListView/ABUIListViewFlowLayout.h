@@ -19,8 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface ABUIListViewFlowLayout : UICollectionViewFlowLayout
-- (instancetype)initWithType:(ABUIListViewLayoutType)type;
-@property (nonatomic, assign) ABUIListViewLayoutType layoutType;
+- (instancetype)initWithConfigure:(ABUIListViewConfigure *)configure;
+
+@property (nonatomic, strong) ABUIListViewConfigure *configure;
 @end
 
 NS_ASSUME_NONNULL_END
