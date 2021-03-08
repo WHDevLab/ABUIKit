@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42438FAFF24166EC9549ECB6 /* libPods-ABUIKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8F0DB6084B1ACAB1B012AE /* libPods-ABUIKit.a */; };
+		F10742A525ECC84F00A80933 /* ABAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F10742A425ECC84F00A80933 /* ABAppDelegate.m */; };
 		F10D9F8A252FF3FD005728B3 /* ABUIListViewSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9F89252FF3FD005728B3 /* ABUIListViewSelectItemView.m */; };
 		F10D9F8F252FF4BC005728B3 /* ABUIListViewInputItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9F8E252FF4BC005728B3 /* ABUIListViewInputItemView.m */; };
 		F10D9FBB25300A18005728B3 /* ABUIListViewBaseItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9FBA25300A18005728B3 /* ABUIListViewBaseItemView.m */; };
@@ -101,6 +102,8 @@
 		13E13E842FB474A32A1BA94D /* Pods-ABUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABUIKit.debug.xcconfig"; path = "Target Support Files/Pods-ABUIKit/Pods-ABUIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4F9CDE74A8F60BF8DB3A72BB /* Pods-ABUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABUIKit.release.xcconfig"; path = "Target Support Files/Pods-ABUIKit/Pods-ABUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		EE8F0DB6084B1ACAB1B012AE /* libPods-ABUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABUIKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10742A325ECC84F00A80933 /* ABAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABAppDelegate.h; sourceTree = "<group>"; };
+		F10742A425ECC84F00A80933 /* ABAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABAppDelegate.m; sourceTree = "<group>"; };
 		F10D9F88252FF3FD005728B3 /* ABUIListViewSelectItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewSelectItemView.h; sourceTree = "<group>"; };
 		F10D9F89252FF3FD005728B3 /* ABUIListViewSelectItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListViewSelectItemView.m; sourceTree = "<group>"; };
 		F10D9F8D252FF4BC005728B3 /* ABUIListViewInputItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewInputItemView.h; sourceTree = "<group>"; };
@@ -480,6 +483,8 @@
 				F10F2F7F2522E6F400088B72 /* ABUIASNumberView.m */,
 				F14BB72C2570A63700348433 /* ABUISeatView.h */,
 				F14BB72D2570A63700348433 /* ABUISeatView.m */,
+				F10742A325ECC84F00A80933 /* ABAppDelegate.h */,
+				F10742A425ECC84F00A80933 /* ABAppDelegate.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -824,6 +829,7 @@
 				F165A922255B6C5500107ABB /* ABUIListViewConfigure.m in Sources */,
 				F154722924C12EBA00BC6457 /* ABUIAnimateBannerConfig.m in Sources */,
 				F1B92F712591FA320023382F /* ABUIDocumentFileCell.m in Sources */,
+				F10742A525ECC84F00A80933 /* ABAppDelegate.m in Sources */,
 				F14C35F324760B790060D435 /* main.m in Sources */,
 				F1BE0FA82550FB8700F53BCF /* ABUIChatHelper.m in Sources */,
 				F14BB72E2570A63700348433 /* ABUISeatView.m in Sources */,

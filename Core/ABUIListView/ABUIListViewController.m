@@ -17,14 +17,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.listView = [[ABUIListView alloc] initWithFrame:self.view.bounds];
-    self.listView.delegate = self;
-    [self.view addSubview:self.listView];
+    self.mainListView = [[ABUIListView alloc] initWithFrame:self.view.bounds];
+    self.mainListView.delegate = self;
+    [self.view addSubview:self.mainListView];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.listView.frame = self.view.bounds;
+    self.mainListView.frame = self.view.bounds;
 }
 
 /*

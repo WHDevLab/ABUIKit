@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIListViewController : ABUIViewController<ABUIListViewDelegate>
-@property (nonatomic, strong) ABUIListView *listView;
+@property (nonatomic, strong) ABUIListView *mainListView;
 @end
 
 NS_ASSUME_NONNULL_END
