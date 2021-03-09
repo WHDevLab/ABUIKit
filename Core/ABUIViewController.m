@@ -7,7 +7,7 @@
 //
 
 #import "ABUIViewController.h"
-
+#import "UIColor+AB.h"
 @interface ABUIViewController ()
 
 @end
@@ -22,7 +22,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor hexColor:@"f6f6f6"];
 }
 
 /*

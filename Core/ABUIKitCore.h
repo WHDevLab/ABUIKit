@@ -46,4 +46,5 @@
 
 #import "ABAppDelegate.h"
 #import "ABUIListViewController.h"
+#import "ABWXPwdPopup.h"
 #endif /* ABUIKitCore_h */
