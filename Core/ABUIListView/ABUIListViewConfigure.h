@@ -22,6 +22,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL enableMove;
 @property (nonatomic, strong) UIColor *sectionColor;
 
+//public property  to shared
+@property (nonatomic, strong) NSString *cellArrowImageName;
++ (ABUIListViewConfigure *)shared;
 + (ABUIListViewConfigure *)defaultSectionColor;
 + (ABUIListViewConfigure *)hor;
 @end

@@ -8,6 +8,22 @@
 
 #import "ABUIPopUp.h"
 #import "UIView+AB.h"
+
+
+@implementation ABUIPopUpContainer
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.enableWrapperClose = true;
+        self.backgroundColor = [UIColor whiteColor];
+    }
+    return self;
+}
+
+@end
+
 @interface ABUIPopUp ()
 @property (nonatomic, strong) UIControl *cover;
 @property (nonatomic, strong) UIView *containView;
@@ -115,8 +131,17 @@
     [self.cover removeFromSuperview];
     self.cover = [[UIControl alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.cover.backgroundColor = UIColor.blackColor;
-    [self.cover addTarget:self action:@selector(remove) forControlEvents:UIControlEventTouchUpInside];
+    [self.cover addTarget:self action:@selector(coverClick) forControlEvents:UIControlEventTouchUpInside];
     [[UIApplication sharedApplication].keyWindow addSubview: self.cover];
+}
+
+- (void)coverClick {
+    if ([self.containView isKindOfClass:[ABUIPopUpContainer class]]) {
+        if ([(ABUIPopUpContainer *)self.containView enableWrapperClose] == false) {
+            return;
+        }
+    }
+    [self remove];
 }
 
 - (void)remove {

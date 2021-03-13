@@ -33,4 +33,18 @@
 - (void)onTextFieldChanged {
     [self.cell setUserProvideData:self._ownTextField.text];
 }
+
+- (void)setupAdjustContents {
+    self.wrapperView = [[UIView alloc] initWithFrame:self.bounds];
+    [self addSubview:self.wrapperView];
+}
+
+- (void)reload:(NSDictionary *)item {
+    CGFloat paddingLeft = [item[@"css.padding.left"] floatValue];
+    CGFloat paddingRight = [item[@"css.padding.right"] floatValue];
+    CGFloat paddingTop = [item[@"css.padding.top"] floatValue];
+    CGFloat paddingBottom = [item[@"css.padding.bottom"] floatValue];
+    
+    self.wrapperView.frame = CGRectMake(paddingLeft, paddingTop, self.width-paddingLeft-paddingRight, self.height-paddingTop-paddingBottom);
+}
 @end

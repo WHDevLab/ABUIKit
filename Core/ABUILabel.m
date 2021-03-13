@@ -732,4 +732,15 @@ NSString * const ABUILabelLinkKey = @"link";
     return restyled;
 }
 
+
+- (void)setCss:(NSDictionary *)css {
+    _css = css;
+    
+    if (css[@"css.font"] != nil) {
+        self.font = css[@"css.font"];
+    }
+    if (css[@"css.color"] != nil) {
+        self.textColor = css[@"css.color"];
+    }
+}
 @end

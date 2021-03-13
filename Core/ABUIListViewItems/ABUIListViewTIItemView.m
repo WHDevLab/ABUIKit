@@ -27,7 +27,7 @@
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.textColor = [UIColor hexColor:@"#292B32"];
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.font = [UIFont systemFontOfSize:16];
     [self addSubview:self.titleLabel];
 }
 

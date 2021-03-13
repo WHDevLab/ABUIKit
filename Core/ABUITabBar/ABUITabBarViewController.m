@@ -12,6 +12,7 @@
 #import "ABDefines.h"
 #import "UIImage+AB.h"
 #import "UIColor+AB.h"
+#import "NSObject+Language.h"
 @interface ABUITabBarViewController ()
 
 @end
@@ -46,6 +47,7 @@
         UIImage *hlImage = [[UIImage imageNamed:hlIconName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:nmImage selectedImage:hlImage];
+        tabBarItem.langKey = item.langKey;
         nav.tabBarItem = tabBarItem;
         [nav.navigationBar setBackgroundImage:[UIImage imageWithColor:item.navColor] forBarMetrics:UIBarMetricsDefault];
         

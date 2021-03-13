@@ -13,11 +13,8 @@
 #import "UIViewController+AB.h"
 
 @interface ABUINavigationController ()<UIGestureRecognizerDelegate, UINavigationControllerDelegate>
-{
-    UIImageView *navBarHairlineImageView;
-    
-}
 @property (nonatomic, strong) UIView *navBarHairlineView;
+@property (nonatomic, strong) UIImageView *navBarHairlineImageView;
 
 @end
 
@@ -43,14 +40,22 @@
     self.navigationBar.opaque = NO;
     self.navigationBar.translucent = NO;
 
-    navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationBar];
-    [navBarHairlineImageView setHidden:true];
+    [_navBarHairlineImageView setHidden:true];
     [self.navigationBar setShadowImage:nil];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 //    [navBarHairlineImageView addSubview:self.navBarHairlineView];
     
     self.navigationBar.translucent = false;
     
     self.titleFont = [UIFont boldSystemFontOfSize:16];
+}
+
+- (UIImageView *)navBarHairlineImageView {
+    if (_navBarHairlineImageView == nil) {
+        _navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationBar];
+        return _navBarHairlineImageView;
+    }
+    return _navBarHairlineImageView;
 }
 
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
@@ -121,6 +126,8 @@
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    [self.navBarHairlineImageView setHidden:true];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.enabled = NO;
     }
@@ -156,6 +163,7 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
     [self setNavigationBarHidden:viewController.isVisableNavigationBar == false animated:true];
     
 //    // 设置文字属性

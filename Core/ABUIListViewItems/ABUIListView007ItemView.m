@@ -1,25 +1,22 @@
 //
-//  ABUIListSelectItemView.m
+//  ABUIListView007ItemView.m
 //  ABUIKit
 //
-//  Created by qp on 2020/10/9.
-//  Copyright © 2020 abteam. All rights reserved.
+//  Created by qp on 2021/3/11.
+//  Copyright © 2021 abteam. All rights reserved.
 //
 
-#import "ABUIListViewSelectItemView.h"
-#import "ABUIListViewMapping.h"
-#import "UIView+AB.h"
-#import "UIFont+AB.h"
-#import "UIColor+AB.h"
-@interface ABUIListViewSelectItemView ()
+#import "ABUIListView007ItemView.h"
+
+@interface ABUIListView007ItemView ()
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *phLabel;//placeholder
 @property (nonatomic, strong) UILabel *contentLabel;
 @end
-@implementation ABUIListViewSelectItemView
+@implementation ABUIListView007ItemView
 
 +(void)load {
-    [[ABUIListViewMapping shared] registerClassString:@"ABUIListViewSelectItemView" native_id:@"abitem_select"];
+    [[ABUIListViewMapping shared] registerClassString:@"ABUIListView007ItemView" native_id:@"ablist_item_007"];
 }
 
 - (void)setupAdjustContents {
@@ -45,14 +42,22 @@
 }
 
 - (void)layoutAdjustContents {
-    
+    if (self.titleLabel.isHidden) {
+        self.contentLabel.left = 15;
+        self.phLabel.left = 15;
+    }else{
+        self.titleLabel.left = 15;
+        self.contentLabel.left = self.titleLabel.right+10;
+        self.phLabel.left = self.titleLabel.right+10;
+    }
 }
 
 - (void)reload:(NSDictionary *)item {
-    self.titleLabel.text = item[@"title"];
+    [self.titleLabel setHidden:item[@"data.title"] == nil];
+    self.titleLabel.text = item[@"data.title"];
     self.contentLabel.textColor = [UIColor hexColor:@"222222"];
     
-    self.phLabel.text = item[@"placeholder"];
+    self.phLabel.text = item[@"data.placeholder"];
     
     id rData = [self.cell userProvideData];
     if (rData != nil && [rData isKindOfClass:[NSString class]]) {
@@ -67,7 +72,7 @@
 }
 
 - (void)onAction {
-    [self.cell sendActionWithKey:@"default" actionData:@""];
+    [self.cell sendActionWithKey:@"select" actionData:@""];
 }
 
 @end

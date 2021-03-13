@@ -66,4 +66,13 @@ Pod::Spec.new do |s|
 	s.subspec 'ABPopupTemplates' do |ss|
 		ss.source_files = 'Core/ABPopupTemplates/*.{h,m,json}'
 	end
+	s.subspec 'ABUIViewControllers' do |ss|
+		ss.source_files = 'Core/ABUIViewControllers/*.{h,m,json}'
+	end
+	s.subspec 'ABUIPicker' do |ss|
+		ss.source_files = 'Core/ABUIPicker/*.{h,m,json,xml}'
+	end
+	s.subspec 'ABUIPhotoView' do |ss|
+		ss.source_files = 'Core/ABUIPhotoView/*.{h,m,json,xml}'
+	end
 end

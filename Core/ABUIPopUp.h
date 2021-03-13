@@ -17,6 +17,10 @@ typedef enum : NSUInteger {
 
 typedef void (^ABUIPopupBlock)();
 
+@interface ABUIPopUpContainer : UIView
+@property (nonatomic, assign) BOOL enableWrapperClose; //是否启用点击空白关闭功能
+@end
+
 @interface ABUIPopUp : NSObject
 @property (nonatomic, assign) CGFloat distance;
 

@@ -177,6 +177,7 @@ IB_DESIGNABLE
  */
 - (nullable NSDictionary*)linkAtPoint:(CGPoint)point;
 
+@property (nonatomic, strong) NSDictionary *css;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -73,7 +73,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.config = config;
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 44)];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 50)];
         self.titleLabel.text = config.title;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
@@ -82,6 +82,7 @@
         
         self.closeButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
         [self.closeButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+        self.closeButton.centerY = self.titleLabel.centerY;
         [self addSubview:self.closeButton];
         
         self.desLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 65, self.frame.size.width, 20)];
@@ -99,7 +100,7 @@
         self.moneyLabel.textColor = [UIColor blackColor];
         [self addSubview:self.moneyLabel];
         
-        self.infoListView = [[ABUIListView alloc] initWithFrame:CGRectMake(10, self.moneyLabel.bottom+10, self.width-20, 30*config.supplys.count)];
+        self.infoListView = [[ABUIListView alloc] initWithFrame:CGRectMake(15, self.moneyLabel.bottom+10, self.width-30, 30*config.supplys.count)];
         self.infoListView.userInteractionEnabled = false;
         self.infoListView.backgroundColor = [UIColor whiteColor];
         [self.infoListView addLineDirection:LineDirectionTop color:config.borderColor width:1];
@@ -116,7 +117,7 @@
             @"item.size.height":@(30)
         }];
         
-        self.inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, self.infoListView.bottom+10, self.frame.size.width-20, 44)];
+        self.inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(15, self.infoListView.bottom+10, self.frame.size.width-30, 44)];
         self.inputTextField.backgroundColor = [UIColor whiteColor];
         //输入的文字颜色为白色
         self.inputTextField.textColor = [UIColor whiteColor];
@@ -292,4 +293,5 @@
     [self.maskView removeFromSuperview];
     [self.contentView removeFromSuperview];
 }
+
 @end

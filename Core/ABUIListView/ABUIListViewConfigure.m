@@ -10,6 +10,16 @@
 
 @implementation ABUIListViewConfigure
 
++ (ABUIListViewConfigure *)shared {
+    static ABUIListViewConfigure *instance = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
+
 + (ABUIListViewConfigure *)defaultSectionColor {
     ABUIListViewConfigure *config = [[ABUIListViewConfigure alloc] init];
     config.layoutType = ABUIListViewLayoutTypeSectionColor;
