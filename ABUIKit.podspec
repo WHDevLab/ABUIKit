@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name             = "ABUIKit"
-	s.version          = "0.0.2"
+	s.version          = "0.0.3"
 	s.summary          = "致力于提高项目 UI 开发效率的解决方案"
 	s.description      = <<-DESC
 							ABUIKit iOS 是一个致力于提高项目 UI 开发效率的解决方案
