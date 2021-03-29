@@ -49,4 +49,5 @@
 #import "ABWXPwdPopup.h"
 #import "ABUISettingViewController.h"
 #import "ABUIListViewItems.h"
+#import "ABUIPicker.h"
 #endif /* ABUIKitCore_h */

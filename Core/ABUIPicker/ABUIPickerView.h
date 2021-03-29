@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ABUIPickerView;
 NS_ASSUME_NONNULL_BEGIN
+@protocol ABUIPickerViewDelegate <NSObject>
 
+- (void)abUIPickerView:(ABUIPickerView *)pickerView didSelected:(NSDictionary *)item;
+
+@end
 @interface ABUIPickerView : UIView
-
+@property (nonatomic, weak) id<ABUIPickerViewDelegate> delegate;
+@property (nonatomic, strong) NSArray *dataList;
+@property (nonatomic, strong) NSString *titleKey;
 @end
 
 NS_ASSUME_NONNULL_END

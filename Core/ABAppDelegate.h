@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setUpLoginVC:(NSString *)loginVC mainVC:(NSString *)mainVC;
 - (BOOL)isLogin;
+- (void)checkSwitch;
 @end
 
 NS_ASSUME_NONNULL_END 

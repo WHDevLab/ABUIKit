@@ -8,7 +8,8 @@
 
 #import "ABUIPicker.h"
 #import "ABUIPickerView.h"
-@interface ABUIPicker ()
+#import "ABUIPopUp.h"
+@interface ABUIPicker ()<ABUIPickerViewDelegate>
 @property (nonatomic, strong) ABUIPickerView *pickerView;
 @end
 @implementation ABUIPicker
@@ -25,8 +26,8 @@
 {
     self = [super init];
     if (self) {
-        self.pickerView = [[ABUIPickerView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200)];
-    
+//        self.pickerView = [[ABUIPickerView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 300)];
+//        self.pickerView.delegate = self;
     }
     return self;
 }
@@ -35,4 +36,24 @@
     
 }
 
+- (void)showItems:(NSArray<NSDictionary *> *)items result:(ABUIPickerResultBlock)result {
+    [self showItems:items titleKey:@"title" result:result];
+}
+
+- (void)showItems:(NSArray<NSDictionary *> *)items titleKey:(NSString *)titleKey result:(ABUIPickerResultBlock)result {
+    self.pickerView = [[ABUIPickerView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 300)];
+    self.pickerView.delegate = self;
+    self.rBlock = result;
+    self.pickerView.titleKey = titleKey;
+    [self.pickerView setDataList:items];
+    [[ABUIPopUp shared] show:self.pickerView from:ABPopUpDirectionBottom];
+}
+
+- (void)abUIPickerView:(ABUIPickerView *)pickerView didSelected:(nonnull NSDictionary *)item{
+    self.rBlock(item);
+}
+
+- (void)showDatePicker {
+    
+}
 @end

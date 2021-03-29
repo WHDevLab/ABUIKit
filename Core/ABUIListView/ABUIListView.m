@@ -151,12 +151,13 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (void)setupPullRefresh {
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(onPullRefresh)];
+    [self.collectionView.mj_header setHidden:true];
 }
 
 - (void)onPullRefresh {
     self.isPullRefreshing = true;
     [self.collectionView.mj_footer resetNoMoreData];
-    [self.collectionView.mj_footer setHidden:false];
+//    [self.collectionView.mj_footer setHidden:false];
     if (self.delegate && [self.delegate respondsToSelector:@selector(listViewOnHeaderPullRefresh:)]) {
         [self.delegate listViewOnHeaderPullRefresh:self];
     }
@@ -172,6 +173,7 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (void)setupLoadMore {
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(onLoadMore)];
+    [self.collectionView.mj_footer setHidden:true];
 }
 
 - (void)onLoadMore {
@@ -726,6 +728,10 @@ static void *contentSizeContext = &contentSizeContext;
 
 - (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath {
     return [self.collectionView cellForItemAtIndexPath:indexPath];
+}
+
+- (NSDictionary *)itemWithIndexPath:(NSIndexPath *)indexPath {
+    return self.dataList[indexPath.section][indexPath.row];
 }
 
 - (BOOL)isEmpty {

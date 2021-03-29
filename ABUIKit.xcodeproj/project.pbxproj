@@ -115,6 +115,8 @@
 		F1CBD9A3253FCCD200363B55 /* ABUIListViewStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CBD9A2253FCCD200363B55 /* ABUIListViewStack.m */; };
 		F1E87A2925BA5C840044C85F /* ABUISkuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E87A2825BA5C840044C85F /* ABUISkuView.m */; };
 		F1E87A2D25BA62980044C85F /* ABUISkuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E87A2C25BA62980044C85F /* ABUISkuItemView.m */; };
+		F1EF2178260B20D100BD8764 /* ABUIDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EF2177260B20D100BD8764 /* ABUIDatePickerView.m */; };
+		F1EF217C260B211200BD8764 /* ABUIAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EF217B260B211200BD8764 /* ABUIAddressPickerView.m */; };
 		F1EFAB9425F9A33D001E46C4 /* ABUISettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EFAB9325F9A33D001E46C4 /* ABUISettingViewController.m */; };
 		F1EFABAF25F9B0E6001E46C4 /* ABUIViewCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EFABAE25F9B0E6001E46C4 /* ABUIViewCreator.m */; };
 /* End PBXBuildFile section */
@@ -337,6 +339,10 @@
 		F1E87A2825BA5C840044C85F /* ABUISkuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISkuView.m; sourceTree = "<group>"; };
 		F1E87A2B25BA62980044C85F /* ABUISkuItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISkuItemView.h; sourceTree = "<group>"; };
 		F1E87A2C25BA62980044C85F /* ABUISkuItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISkuItemView.m; sourceTree = "<group>"; };
+		F1EF2176260B20D100BD8764 /* ABUIDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIDatePickerView.h; sourceTree = "<group>"; };
+		F1EF2177260B20D100BD8764 /* ABUIDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIDatePickerView.m; sourceTree = "<group>"; };
+		F1EF217A260B211200BD8764 /* ABUIAddressPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIAddressPickerView.h; sourceTree = "<group>"; };
+		F1EF217B260B211200BD8764 /* ABUIAddressPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIAddressPickerView.m; sourceTree = "<group>"; };
 		F1EFAB9225F9A33D001E46C4 /* ABUISettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUISettingViewController.h; sourceTree = "<group>"; };
 		F1EFAB9325F9A33D001E46C4 /* ABUISettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUISettingViewController.m; sourceTree = "<group>"; };
 		F1EFABAD25F9B0E6001E46C4 /* ABUIViewCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIViewCreator.h; sourceTree = "<group>"; };
@@ -723,6 +729,10 @@
 				F1C12B6125FA0552007A17BF /* ABUIPickerView.m */,
 				F1C12B6425FA072C007A17BF /* ABUIPickerViewToolBar.h */,
 				F1C12B6525FA072C007A17BF /* ABUIPickerViewToolBar.m */,
+				F1EF2176260B20D100BD8764 /* ABUIDatePickerView.h */,
+				F1EF2177260B20D100BD8764 /* ABUIDatePickerView.m */,
+				F1EF217A260B211200BD8764 /* ABUIAddressPickerView.h */,
+				F1EF217B260B211200BD8764 /* ABUIAddressPickerView.m */,
 			);
 			path = ABUIPicker;
 			sourceTree = "<group>";
@@ -928,8 +938,10 @@
 				F135605525BFF33900BE872F /* ABUISkuTopView.m in Sources */,
 				F14C363424760FDC0060D435 /* ABUIScrollView.m in Sources */,
 				F1BE0F90254FADCE00F53BCF /* ABUIChatItemBaseView.m in Sources */,
+				F1EF217C260B211200BD8764 /* ABUIAddressPickerView.m in Sources */,
 				F1C12B5E25FA01AA007A17BF /* ABUIPhotoView.m in Sources */,
 				F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */,
+				F1EF2178260B20D100BD8764 /* ABUIDatePickerView.m in Sources */,
 				F12BB8D2251C976E003CE49C /* ABUINavigationController.m in Sources */,
 				F1C12B0625F9F2C0007A17BF /* ABUIListView008ItemView.m in Sources */,
 				F11F7C3824BFF69500DB96B3 /* ABUIAnimateBanner.m in Sources */,

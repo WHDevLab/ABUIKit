@@ -40,7 +40,7 @@
 }
 
 - (void)reload:(NSDictionary *)item extra:(NSDictionary *)extra indexPath:(NSIndexPath *)indexPath {
-    self.titleLabel.text = item[@"title"];
+    self.titleLabel.text = item[@"data.title"];
     [self.titleLabel sizeToFit];
     
     [self.iconImageView setHidden:![extra[@"isSelected"] boolValue]];

@@ -23,12 +23,21 @@
 }
 
 - (void)layoutAdjustContents {
+    self.actionButton.layer.cornerRadius = self.actionButton.height/2;
     self.actionButton.centerY = self.height/2;
 }
 
 - (void)reload:(NSDictionary *)item {
     [self.actionButton setTitle:item[@"data.title"] forState:UIControlStateNormal];
-    [self.actionButton setBackgroundColor:[UIColor hexColor:item[@"css.button.backgroundColor"]]];
+    if ([item[@"css.button.backgroundColor"] isKindOfClass:[UIColor class]]) {
+        [self.actionButton setBackgroundColor:item[@"css.button.backgroundColor"]];
+    }else{
+        [self.actionButton setBackgroundColor:[UIColor hexColor:item[@"css.button.backgroundColor"]]];
+    }
+    if (item[@"css.button.height"] != nil) {
+        self.actionButton.height = [item[@"css.button.height"] floatValue];
+    }
+
 }
 
 - (void)buttonAction {

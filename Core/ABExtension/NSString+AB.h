@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)trimmingNewLineAndWhiteSpace;
 - (NSString *)trim;
 - (NSString *)decryptAES128WithKey:(NSString *)key iv:(NSString *)iv encryptStr:(NSString *)encryptStr;
++ (NSString *)linkStrs:(NSString *)strs, ... NS_REQUIRES_NIL_TERMINATION;
 @end
 
 NS_ASSUME_NONNULL_END

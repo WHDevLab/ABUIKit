@@ -132,6 +132,7 @@ typedef enum : NSUInteger {
 - (void)resetNoMoreData;
 - (void)adapterSafeArea;
 - (UIView *)itemViewAtIndexPath:(NSIndexPath *)indexPath;
+- (NSDictionary *)itemWithIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)isEmpty;
 - (BOOL)checkForm;
 - (BOOL)isContentFull; //内容是否铺满

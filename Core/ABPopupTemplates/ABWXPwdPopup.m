@@ -95,6 +95,9 @@
         
         self.moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 102, self.frame.size.width, 40)];
         self.moneyLabel.text = [NSString stringWithFormat:@"¥%.2f", config.money];
+        if (config.moneyStr.length > 0) {
+            self.moneyLabel.text = config.moneyStr;
+        }
         self.moneyLabel.textAlignment = NSTextAlignmentCenter;
         self.moneyLabel.font = [UIFont boldSystemFontOfSize:30];
         self.moneyLabel.textColor = [UIColor blackColor];

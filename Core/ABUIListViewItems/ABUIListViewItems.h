@@ -17,4 +17,5 @@
 #define ABUILV_ITEM_BUTTON         @"ablist_item_006"
 #define ABUILV_ITEM_TITLE_SELECT         @"ablist_item_007"
 #define ABUILV_ITEM_CHATROW         @"ablist_item_008"
+#define ABUILV_ITEM_FUNDS         @"ablist_item_010"
 #endif /* ABUIListViewItems_h */

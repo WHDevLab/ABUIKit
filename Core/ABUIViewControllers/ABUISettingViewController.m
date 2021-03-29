@@ -37,9 +37,11 @@
 }
 
 - (void)listView:(ABUIListView *)listView didSelectItemAtIndexPath:(NSIndexPath *)indexPath item:(NSDictionary *)item {
-    NSString *type = item[@"type"];
-    if ([type isEqualToString:@"arrow"]) {
-        
+    if (item[@"action.jump"] != nil) {
+        UIViewController *vc = [[NSClassFromString(item[@"action.jump"]) alloc] init];
+        vc.title = item[@"data.title"];
+        vc.props = item[@"action.data"];
+        [self.navigationController pushViewController:vc animated:true];
     }
 }
 

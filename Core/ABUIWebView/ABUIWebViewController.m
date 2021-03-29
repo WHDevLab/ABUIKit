@@ -8,6 +8,7 @@
 
 #import "ABUIWebViewController.h"
 #import "ABUIWebView.h"
+#import "UIViewController+AB.h"
 @interface ABUIWebViewController ()<ABUIWebViewDelegate>
 @property (nonatomic, strong) ABUIWebView *webView;
 @end
@@ -23,7 +24,12 @@
     [self.view addSubview:self.webView];
     self.webView.delegate = self;
 
-    [self.webView loadWebWithPath:self.path];
+    if (self.path) {
+        [self.webView loadWebWithPath:self.path];
+    }else{
+        [self.webView loadWebWithPath:self.props[@"path"]];
+    }
+    
 }
 
 - (void)viewDidLayoutSubviews {

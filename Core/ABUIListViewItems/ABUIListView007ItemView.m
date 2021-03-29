@@ -72,6 +72,7 @@
 }
 
 - (void)onAction {
+    [[UIApplication sharedApplication].keyWindow endEditing:true];
     [self.cell sendActionWithKey:@"select" actionData:@""];
 }
 

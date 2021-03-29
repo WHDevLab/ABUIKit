@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIViewController : UIViewController
-
+- (void)setRightButton:(NSString *)title action:(SEL)action;
 @end
 
 NS_ASSUME_NONNULL_END

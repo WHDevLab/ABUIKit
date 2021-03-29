@@ -26,7 +26,8 @@
 }
 - (void)switchLogin {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    ABUINavigationController *nav = [[ABUINavigationController alloc] initWithRootViewController:[[NSClassFromString(self.loginClassString) alloc] init]];
+    UIViewController *vc = [[NSClassFromString(self.loginClassString) alloc] init];
+    ABUINavigationController *nav = [[ABUINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
 }

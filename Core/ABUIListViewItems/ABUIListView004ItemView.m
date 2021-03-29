@@ -36,7 +36,7 @@
 - (void)layoutAdjustContents {
     if (self.titleLabel.text.length > 0) {
         self.titleLabel.left = 15;
-        self.inputTextField.left = self.titleLabel.right;
+        self.inputTextField.left = self.titleLabel.right+10;
         self.inputTextField.width = self.width-self.titleLabel.right-15;
         self.titleLabel.centerY = self.height/2;
     }else{
@@ -49,6 +49,18 @@
     if (item[@"data.title"] != nil) {
         self.titleLabel.text = item[@"data.title"];
         [self.titleLabel sizeToFit];
+    }
+    NSString *inputType = item[@"css.input.type"];
+    self.inputTextField.secureTextEntry = false;
+    self.inputTextField.keyboardType = UIKeyboardTypeDefault;
+    if ([inputType isEqualToString:@"pwd"]) {
+        self.inputTextField.secureTextEntry = true;
+    }
+    if ([inputType isEqualToString:@"number"]) {
+        self.inputTextField.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    if ([inputType isEqualToString:@"decimal"]) {
+        self.inputTextField.keyboardType = UIKeyboardTypeDecimalPad;
     }
     self.inputTextField.placeholder = item[@"data.placeholder"];
     [self reloadTextFiedData];

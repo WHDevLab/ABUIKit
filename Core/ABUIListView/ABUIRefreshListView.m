@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.limit = 0;
+        self.limit = 10;
         [self setupLoadMore];
         [self setupPullRefresh];
     }

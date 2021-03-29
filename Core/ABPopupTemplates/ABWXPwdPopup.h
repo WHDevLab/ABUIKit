@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, assign) CGFloat money;
+@property (nonatomic, strong) NSString *moneyStr;
 @property (nonatomic, strong) NSArray *supplys;
 + (ABWXPwdPopupConfig *)defaultConfig;
 @end

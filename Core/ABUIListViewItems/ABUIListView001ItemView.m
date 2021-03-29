@@ -13,6 +13,7 @@
     [[ABUIListViewMapping shared] registerClassString:@"ABUIListView001ItemView" native_id:@"ablist_item_001"];
 }
 - (void)setupAdjustContents {
+    self.backgroundColor = [UIColor whiteColor];
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.textColor = [UIColor hexColor:@"#292B32"];
     self.titleLabel.font = [UIFont systemFontOfSize:16];

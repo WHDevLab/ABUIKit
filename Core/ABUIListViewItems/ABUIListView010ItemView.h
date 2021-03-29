@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIListView010ItemView : ABUIListViewBaseItemView
-
+@property (nonatomic, strong) UILabel *iconImageView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UILabel *countLabel;
 @end
 
 NS_ASSUME_NONNULL_END
