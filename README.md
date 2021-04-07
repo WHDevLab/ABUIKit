@@ -8,7 +8,7 @@ pod 'ABUIKit', :git => "https://github.com/whdevlab/ABUIKit"
 ### ABUIListView
 使用配置文件驱动的列表视图
 
-##### 创建一个itemView继承自ABUIListViewBaseItemView,并为其绑定一个全局唯一的视图ID
+#### 创建一个itemView继承自ABUIListViewBaseItemView,并为其绑定一个全局唯一的视图ID
 
 ABUIListView001ItemView.h
 
@@ -59,7 +59,7 @@ ABUIListView001ItemView.m
 @end
 ```
 
-##### 创建ABUIListView对象
+#### 创建ABUIListView对象
 native_id: 需要展示当前行数据的对应viewid
 
 ```
