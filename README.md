@@ -8,7 +8,7 @@ pod 'ABUIKit', :git => "https://github.com/whdevlab/ABUIKit"
 ### ABUIListView
 使用配置文件驱动的列表视图
 
-#### 创建一个itemView继承自ABUIListViewBaseItemView,并为其绑定一个全局唯一的视图ID
+#### 创建一个itemView继承自ABUIListViewBaseItemView,并为其绑定一个全局唯一的viewid
 
 ABUIListView001ItemView.h
 
@@ -65,6 +65,12 @@ native_id: 需要展示当前行数据的对应viewid
 ```
 self.mainListView = [[ABUIListView alloc] initWithFrame:self.view.bounds];
 self.mainListView.delegate = self;
+//启用占位图，当数据为空时启用
+self.mainListView.enableSeat = true;
+//占位图标题
+self.mainListView.seatTitle = @"暂无订单";
+//占位图图片
+self.mainListView.seatImageName = @"noOrder";
 [self.view addSubview:self.mainListView];
 
 NSArray *dataList = @[
@@ -82,3 +88,24 @@ NSArray *dataList = @[
 	@"item.rowSpacing":@(1),//行间距
 }];
 ```
+
+### ABUIPopUp
+弹窗控制类，可控制一个用于弹窗的view视图显示到屏幕的底部，中部或顶部
+
+```
+UIView *prompt = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
+[[ABUIPopUp shared] show:prompt from:ABPopUpDirectionBottom];
+```
+
+### ABWXPwdPopup
+微信支付密码弹窗
+
+```
+ABWXPwdPopupConfig *conf = [ABWXPwdPopupConfig defaultConfig];
+conf.moneyStr = @"¥100";
+conf.title = @"请输入支付密码";
+self.wxpwd = [[ABWXPwdPopup alloc] initWithConfig:conf];
+self.wxpwd.delegate = self;
+[self.wxpwd show];
+```
+
