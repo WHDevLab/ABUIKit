@@ -1,3 +1,7 @@
+ABUIKit 是一个致力于提高项目 UI 开发效率的解决方案，是对Tencent QMUI的补充与扩展，并提供更多开箱即用的功能模块
+
+[QMUI](https://github.com/Tencent/QMUI_iOS)
+
 # Installation
 ABUIKit supports multiple methods for installing the library in a project.
 ### Installation with CocoaPods
@@ -5,6 +9,9 @@ ABUIKit supports multiple methods for installing the library in a project.
 pod 'ABUIKit', :git => "https://github.com/whdevlab/ABUIKit"
 ```
 # Usage
+
+这里只展示部分功能的使用案例
+
 ### ABUIListView
 使用配置文件驱动的列表视图
 
@@ -108,4 +115,36 @@ self.wxpwd = [[ABWXPwdPopup alloc] initWithConfig:conf];
 self.wxpwd.delegate = self;
 [self.wxpwd show];
 ```
+### ABUIChatView
+微信聊天页面一比一还原，并提供简单的数据输入接口
 
+```
+self.chatView = [[ABUIChatView alloc] initWithFrame:self.view.bounds];
+[self.chatView.toolBar.emojiButton setImage:[UIImage imageNamed:@"chatBar_face"] forState:UIControlStateNormal];
+[self.chatView.toolBar.moreButton setImage:[UIImage imageNamed:@"chatBar_more"] forState:UIControlStateNormal];
+self.chatView.delegate = self;
+[self.view addSubview:self.chatView];
+    
+NSArray *list = @[
+    @{
+        @"native_id":@"item_chat_time",
+        @"title":@"昨天 09:02",
+        @"item.size.height":@(30)
+    },
+    @{
+        @"native_id":@"item_chat_text",
+        @"content":@"早上好",
+        @"p":@"l",//l 显示在左侧, r 显示在右侧
+        @"avatar":@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"
+    },
+    @{
+        @"native_id":@"item_chat_image",
+        @"item.size.height":@(100),
+        @"content":@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604482108079&di=04eddfdc3303897a28249412d20757f2&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2F201503%2F19%2F211608ztcq7higicydxhsy.jpg",
+        @"p":@"r",
+        @"avatar":@"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1693173681,1105240714&fm=11&gp=0.jpg"
+    }
+];
+    
+self.chatView.messageList = list;
+```
