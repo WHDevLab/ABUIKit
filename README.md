@@ -2,18 +2,21 @@ ABUIKit 是一个致力于提高项目 UI 开发效率的解决方案，是对Te
 
 [QMUI](https://github.com/Tencent/QMUI_iOS)
 
-# Installation
-ABUIKit supports multiple methods for installing the library in a project.
-### Installation with CocoaPods
+# 安装
+如何集成到你的项目
+### 使用cocopods引入
 ```
 pod 'ABUIKit', :git => "https://github.com/whdevlab/ABUIKit"
 ```
-# Usage
+# 使用
 
 这里只展示部分功能的使用案例
 
 ### ABUIListView
-使用配置文件驱动的列表视图
+
+使用配置文件驱动的列表视图。为每个独立view分配native_id，并为其绑定对应数据，输入到该组件即可
+
+native_id: 每个独立view全局唯一的ID
 
 #### 创建一个itemView继承自ABUIListViewBaseItemView,并为其绑定一个全局唯一的viewid
 
@@ -39,21 +42,21 @@ ABUIListView001ItemView.m
     // 注册当前View的ID到ABUIListViewMapping中
     [[ABUIListViewMapping shared] registerClassString:@"ABUIListView001ItemView" native_id:@"ablist_item_001"];
 }
-- (void)setupAdjustContents { //调用时机同init
+//初始化所有UI视图
+- (void)setupAdjustContents {
     self.backgroundColor = [UIColor whiteColor];
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.textColor = [UIColor hexColor:@"#292B32"];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     [self addSubview:self.titleLabel];
 }
-
+//配置UI布局，数据发生改变改变触发
 - (void)layoutAdjustContents { //调用时机同layoutsubview
     self.titleLabel.left = 15;
     self.titleLabel.centerY = self.height/2;
 }
-
-- (void)reload:(NSDictionary *)item { //当前视图对应的数据
-    self.titleLabel.text = item[@"data.title"];
+//接收数据并设定到指定UI
+- (void)reload:(NSDictionary *)item {     self.titleLabel.text = item[@"data.title"];
     if (item[@"css.font"] != nil) {
         self.titleLabel.font = item[@"css.title.font"];
     }
@@ -67,7 +70,6 @@ ABUIListView001ItemView.m
 ```
 
 #### 创建ABUIListView对象
-native_id: 需要展示当前行数据的对应viewid
 
 ```
 self.mainListView = [[ABUIListView alloc] initWithFrame:self.view.bounds];
@@ -90,6 +92,7 @@ NSArray *dataList = @[
 		@"data.title":@"卡包"
 	}
 ];
+//输入经过绑定的数据列表到listview
 [self.mainListView setDataList:dataList css:@{
 	@"item.size.height":@(50), //行高
 	@"item.rowSpacing":@(1),//行间距
