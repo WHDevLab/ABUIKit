@@ -1,12 +1,13 @@
 //
-//  ABWXPwdPopup.m
+//  ABUIWXPwdView.m
 //  ABUIKit
 //
-//  Created by qp on 2021/3/8.
+//  Created by qp on 2021/5/31.
 //  Copyright © 2021 abteam. All rights reserved.
 //
 
-#import "ABWXPwdPopup.h"
+#import "ABUIWXPwdView.h"
+
 #import <Foundation/Foundation.h>
 #import "UIView+AB.h"
 #import "UIColor+AB.h"
@@ -50,9 +51,9 @@
 
 @end
 
-@implementation ABWXPwdPopupConfig
-+ (ABWXPwdPopupConfig *)defaultConfig {
-    ABWXPwdPopupConfig *config = [[ABWXPwdPopupConfig alloc] init];
+@implementation ABWXPwdConfig
++ (ABWXPwdConfig *)defaultConfig {
+    ABWXPwdConfig *config = [[ABWXPwdConfig alloc] init];
     config.pwdCount = 6;
     config.borderColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0];
     config.dotSize = CGSizeMake(10, 10);
@@ -67,8 +68,8 @@
 }
 @end
 
-@implementation ABWXPwdView
-- (instancetype)initWithFrame:(CGRect)frame config:(ABWXPwdPopupConfig *)config
+@implementation ABUIWXPwdView
+- (instancetype)initWithFrame:(CGRect)frame config:(ABWXPwdConfig *)config
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -221,12 +222,12 @@
     return instance;
 }
 
-- (instancetype)initWithConfig:(ABWXPwdPopupConfig *)config
+- (instancetype)initWithConfig:(ABWXPwdConfig *)config
 {
     self = [super init];
     if (self) {
         if (config == nil) {
-            self.config = [ABWXPwdPopupConfig defaultConfig];
+            self.config = [ABWXPwdConfig defaultConfig];
         }else{
             self.config = config;
         }
@@ -235,7 +236,7 @@
         self.maskView.alpha = 0.3;
         
         
-        self.contentView = [[ABWXPwdView alloc] initWithFrame:CGRectMake(30, 100, self.maskView.frame.size.width-60, 250) config:self.config];
+        self.contentView = [[ABUIWXPwdView alloc] initWithFrame:CGRectMake(30, 100, self.maskView.frame.size.width-60, 250) config:self.config];
         self.contentView.layer.cornerRadius = 8;
         self.contentView.backgroundColor = [UIColor whiteColor];
         [self.contentView.closeButton addTarget:self action:@selector(onClose) forControlEvents:UIControlEventTouchUpInside];

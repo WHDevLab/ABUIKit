@@ -16,6 +16,7 @@
 #import "ABUITips.h"
 #import "ABUIListViewHorizontalLayout.h"
 #import "ABUISeatView.h"
+#import "ABRouter.h"
 static void *contentSizeContext = &contentSizeContext;
 @interface ABUIListView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *dataList;
@@ -382,7 +383,13 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (void)setFormRules:(NSDictionary *)rules {
+    self.formCheck = true;
     _fRules = rules;
+}
+
+- (void)setFormRules:(NSDictionary *)rules sequence:(NSArray *)keys {
+    [self setFRules:rules];
+    self.fRuleKeys = keys;
 }
 
 - (void)setTempleteDataList:(NSArray *)dataList {
@@ -487,6 +494,7 @@ static void *contentSizeContext = &contentSizeContext;
     NSMutableDictionary *dd = [[NSMutableDictionary alloc] initWithDictionary:extDic];
     dd[@"section.css"] = css;
     ABUIListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    cell.separatorColor = self.separatorColor;
     cell.indexPath = indexPath;
     cell.total = items.count;
     NSString *native_id = [[ABUIListViewMapping shared] classString:item[@"native_id"]];
@@ -507,20 +515,19 @@ static void *contentSizeContext = &contentSizeContext;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *items = self.dataList[indexPath.section][@"items"];
+    NSDictionary *item = items[indexPath.row];
     if (self.delegate && [self.delegate respondsToSelector:@selector(listView:didSelectItemAtIndexPath:item:)]) {
-        NSArray *items = self.dataList[indexPath.section][@"items"];
-        NSDictionary *item = items[indexPath.row];
         [self.delegate listView:self didSelectItemAtIndexPath:indexPath item:item];
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(listView:didSelectItemAtIndexPath:item:itemKey:)]) {
-        NSArray *items = self.dataList[indexPath.section][@"items"];
-        NSDictionary *item = items[indexPath.row];
         [self.delegate listView:self didSelectItemAtIndexPath:indexPath item:item itemKey:item[@"itemKey"]];
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(listView:didSelectItemAtIndexPath:item:extra:)]) {
-        NSArray *items = self.dataList[indexPath.section][@"items"];
-        NSDictionary *item = items[indexPath.row];
         [self.delegate listView:self didSelectItemAtIndexPath:indexPath item:item extra:self.extraMap[indexPath]];
+    }
+    if (item[@"action.jump.page"]) {
+        [ABRouter gotoPageWithClassString:item[@"action.jump.page"] data:item[@"action.jump.data"]];
     }
 }
 

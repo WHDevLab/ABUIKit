@@ -18,7 +18,7 @@
 }
 - (void)setupAdjustContents {
     self.backgroundColor = [UIColor whiteColor];
-    self.layer.cornerRadius = 6;
+//    self.layer.cornerRadius = 6;
     self.clipsToBounds = true;
     self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
     self.iconImageView.contentMode = UIViewContentModeScaleAspectFit;

@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *phLabel;//placeholder
 @property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UIImageView *arrowImageView;
 @end
 @implementation ABUIListView007ItemView
 
@@ -21,9 +22,9 @@
 
 - (void)setupAdjustContents {
     self.backgroundColor = [UIColor whiteColor];
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 100, self.frame.size.height)];
-    self.titleLabel.font = [UIFont PingFangSC:16];
-    self.titleLabel.textColor = [UIColor hexColor:@"222222"];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.titleLabel.textColor = [UIColor hexColor:@"#292B32"];
+    self.titleLabel.font = [UIFont systemFontOfSize:16];
     [self addSubview:self.titleLabel];
     
     self.phLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLabel.right+10, 0, self.width-10-self.titleLabel.right-15, self.frame.size.height)];
@@ -39,22 +40,39 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAction)];
     [self.contentLabel addGestureRecognizer:tap];
+    
+    self.arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 8, 12)];
+    self.arrowImageView.image = [UIImage imageNamed:[ABUIListViewConfigure shared].cellArrowImageName];
+    self.arrowImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview:self.arrowImageView];
 }
 
 - (void)layoutAdjustContents {
-    if (self.titleLabel.isHidden) {
-        self.contentLabel.left = 15;
-        self.phLabel.left = 15;
-    }else{
+    if (self.titleLabel.text.length > 0) {
         self.titleLabel.left = 15;
         self.contentLabel.left = self.titleLabel.right+10;
-        self.phLabel.left = self.titleLabel.right+10;
+        self.contentLabel.width = self.width-self.titleLabel.right-15;
+        self.titleLabel.centerY = self.height/2;
+    }else{
+        self.contentLabel.left = 15;
+        self.contentLabel.width = self.width-30;
     }
+    
+    self.phLabel.left = self.contentLabel.left;
+    
+    self.arrowImageView.left = self.width-15-self.arrowImageView.width;
+    self.arrowImageView.centerY = self.height/2;
 }
 
 - (void)reload:(NSDictionary *)item {
+    if (item[@"css.title.font"]) {
+        self.titleLabel.font = item[@"css.title.font"];
+    }else{
+        self.titleLabel.font = [UIFont PingFangSC:16];
+    }
     [self.titleLabel setHidden:item[@"data.title"] == nil];
     self.titleLabel.text = item[@"data.title"];
+    [self.titleLabel sizeToFit];
     self.contentLabel.textColor = [UIColor hexColor:@"222222"];
     
     self.phLabel.text = item[@"data.placeholder"];
@@ -69,6 +87,8 @@
     }else{
         [self.phLabel setHidden:true];
     }
+    
+
 }
 
 - (void)onAction {

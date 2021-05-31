@@ -203,6 +203,7 @@
 }
 
 - (void)addTopShadow {
+    //如果没有效果，检查是否设置了背景颜色
     self.layer.shadowColor = [[UIColor hexColor:@"3A4C82"] CGColor];
     self.layer.shadowOpacity = 0.07;
     self.layer.shadowOffset = CGSizeMake(0, -19);

@@ -16,11 +16,17 @@ typedef enum : NSUInteger {
     ABUIListViewLayoutTypeHor,
 } ABUIListViewLayoutType;
 
+
+@interface ABUIListViewItemConfigure : NSObject
+@property (nonatomic, assign) CGSize iconSize;
+@end
+
 @interface ABUIListViewConfigure : NSObject
 @property (nonatomic, assign) ABUIListViewLayoutType layoutType;
 @property (nonatomic, strong) UICollectionViewLayout *layout;
 @property (nonatomic, assign) BOOL enableMove;
 @property (nonatomic, strong) UIColor *sectionColor;
+@property (nonatomic, strong) ABUIListViewItemConfigure *itemConfigure;
 
 //public property  to shared
 @property (nonatomic, strong) NSString *cellArrowImageName;
@@ -28,5 +34,7 @@ typedef enum : NSUInteger {
 + (ABUIListViewConfigure *)defaultSectionColor;
 + (ABUIListViewConfigure *)hor;
 @end
+
+
 
 NS_ASSUME_NONNULL_END

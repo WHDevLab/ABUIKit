@@ -8,6 +8,9 @@
 
 #import "ABUIListViewConfigure.h"
 
+@implementation ABUIListViewItemConfigure
+
+@end
 @implementation ABUIListViewConfigure
 
 + (ABUIListViewConfigure *)shared {

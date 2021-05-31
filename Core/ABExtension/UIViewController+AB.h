@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (AB)
 @property (nonatomic, assign) BOOL isVisableNavigationBar;
+@property (nonatomic, strong) NSString *navigationStyle;
 @property (nonatomic, weak) UIViewController *parent;
 @property (nonatomic, strong) NSDictionary *props;
 @end

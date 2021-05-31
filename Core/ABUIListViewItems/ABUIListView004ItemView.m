@@ -37,7 +37,7 @@
     if (self.titleLabel.text.length > 0) {
         self.titleLabel.left = 15;
         self.inputTextField.left = self.titleLabel.right+10;
-        self.inputTextField.width = self.width-self.titleLabel.right-15;
+        self.inputTextField.width = self.width-self.titleLabel.right-15-15;
         self.titleLabel.centerY = self.height/2;
     }else{
         self.inputTextField.left = 15;
@@ -50,7 +50,9 @@
         self.titleLabel.text = item[@"data.title"];
         [self.titleLabel sizeToFit];
     }
+    
     NSString *inputType = item[@"css.input.type"];
+    self.inputTextField.textAlignment = [item[@"css.input.aligment"] intValue];
     self.inputTextField.secureTextEntry = false;
     self.inputTextField.keyboardType = UIKeyboardTypeDefault;
     if ([inputType isEqualToString:@"pwd"]) {

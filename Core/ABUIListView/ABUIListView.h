@@ -114,6 +114,7 @@ typedef enum : NSUInteger {
 - (void)setDataList:(NSArray *)dataList css:(nullable NSDictionary *)css;
 - (void)setDataList:(NSArray *)dataList cssModule:(nullable ABUIListViewCSS *)cssModule;
 - (void)setFormRules:(NSDictionary *)rules;
+- (void)setFormRules:(NSDictionary *)rules sequence:(NSArray *)keys;
 /// dataList数据格式参考ABUIListViewTemplete.json
 - (void)setTempleteDataList:(NSArray *)dataList;
 - (void)reloadData;

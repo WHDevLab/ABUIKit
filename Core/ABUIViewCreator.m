@@ -7,7 +7,7 @@
 //
 
 #import "ABUIViewCreator.h"
-
+#import "UIFont+AB.h"
 @implementation ABUIViewCreator
 + (ABUIViewCreator *)shared {
     static ABUIViewCreator *instance = nil;
@@ -54,6 +54,26 @@
     textField.layer.shadowRadius = 12;
     textField.layer.cornerRadius = 9.6;
     return textField;
+}
+
+
++ (UIButton *)createButton:(NSString *)title style:(NSDictionary *)style {
+    UIButton *btn = [[UIButton alloc] init];
+    [btn setTitle:title forState:UIControlStateNormal];
+    if (style[@"font-size"]) {
+        btn.titleLabel.font = [UIFont PingFangSC:[style[@"font-size"]floatValue]];
+    }
+    if (style[@"color"]) {
+        [btn setTitleColor:style[@"color"] forState:UIControlStateNormal];
+    }
+    if (style[@"border-radius"]) {
+        btn.layer.cornerRadius = [style[@"border-radius"] floatValue];
+        btn.clipsToBounds = true;
+    }
+    if (style[@"background-color"]) {
+        [btn setBackgroundColor:style[@"background-color"]];
+    }
+    return btn;
 }
 
 @end

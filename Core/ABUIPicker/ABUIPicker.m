@@ -32,7 +32,7 @@
     return self;
 }
 
-- (void)showAddress {
++ (void)showAddress {
     
 }
 

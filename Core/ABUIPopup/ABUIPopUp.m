@@ -8,8 +8,7 @@
 
 #import "ABUIPopUp.h"
 #import "UIView+AB.h"
-
-
+#import "ABUIBankSelectionView.h"
 @implementation ABUIPopUpContainer
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -24,11 +23,15 @@
 
 @end
 
-@interface ABUIPopUp ()
+@interface ABUIPopUp ()<ABWXPwdPopupDelegate>
 @property (nonatomic, strong) UIControl *cover;
 @property (nonatomic, strong) UIView *containView;
 @property (nonatomic, assign) ABPopUpDirection direction;
 @property (nonatomic, strong) ABUIPopupBlock block;
+
+@property (nonatomic, strong) ABUIWXPwdView *pwdView;
+@property (nonatomic, strong) ABWXPwdPopup *wxpwd;
+@property (nonatomic, assign) WXPwdBlock wxpwdBlock;
 @end
 @implementation ABUIPopUp
 + (ABUIPopUp *)shared {
@@ -40,6 +43,15 @@
     return instance;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.mask = false;
+    }
+    return self;
+}
+
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction duration:(NSInteger)duration {
     [self performSelector:@selector(remove) withObject:nil afterDelay:duration];
     [self show:v from:direction distance:0];
@@ -47,6 +59,11 @@
 
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction {
     [self show:v from:direction distance:0];
+}
+
+- (void)show:(UIView *)v from:(ABPopUpDirection)direction mask:(BOOL)mask {
+    self.mask = mask;
+    [self show:v from:direction];
 }
 
 - (void)show:(UIView *)v from:(ABPopUpDirection)direction distance:(CGFloat)distance hideBlock:(nonnull ABUIPopupBlock)hideBlock {
@@ -136,6 +153,9 @@
 }
 
 - (void)coverClick {
+    if (self.mask) {
+        return;
+    }
     if ([self.containView isKindOfClass:[ABUIPopUpContainer class]]) {
         if ([(ABUIPopUpContainer *)self.containView enableWrapperClose] == false) {
             return;
@@ -150,6 +170,30 @@
 
 - (void)remove:(CGFloat)duration {
     [self _animateHidden:duration];
+}
+
+#pragma mark ---------------------- teampleate ----------------
+- (void)showWXPwdWithConfig:(ABWXPwdConfig *)config success:(nonnull WXPwdBlock)success {
+    self.wxpwd = [[ABWXPwdPopup alloc] initWithConfig:config];
+    self.wxpwd.delegate = self;
+    [self.wxpwd show];
+    
+    self.wxpwdBlock = success;
+    
+//    self.pwdView = [[ABUIWXPwdView alloc] initWithFrame:CGRectMake(30, 100, SCREEN_WIDTH-60, 250) config:config];
+//    self.pwdView.layer.cornerRadius = 8;
+//    self.pwdView.backgroundColor = [UIColor whiteColor];
+//    [self.pwdView.closeButton addTarget:self action:@selector(remove) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)abwxpwdpopupFinished:(NSString *)pwd {
+    self.wxpwdBlock(pwd);
+}
+
+- (void)showBankSelection:(NSArray *)titles success:(WXPwdBlock)success {
+    ABUIBankSelectionView *xxx = [[ABUIBankSelectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.6)];
+    [xxx showTitles:titles];
 }
 
 @end

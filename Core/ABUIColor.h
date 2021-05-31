@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIColor : UIColor
 + (UIColor *)hexColor:(NSString *)stringToConvert;
+
 @end
 
 NS_ASSUME_NONNULL_END

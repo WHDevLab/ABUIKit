@@ -32,7 +32,12 @@
     if ([item[@"css.button.backgroundColor"] isKindOfClass:[UIColor class]]) {
         [self.actionButton setBackgroundColor:item[@"css.button.backgroundColor"]];
     }else{
-        [self.actionButton setBackgroundColor:[UIColor hexColor:item[@"css.button.backgroundColor"]]];
+        if (item[@"css.button.backgroundColor"] == nil) {
+            [self.actionButton setBackgroundColor:[UIColor redColor]];
+        }else{
+            [self.actionButton setBackgroundColor:[UIColor hexColor:item[@"css.button.backgroundColor"]]];
+        }
+
     }
     if (item[@"css.button.height"] != nil) {
         self.actionButton.height = [item[@"css.button.height"] floatValue];

@@ -4,7 +4,7 @@
 //
 //  Created by qp on 2021/3/11.
 //  Copyright © 2021 abteam. All rights reserved.
-//
+//  账单item
 
 #import "ABUIListViewBaseItemView.h"
 

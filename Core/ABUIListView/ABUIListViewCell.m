@@ -10,8 +10,20 @@
 #import "ABUIListViewBaseItemView.h"
 @interface ABUIListViewCell ()
 @property (nonatomic, strong) NSString *itemKey;
+@property (nonatomic, strong) UIView *lineView;
 @end
 @implementation ABUIListViewCell
+
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, 1)];
+        [self addSubview:self.lineView];
+    }
+    return self;
+}
 
 - (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(nonnull NSString *)clsStr{
     self.item = item;
@@ -60,6 +72,16 @@
     if (item[@"itemKey"] != nil) {
         self.itemKey = item[@"itemKey"];
     }
+    
+    BOOL isShowSep = false;
+    if (item[@"css.separator.hidden"]) {
+        isShowSep = [item[@"css.separator.hidden"] boolValue] == false;
+    }
+    if (self.separatorColor) {
+        self.lineView.backgroundColor = self.separatorColor;
+    }
+    [self.lineView setHidden:!isShowSep];
+    [self bringSubviewToFront:self.lineView];
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -96,6 +118,7 @@
     [super layoutSubviews];
     self.mainView.frame = self.bounds;
     [(id<ABUIListItemViewProtocol>)self.mainView layoutAdjustContents];
+    self.lineView.top = self.height-self.lineView.height;
 }
 
 - (nullable id)userProvideData {

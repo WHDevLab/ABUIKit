@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		42438FAFF24166EC9549ECB6 /* libPods-ABUIKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8F0DB6084B1ACAB1B012AE /* libPods-ABUIKit.a */; };
+		F10205172660E59300CBCB50 /* ABUIListView013ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10205162660E59300CBCB50 /* ABUIListView013ItemView.m */; };
+		F102051B2660E59F00CBCB50 /* ABUIListView014ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F102051A2660E59F00CBCB50 /* ABUIListView014ItemView.m */; };
+		F102051F2660E5AA00CBCB50 /* ABUIListView015ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F102051E2660E5AA00CBCB50 /* ABUIListView015ItemView.m */; };
+		F10205232660E5B500CBCB50 /* ABUIListView016ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10205222660E5B500CBCB50 /* ABUIListView016ItemView.m */; };
+		F10205272660E5C000CBCB50 /* ABUIListView017ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10205262660E5C000CBCB50 /* ABUIListView017ItemView.m */; };
+		F102052B2660E5D500CBCB50 /* ABUIListView018ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F102052A2660E5D500CBCB50 /* ABUIListView018ItemView.m */; };
+		F102052F2660E5E300CBCB50 /* ABUIListView019ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F102052E2660E5E300CBCB50 /* ABUIListView019ItemView.m */; };
+		F10205332660E5EE00CBCB50 /* ABUIListView020ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10205322660E5EE00CBCB50 /* ABUIListView020ItemView.m */; };
+		F102064526648A2B00CBCB50 /* ABUIBankSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F102064426648A2B00CBCB50 /* ABUIBankSelectionView.m */; };
+		F102064926648B5B00CBCB50 /* ABUIPopupConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F102064826648B5B00CBCB50 /* ABUIPopupConfiguration.m */; };
+		F102067826648DBC00CBCB50 /* ABUIWXPwdView.m in Sources */ = {isa = PBXBuildFile; fileRef = F102067726648DBC00CBCB50 /* ABUIWXPwdView.m */; };
 		F10742A525ECC84F00A80933 /* ABAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F10742A425ECC84F00A80933 /* ABAppDelegate.m */; };
 		F10D9F8A252FF3FD005728B3 /* ABUIListViewSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9F89252FF3FD005728B3 /* ABUIListViewSelectItemView.m */; };
 		F10D9FBB25300A18005728B3 /* ABUIListViewBaseItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10D9FBA25300A18005728B3 /* ABUIListViewBaseItemView.m */; };
@@ -77,7 +88,6 @@
 		F16CBB1724ADE3D300CA6C18 /* ABUIPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */; };
 		F16CBB1A24ADE7D700CA6C18 /* NSArray+AB.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1924ADE7D700CA6C18 /* NSArray+AB.m */; };
 		F17513DA24F3671F008729D7 /* ABUIRefreshListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17513D924F3671F008729D7 /* ABUIRefreshListView.m */; };
-		F1942FE725F6241B00084F89 /* ABWXPwdPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = F1942FE625F6241B00084F89 /* ABWXPwdPopup.m */; };
 		F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88424C59F92003A6031 /* ABUICheckBox.m */; };
 		F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D88D24C6C2F7003A6031 /* ABUICollectionView.m */; };
 		F1B0395724FF86F6008B02C1 /* ABUIMoneyInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B0395624FF86F6008B02C1 /* ABUIMoneyInput.m */; };
@@ -125,6 +135,28 @@
 		13E13E842FB474A32A1BA94D /* Pods-ABUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABUIKit.debug.xcconfig"; path = "Target Support Files/Pods-ABUIKit/Pods-ABUIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4F9CDE74A8F60BF8DB3A72BB /* Pods-ABUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABUIKit.release.xcconfig"; path = "Target Support Files/Pods-ABUIKit/Pods-ABUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		EE8F0DB6084B1ACAB1B012AE /* libPods-ABUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABUIKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10205152660E59300CBCB50 /* ABUIListView013ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView013ItemView.h; sourceTree = "<group>"; };
+		F10205162660E59300CBCB50 /* ABUIListView013ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView013ItemView.m; sourceTree = "<group>"; };
+		F10205192660E59F00CBCB50 /* ABUIListView014ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView014ItemView.h; sourceTree = "<group>"; };
+		F102051A2660E59F00CBCB50 /* ABUIListView014ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView014ItemView.m; sourceTree = "<group>"; };
+		F102051D2660E5AA00CBCB50 /* ABUIListView015ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView015ItemView.h; sourceTree = "<group>"; };
+		F102051E2660E5AA00CBCB50 /* ABUIListView015ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView015ItemView.m; sourceTree = "<group>"; };
+		F10205212660E5B500CBCB50 /* ABUIListView016ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView016ItemView.h; sourceTree = "<group>"; };
+		F10205222660E5B500CBCB50 /* ABUIListView016ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView016ItemView.m; sourceTree = "<group>"; };
+		F10205252660E5C000CBCB50 /* ABUIListView017ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView017ItemView.h; sourceTree = "<group>"; };
+		F10205262660E5C000CBCB50 /* ABUIListView017ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView017ItemView.m; sourceTree = "<group>"; };
+		F10205292660E5D500CBCB50 /* ABUIListView018ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView018ItemView.h; sourceTree = "<group>"; };
+		F102052A2660E5D500CBCB50 /* ABUIListView018ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView018ItemView.m; sourceTree = "<group>"; };
+		F102052D2660E5E300CBCB50 /* ABUIListView019ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView019ItemView.h; sourceTree = "<group>"; };
+		F102052E2660E5E300CBCB50 /* ABUIListView019ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView019ItemView.m; sourceTree = "<group>"; };
+		F10205312660E5EE00CBCB50 /* ABUIListView020ItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListView020ItemView.h; sourceTree = "<group>"; };
+		F10205322660E5EE00CBCB50 /* ABUIListView020ItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIListView020ItemView.m; sourceTree = "<group>"; };
+		F102064326648A2B00CBCB50 /* ABUIBankSelectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIBankSelectionView.h; sourceTree = "<group>"; };
+		F102064426648A2B00CBCB50 /* ABUIBankSelectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIBankSelectionView.m; sourceTree = "<group>"; };
+		F102064726648B5B00CBCB50 /* ABUIPopupConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIPopupConfiguration.h; sourceTree = "<group>"; };
+		F102064826648B5B00CBCB50 /* ABUIPopupConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIPopupConfiguration.m; sourceTree = "<group>"; };
+		F102067626648DBC00CBCB50 /* ABUIWXPwdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIWXPwdView.h; sourceTree = "<group>"; };
+		F102067726648DBC00CBCB50 /* ABUIWXPwdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIWXPwdView.m; sourceTree = "<group>"; };
 		F10742A325ECC84F00A80933 /* ABAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABAppDelegate.h; sourceTree = "<group>"; };
 		F10742A425ECC84F00A80933 /* ABAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABAppDelegate.m; sourceTree = "<group>"; };
 		F10D9F88252FF3FD005728B3 /* ABUIListViewSelectItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIListViewSelectItemView.h; sourceTree = "<group>"; };
@@ -265,8 +297,6 @@
 		F16CBB1924ADE7D700CA6C18 /* NSArray+AB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AB.m"; sourceTree = "<group>"; };
 		F17513D824F3671F008729D7 /* ABUIRefreshListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUIRefreshListView.h; sourceTree = "<group>"; };
 		F17513D924F3671F008729D7 /* ABUIRefreshListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUIRefreshListView.m; sourceTree = "<group>"; };
-		F1942FE525F6241B00084F89 /* ABWXPwdPopup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWXPwdPopup.h; sourceTree = "<group>"; };
-		F1942FE625F6241B00084F89 /* ABWXPwdPopup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABWXPwdPopup.m; sourceTree = "<group>"; };
 		F1A4D88324C59F92003A6031 /* ABUICheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUICheckBox.h; sourceTree = "<group>"; };
 		F1A4D88424C59F92003A6031 /* ABUICheckBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABUICheckBox.m; sourceTree = "<group>"; };
 		F1A4D88C24C6C2F7003A6031 /* ABUICollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABUICollectionView.h; sourceTree = "<group>"; };
@@ -378,6 +408,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F102063D266487A400CBCB50 /* ABUIPopup */ = {
+			isa = PBXGroup;
+			children = (
+				F16CBB1524ADE3D300CA6C18 /* ABUIPopUp.h */,
+				F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */,
+				F102064326648A2B00CBCB50 /* ABUIBankSelectionView.h */,
+				F102064426648A2B00CBCB50 /* ABUIBankSelectionView.m */,
+				F102064726648B5B00CBCB50 /* ABUIPopupConfiguration.h */,
+				F102064826648B5B00CBCB50 /* ABUIPopupConfiguration.m */,
+				F102067626648DBC00CBCB50 /* ABUIWXPwdView.h */,
+				F102067726648DBC00CBCB50 /* ABUIWXPwdView.m */,
+			);
+			path = ABUIPopup;
+			sourceTree = "<group>";
+		};
 		F10F3020252482B000088B72 /* ABUIListViewItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +457,22 @@
 				F1C12B1125F9F358007A17BF /* ABUIListView011ItemView.m */,
 				F1C12B1425F9F361007A17BF /* ABUIListView012ItemView.h */,
 				F1C12B1525F9F361007A17BF /* ABUIListView012ItemView.m */,
+				F10205152660E59300CBCB50 /* ABUIListView013ItemView.h */,
+				F10205162660E59300CBCB50 /* ABUIListView013ItemView.m */,
+				F10205192660E59F00CBCB50 /* ABUIListView014ItemView.h */,
+				F102051A2660E59F00CBCB50 /* ABUIListView014ItemView.m */,
+				F102051D2660E5AA00CBCB50 /* ABUIListView015ItemView.h */,
+				F102051E2660E5AA00CBCB50 /* ABUIListView015ItemView.m */,
+				F10205212660E5B500CBCB50 /* ABUIListView016ItemView.h */,
+				F10205222660E5B500CBCB50 /* ABUIListView016ItemView.m */,
+				F10205252660E5C000CBCB50 /* ABUIListView017ItemView.h */,
+				F10205262660E5C000CBCB50 /* ABUIListView017ItemView.m */,
+				F10205292660E5D500CBCB50 /* ABUIListView018ItemView.h */,
+				F102052A2660E5D500CBCB50 /* ABUIListView018ItemView.m */,
+				F102052D2660E5E300CBCB50 /* ABUIListView019ItemView.h */,
+				F102052E2660E5E300CBCB50 /* ABUIListView019ItemView.m */,
+				F10205312660E5EE00CBCB50 /* ABUIListView020ItemView.h */,
+				F10205322660E5EE00CBCB50 /* ABUIListView020ItemView.m */,
 			);
 			path = ABUIListViewItems;
 			sourceTree = "<group>";
@@ -532,10 +593,10 @@
 		F14C35F924760FDC0060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F102063D266487A400CBCB50 /* ABUIPopup */,
 				F1C12B5425FA015D007A17BF /* ABUIPhotoView */,
 				F1C12B2E25FA0086007A17BF /* ABUIPicker */,
 				F1EFAB9125F9A318001E46C4 /* ABUIViewControllers */,
-				F1942FE425F623A900084F89 /* ABPopupTemplates */,
 				F1E87A2625BA5C680044C85F /* ABUISkuView */,
 				F1CAF795258AFB0600CD4D54 /* ABUIDocumentView */,
 				F16A5374258749D300C42C3F /* ABUIProgressView */,
@@ -564,8 +625,6 @@
 				F14C35FA24760FDC0060D435 /* ABUIViewController.m */,
 				F142508D249B5454003E83D8 /* ABUITextView.h */,
 				F142508E249B5454003E83D8 /* ABUITextView.m */,
-				F16CBB1524ADE3D300CA6C18 /* ABUIPopUp.h */,
-				F16CBB1624ADE3D300CA6C18 /* ABUIPopUp.m */,
 				F154722D24C1427200BC6457 /* ABUITips.h */,
 				F154722E24C1427200BC6457 /* ABUITips.m */,
 				F1A4D88324C59F92003A6031 /* ABUICheckBox.h */,
@@ -707,15 +766,6 @@
 				F1B0395624FF86F6008B02C1 /* ABUIMoneyInput.m */,
 			);
 			path = ABUITextFields;
-			sourceTree = "<group>";
-		};
-		F1942FE425F623A900084F89 /* ABPopupTemplates */ = {
-			isa = PBXGroup;
-			children = (
-				F1942FE525F6241B00084F89 /* ABWXPwdPopup.h */,
-				F1942FE625F6241B00084F89 /* ABWXPwdPopup.m */,
-			);
-			path = ABPopupTemplates;
 			sourceTree = "<group>";
 		};
 		F1C12B2E25FA0086007A17BF /* ABUIPicker */ = {
@@ -921,6 +971,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F102052F2660E5E300CBCB50 /* ABUIListView019ItemView.m in Sources */,
 				F14C363B24760FDC0060D435 /* UIImageView+AB.m in Sources */,
 				F14C363724760FDC0060D435 /* UIColor+AB.m in Sources */,
 				F14C363324760FDC0060D435 /* ABUIListViewMapping.m in Sources */,
@@ -934,6 +985,8 @@
 				F12BB893251C9400003CE49C /* ABUITabBarItem.m in Sources */,
 				F1C12B6625FA072C007A17BF /* ABUIPickerViewToolBar.m in Sources */,
 				F10F2F20251F45B200088B72 /* ABUINavigationConfig.m in Sources */,
+				F102052B2660E5D500CBCB50 /* ABUIListView018ItemView.m in Sources */,
+				F10205232660E5B500CBCB50 /* ABUIListView016ItemView.m in Sources */,
 				F1C12AE225F9BB78007A17BF /* ABUIListView005ItemView.m in Sources */,
 				F135605525BFF33900BE872F /* ABUISkuTopView.m in Sources */,
 				F14C363424760FDC0060D435 /* ABUIScrollView.m in Sources */,
@@ -941,8 +994,10 @@
 				F1EF217C260B211200BD8764 /* ABUIAddressPickerView.m in Sources */,
 				F1C12B5E25FA01AA007A17BF /* ABUIPhotoView.m in Sources */,
 				F1A4D88E24C6C2F7003A6031 /* ABUICollectionView.m in Sources */,
+				F102064526648A2B00CBCB50 /* ABUIBankSelectionView.m in Sources */,
 				F1EF2178260B20D100BD8764 /* ABUIDatePickerView.m in Sources */,
 				F12BB8D2251C976E003CE49C /* ABUINavigationController.m in Sources */,
+				F102051F2660E5AA00CBCB50 /* ABUIListView015ItemView.m in Sources */,
 				F1C12B0625F9F2C0007A17BF /* ABUIListView008ItemView.m in Sources */,
 				F11F7C3824BFF69500DB96B3 /* ABUIAnimateBanner.m in Sources */,
 				F1C12B0A25F9F2CA007A17BF /* ABUIListView009ItemView.m in Sources */,
@@ -950,15 +1005,21 @@
 				F12BB88F251C937B003CE49C /* ABUITabBarViewController.m in Sources */,
 				F14C35E224760B750060D435 /* AppDelegate.m in Sources */,
 				F1425080249B0A97003E83D8 /* ABUIWebView.m in Sources */,
+				F102067826648DBC00CBCB50 /* ABUIWXPwdView.m in Sources */,
 				F1E87A2D25BA62980044C85F /* ABUISkuItemView.m in Sources */,
 				F1CAF798258AFB2400CD4D54 /* ABUIDocumentView.m in Sources */,
 				F1C12B6A25FA0980007A17BF /* ABUIPhotoViewController.m in Sources */,
+				F10205272660E5C000CBCB50 /* ABUIListView017ItemView.m in Sources */,
 				F1BE0F43254F9D4A00F53BCF /* ABUIChatItemTimeView.m in Sources */,
 				F14C363D24760FDC0060D435 /* UIViewController+AB.m in Sources */,
+				F102051B2660E59F00CBCB50 /* ABUIListView014ItemView.m in Sources */,
+				F10205172660E59300CBCB50 /* ABUIListView013ItemView.m in Sources */,
 				F1E87A2925BA5C840044C85F /* ABUISkuView.m in Sources */,
 				F15ACDEF25121B8E006F2D9E /* ABUIChatView.m in Sources */,
 				F1A4D88524C59F92003A6031 /* ABUICheckBox.m in Sources */,
 				F1C12AE625F9BB86007A17BF /* ABUIListView006ItemView.m in Sources */,
+				F102064926648B5B00CBCB50 /* ABUIPopupConfiguration.m in Sources */,
+				F10205332660E5EE00CBCB50 /* ABUIListView020ItemView.m in Sources */,
 				F121926724D16AD900630CA2 /* ABUIInputView.m in Sources */,
 				F10D9FBB25300A18005728B3 /* ABUIListViewBaseItemView.m in Sources */,
 				F14C363C24760FDC0060D435 /* UIImage+AB.m in Sources */,
@@ -1022,7 +1083,6 @@
 				F14C362A24760FDC0060D435 /* ABUILabel.m in Sources */,
 				F1BE0F5C254F9E4400F53BCF /* ABUIChatItemVideoView.m in Sources */,
 				F148937225BAB35D00F64923 /* ABUISkuHelper.m in Sources */,
-				F1942FE725F6241B00084F89 /* ABWXPwdPopup.m in Sources */,
 				F17513DA24F3671F008729D7 /* ABUIRefreshListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

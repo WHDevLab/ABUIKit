@@ -53,5 +53,12 @@
     self.iconImageView.image = [UIImage imageNamed:item[@"data.icon"]];
     [self.arrowImageView setHidden:[item[@"css.arrow.hidden"] boolValue]];
     
+    if (item[@"css.icon.width"]) {
+        self.iconImageView.width = [item[@"css.icon.width"] floatValue];
+    }
+    if (item[@"css.icon.height"]) {
+        self.iconImageView.height = [item[@"css.icon.height"] floatValue];
+    }
+    
 }
 @end

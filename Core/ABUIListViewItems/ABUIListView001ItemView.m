@@ -18,11 +18,19 @@
     self.titleLabel.textColor = [UIColor hexColor:@"#292B32"];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     [self addSubview:self.titleLabel];
+    
+    self.arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 8, 12)];
+    self.arrowImageView.image = [UIImage imageNamed:[ABUIListViewConfigure shared].cellArrowImageName];
+    self.arrowImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview:self.arrowImageView];
 }
 
 - (void)layoutAdjustContents {
     self.titleLabel.left = 15;
     self.titleLabel.centerY = self.height/2;
+    
+    self.arrowImageView.left = self.width-15-self.arrowImageView.width;
+    self.arrowImageView.centerY = self.height/2;
 }
 
 - (void)reload:(NSDictionary *)item {
@@ -34,6 +42,12 @@
         self.titleLabel.textColor = item[@"css.title.color"];
     }
     [self.titleLabel sizeToFit];
+    
+    if ([item[@"css.arrow.hidden"] boolValue] == true) {
+        [self.arrowImageView setHidden:true];
+    }else{
+        [self.arrowImageView setHidden:false];
+    }
 }
 
 @end

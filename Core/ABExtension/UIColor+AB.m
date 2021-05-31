@@ -17,7 +17,7 @@
     if ([cString length] < 6)
         return [UIColor whiteColor];
     if ([cString hasPrefix:@"#"])
-        cString = [cString substringFromIndex:1];
+        cString = [cString stringByReplacingOccurrencesOfString:@"#" withString:@""];
     if ([cString length] != 6)
         return [UIColor clearColor];
     

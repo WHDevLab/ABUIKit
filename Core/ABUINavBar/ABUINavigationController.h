@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ABUINavigationConfig.h"
+#import "ABUINavigationBar.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUINavigationController : UINavigationController

@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) ABUIListViewStack *stack;
 @property (nonatomic, weak) ABUIListViewStack *innerStack;
 @property (nonatomic, strong) NSDictionary *item;
+@property (nonatomic, strong) UIColor *separatorColor;
 - (void)reload:(NSDictionary *)item extra:(nullable NSDictionary *)extra clsStr:(NSString *)clsStr;
 - (void)refreshUserProvideData; //更新用户输入的数据
 - (void)setUserProvideData:(id)data;

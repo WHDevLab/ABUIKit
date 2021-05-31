@@ -9,6 +9,7 @@
 #import "UIViewController+AB.h"
 #import <objc/runtime.h>
 static char const * const isVisableNavigationBarKey = "isVisableNavigationBarKey";
+static char const * const navigationStyleKey = "navigationStyleKey";
 @implementation UIViewController (AB)
 
 - (BOOL)isVisableNavigationBar {
@@ -21,6 +22,14 @@ static char const * const isVisableNavigationBarKey = "isVisableNavigationBarKey
 
 - (void)setIsVisableNavigationBar:(BOOL)isVisableNavigationBar {
     objc_setAssociatedObject(self, isVisableNavigationBarKey, [NSNumber numberWithBool:isVisableNavigationBar], OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (NSString *)navigationStyle {
+    return objc_getAssociatedObject(self, navigationStyleKey);
+}
+
+- (void)setNavigationStyle:(NSString *)navigationStyle {
+    objc_setAssociatedObject(self, navigationStyleKey, navigationStyle, OBJC_ASSOCIATION_COPY);
 }
 
 - (UIViewController *)parent {

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABUIViewCreator : NSObject
 + (UIButton *)createButtonWithTitle:(NSString *)title color:(UIColor *)color fontSize:(CGFloat)fontSize isBold:(BOOL)isBold;
++ (UIButton *)createButton:(NSString *)title style:(NSDictionary *)style;
 
 + (UIButton *)createButtonWithImageName:(NSString *)imageName;
 

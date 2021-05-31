@@ -79,5 +79,8 @@
     return sucess;
 }
 
+- (void)layoutAdjustContents {
+    
+}
 
 @end
